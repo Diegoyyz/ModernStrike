@@ -70,11 +70,12 @@ public class InputHandler : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.UpArrow))
         {
-            accelerate.Trigger(actor);
+           decelerate.Trigger(actor,1);
         }
         else if (Input.GetKeyUp(KeyCode.DownArrow))
         {
-            reverse.Trigger(actor);
+            decelerate.Trigger(actor, -1);
+
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {

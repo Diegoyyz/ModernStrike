@@ -8,17 +8,14 @@ public class DecelerateCommand : Command
     {
         actor.Decelerate();
     }
-
     public override void Execute(PlayerController actor, float direction)
     {
         throw new System.NotImplementedException();
     }
-
     public override void Trigger(PlayerController actor, float direction)
     {
-        throw new System.NotImplementedException();
+        actor.onStopMoving(new Vector3(0, direction, 0));
     }
-
     public override void Trigger(PlayerController actor)
     {
         throw new System.NotImplementedException();

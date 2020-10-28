@@ -31,6 +31,9 @@ public class PlayerController : MonoBehaviour
     private GameObject body;
     [SerializeField]
     private float tiltAmount;
+    [SerializeField]
+    [Range(0,1)]
+    private float tiltTime;
     private bool isStrifing;
     public bool Acelerating;
     public bool StrifeAcelerating;
@@ -48,6 +51,7 @@ public class PlayerController : MonoBehaviour
         isStrifing = false;
         StrifeAcelerating = false;
         _landingHeight = transform.position.y;
+        
     }
     private void Update()
     {   
@@ -70,11 +74,28 @@ public class PlayerController : MonoBehaviour
         transform.position += transform.forward * currentSpeed * Time.deltaTime;
         transform.position += transform.right * currentStrifeSpeed * Time.deltaTime;
 
-    }    
+    }
+    IEnumerator Tilt(Vector3 axis, float angle, float duration)
+    {
+        Quaternion from = body.transform.rotation;
+        Quaternion to = body.transform.rotation;
+        to *= Quaternion.Euler(axis * angle);
+        float elapsed = 0.0f;
+        while (elapsed < duration)
+        {
+            body.transform.rotation = Quaternion.Slerp(from, to, elapsed / duration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        body.transform.rotation = to;
+    }
+
+
     public void OnTurn(Vector3 dir)
     {
         Vector3 Axis = Vector3.Cross(dir.normalized, Vector3.right);
         body.transform.Rotate(Axis, tiltAmount);
+
     }
     public void onStopTurning(Vector3 dir)
     {
@@ -123,12 +144,12 @@ public class PlayerController : MonoBehaviour
     public void OnMove(Vector3 dir)
     {
         Vector3 Axis = Vector3.Cross(dir.normalized, Vector3.forward);
-        body.transform.Rotate(Axis, tiltAmount);
+        StartCoroutine(Tilt(Axis, tiltAmount, tiltTime));
     }
     public void onStopMoving(Vector3 dir)
     {
         Vector3 Axis = Vector3.Cross(dir.normalized, Vector3.forward);
-        body.transform.Rotate(Axis, -tiltAmount);
+        StartCoroutine(Tilt(Axis, -tiltAmount, tiltTime));
     }
     public void Reverse()
     {
@@ -160,6 +181,10 @@ public class PlayerController : MonoBehaviour
         else
             currentStrifeSpeed = 0;
     }
+
+
+
+
     public void Strife(float direction)
     {
         StrifeAcelerating = true;
