@@ -3,15 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : Entity
-{
-
-    protected enum EnemyFSM
-    {
-      Attack,
-      Flee,
-      Stroll,
-      MoveTowardsPlayer
-    }
+{  
 
     [SerializeField]
     private bool _targetInSight;
@@ -32,20 +24,26 @@ public class Enemy : Entity
     private float speed;
     private int currentAmmo;
 
+    private EnemyState currentState;
+
     private void Start()
     {
         currentAmmo = maxAmmo;
-    }
-    public virtual void UpdateEnemy(Transform playerObj)
-    {
 
     }
-    private void ViewThings()
+    public void SetState(EnemyState state)
     {
-        if (currentHp <= 0)
-        {
-            Die();
-        }
+        if (currentState != null)
+            currentState.OnStateExit();
+
+        currentState = state;
+        gameObject.name = "Cube - " + state.GetType().Name;
+
+        if (currentState != null)
+            currentState.OnStateEnter();
+    }
+    private void ViewThings()
+    {      
         if (Target == null)
         {
             _targetInSight = false;
@@ -73,45 +71,9 @@ public class Enemy : Entity
                 StartCoroutine("DelayedShot", fireRate);
             }
         }
-    }
+    }  
 
-    protected void DoAction(Transform playerObj, EnemyFSM enemyMode)
-    {
-        float fleeSpeed = 10f;
-        float strollSpeed = 1f;
-        float attackSpeed = 5f;
-
-        switch (enemyMode)
-        {
-            case EnemyFSM.Attack:
-                //Attack player
-                break;
-            case EnemyFSM.Flee:
-                //Move away from player
-                //Look in the opposite direction
-                transform.rotation = Quaternion.LookRotation(transform.position - playerObj.position);
-                //Move
-                transform.Translate(transform.forward * fleeSpeed * Time.deltaTime);
-                break;
-            case EnemyFSM.Stroll:
-                //Look at a random position
-                Vector3 randomPos = new Vector3(Random.Range(0f, 100f), 0f, Random.Range(0f, 100f));
-                transform.rotation = Quaternion.LookRotation(transform.position - randomPos);
-                //Move
-                transform.Translate(transform.forward * strollSpeed * Time.deltaTime);
-                break;
-            case EnemyFSM.MoveTowardsPlayer:
-                //Look at the player
-                transform.rotation = Quaternion.LookRotation(playerObj.position - transform.position);
-                //Move
-                transform.Translate(transform.forward * attackSpeed * Time.deltaTime);
-                break;
-        }
-    }
-
-
-
-    private void moveTowardTarget()
+    public void moveTowardTarget()
     {
         transform.position += transform.forward * speed * Time.deltaTime;
     }
@@ -126,8 +88,8 @@ public class Enemy : Entity
 
     private void Shot()
     {
-    }
 
+    }
     protected bool TargetInSight()
     {
         if (Target != null)

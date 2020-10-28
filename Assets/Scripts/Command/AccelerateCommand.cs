@@ -13,12 +13,10 @@ public class AccelerateCommand : Command
     {
         throw new System.NotImplementedException();
     }
-
     public override void Trigger(PlayerController actor, float direction)
     {
         actor.OnMove(new Vector3(0, direction, 0));
     }
-
     public override void Trigger(PlayerController actor)
     {
         actor.OnStopMovingFW();
