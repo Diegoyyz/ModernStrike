@@ -22,7 +22,6 @@ namespace Assets.Scripts.FSM.EnemyStates
 
         public override void Tick()
         {
-
             if (actor.isTargetInSight())
             {
                 actor.SetState(new FollowTargetState(actor));

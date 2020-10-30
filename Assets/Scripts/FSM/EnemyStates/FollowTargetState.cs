@@ -16,7 +16,6 @@
         }
         public override void Tick()
         {
-         actor.moveTowardTarget();
-     
+         actor.moveTowardTarget();  
         }           
     }

@@ -47,8 +47,7 @@ public class Enemy : Entity
         {
             _targetInSight = false;           
         }
-        distancetoTarget = Vector3.Distance(Target.transform.position, transform.position);
-        if (distancetoTarget <=viewDistance)
+         if (distToTarget() <= viewDistance)
         {
             _targetInSight = true;
         }
@@ -56,33 +55,29 @@ public class Enemy : Entity
         {
             _targetInSight = false;
         }
-        return _targetInSight;
-        //if (_targetInSight)
-        //{
-        //    transform.LookAt(new Vector3(0,0,Target.transform.position.z),transform.up);
-        //    if (distancetoTarget >= shootingDistance)
-        //    {
-        //        moveTowardTarget();
-        //    }
-        //    else if (distancetoTarget <= shootingDistance)
-        //    {
-        //        StartCoroutine("DelayedShot", fireRate);
-        //    }
-        //}
-    }  
+        return _targetInSight;        
+    }
+
+    public float distToTarget()
+    {
+        return Vector3.Distance(Target.transform.position, transform.position);
+    }
+
 
     public void moveTowardTarget()
     {
         transform.position += transform.forward * speed * Time.deltaTime;
-        //    if (distancetoTarget >= shootingDistance)
-        //    {
-        //        moveTowardTarget();
-        //    }
-        //    else if (distancetoTarget <= shootingDistance)
-        //    {
-        //        StartCoroutine("DelayedShot", fireRate);
-        //    }
-
+        transform.LookAt(new Vector3(0, 0, Target.transform.position.z), transform.up);
+       
+            if (distToTarget() >= shootingDistance)
+            {
+                moveTowardTarget();
+            }
+            else if (distancetoTarget <= shootingDistance)
+            {
+                StartCoroutine("DelayedShot", fireRate);
+            }
+        
     }
     private IEnumerator DelayedShot(float delay)
     {
