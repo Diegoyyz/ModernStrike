@@ -6,7 +6,7 @@ public class Enemy : Entity
 {  
 
     [SerializeField]
-    private bool _targetInSight;
+    public bool _targetInSight;
     [SerializeField]
     private float shootingDistance;
     [SerializeField]
@@ -23,31 +23,29 @@ public class Enemy : Entity
     [Range(0, 20)]
     private float speed;
     private int currentAmmo;
-
     private EnemyState currentState;
-
     private void Start()
     {
         currentAmmo = maxAmmo;
-
+    }
+    public void Update()
+    {
+        currentState.Tick();
     }
     public void SetState(EnemyState state)
     {
         if (currentState != null)
             currentState.OnStateExit();
-
         currentState = state;
-        gameObject.name = "Cube - " + state.GetType().Name;
-
+        gameObject.name = "Enemy- " + state.GetType().Name;
         if (currentState != null)
             currentState.OnStateEnter();
     }
-    private void ViewThings()
+    public bool isTargetInSight()
     {      
         if (Target == null)
         {
-            _targetInSight = false;
-            return;
+            _targetInSight = false;           
         }
         distancetoTarget = Vector3.Distance(Target.transform.position, transform.position);
         if (distancetoTarget <=viewDistance)
@@ -57,27 +55,35 @@ public class Enemy : Entity
         else
         {
             _targetInSight = false;
-
         }
-        if (_targetInSight)
-        {
-            transform.LookAt(new Vector3(0,0,Target.transform.position.z),transform.up);
-            if (distancetoTarget >= shootingDistance)
-            {
-                moveTowardTarget();
-            }
-            else if (distancetoTarget <= shootingDistance)
-            {
-                StartCoroutine("DelayedShot", fireRate);
-            }
-        }
+        return _targetInSight;
+        //if (_targetInSight)
+        //{
+        //    transform.LookAt(new Vector3(0,0,Target.transform.position.z),transform.up);
+        //    if (distancetoTarget >= shootingDistance)
+        //    {
+        //        moveTowardTarget();
+        //    }
+        //    else if (distancetoTarget <= shootingDistance)
+        //    {
+        //        StartCoroutine("DelayedShot", fireRate);
+        //    }
+        //}
     }  
 
     public void moveTowardTarget()
     {
         transform.position += transform.forward * speed * Time.deltaTime;
-    }
+        //    if (distancetoTarget >= shootingDistance)
+        //    {
+        //        moveTowardTarget();
+        //    }
+        //    else if (distancetoTarget <= shootingDistance)
+        //    {
+        //        StartCoroutine("DelayedShot", fireRate);
+        //    }
 
+    }
     private IEnumerator DelayedShot(float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -85,10 +91,9 @@ public class Enemy : Entity
         Shot();
         StopCoroutine("DelayedShot");
     }
-
     private void Shot()
     {
-
+        Debug.Log("EnemyShot");
     }
     protected bool TargetInSight()
     {
@@ -122,10 +127,8 @@ public class Enemy : Entity
             Gizmos.color = Color.green;
             Gizmos.DrawLine(transform.position, Target.transform.position);
         }
-        //Dibujamos los límites del campo de visión.
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, viewDistance);
-        // Limite del campo de deteccion automatica
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, shootingDistance);
         Gizmos.color = TargetInSight() ? Color.green : Color.red;

@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 
-
-
     public class FollowTargetState : EnemyState
 {
         public FollowTargetState(Enemy character) : base(character)
@@ -18,6 +16,7 @@
         }
         public override void Tick()
         {
-        actor.moveTowardTarget();
+         actor.moveTowardTarget();
+     
         }           
     }
