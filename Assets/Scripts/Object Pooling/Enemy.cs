@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.FSM.EnemyStates;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,12 +7,9 @@ public class Enemy : Entity
 {  
 
     [SerializeField]
-    public bool _targetInSight;
+    public bool targetInSight;
     [SerializeField]
-    private float shootingDistance;
-    [SerializeField]
-    private float viewDistance;
-    private float distancetoTarget;
+    private float shootingDistance;   
     [SerializeField]
     private float maxDistToTarget;
     [SerializeField]
@@ -23,110 +21,76 @@ public class Enemy : Entity
     [Range(0, 20)]
     private float speed;
     private int currentAmmo;
+    [SerializeField]
     private EnemyState currentState;
+    private LineOfSight _lineOfSight;
+    public Vector3 homePos;
+    bool _targetInSight;
+
     private void Start()
     {
         currentAmmo = maxAmmo;
+        homePos = transform.position;
+        SetState(new PatrolState(this));
     }
+    private void Awake()
+    {
+        _lineOfSight = GetComponent<LineOfSight>();
+        _lineOfSight.shootingDistance = shootingDistance;
+        targetInSight = _lineOfSight.isTargetInSight();
+    }
+
     public void Update()
     {
         currentState.Tick();
+        targetInSight = _lineOfSight.isTargetInSight();
     }
     public void SetState(EnemyState state)
     {
         if (currentState != null)
+        {
             currentState.OnStateExit();
+        }
         currentState = state;
         gameObject.name = "Enemy- " + state.GetType().Name;
         if (currentState != null)
+        {
             currentState.OnStateEnter();
-    }
-    public bool isTargetInSight()
-    {      
-        if (Target == null)
-        {
-            _targetInSight = false;           
         }
-         if (distToTarget() <= viewDistance)
-        {
-            _targetInSight = true;
-        }
-        else
-        {
-            _targetInSight = false;
-        }
-        return _targetInSight;        
-    }
-
-    public float distToTarget()
+    } 
+    public bool  targetOnShotDistanse()
     {
-        return Vector3.Distance(Target.transform.position, transform.position);
+        if (_lineOfSight.distToTarget() <= shootingDistance)
+        return true;
+        else return false;
     }
-
-
     public void moveTowardTarget()
     {
         transform.position += transform.forward * speed * Time.deltaTime;
-        transform.LookAt(new Vector3(0, 0, Target.transform.position.z), transform.up);
-       
-            if (distToTarget() >= shootingDistance)
-            {
-                moveTowardTarget();
-            }
-            else if (distancetoTarget <= shootingDistance)
-            {
-                StartCoroutine("DelayedShot", fireRate);
-            }
-        
+        transform.LookAt(new Vector3(0, 0, _lineOfSight.target.position.z), transform.up); 
+              
+    }
+    public void moveTowardHome()
+    {
+        transform.position += transform.forward * speed * Time.deltaTime;
+        transform.LookAt(homePos, transform.up);
     }
     private IEnumerator DelayedShot(float delay)
     {
         yield return new WaitForSeconds(delay);
         currentAmmo--;
-        Shot();
+        Debug.Log("EnemyShot");
         StopCoroutine("DelayedShot");
     }
-    private void Shot()
+    public void Shot()
     {
-        Debug.Log("EnemyShot");
+        StartCoroutine("DelayedShot", fireRate);
     }
-    protected bool TargetInSight()
-    {
-        if (Target != null)
-        {
-            var distance = Vector3.Distance(Target.transform.position, transform.position);
-            if (distance <= viewDistance)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        else
-        {
-            return false;
-        }
-    }
+   
     protected override void Die()
     {
         EnemiesManager.Instance.enemyList.Remove(this.gameObject);
         base.Die();
     }
-    private void OnDrawGizmosSelected()
-    {
-        if (Target != null && _targetInSight)
-        {
-            Gizmos.color = _targetInSight ? Color.green : Color.red;
-            Gizmos.color = Color.green;
-            Gizmos.DrawLine(transform.position, Target.transform.position);
-        }
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, viewDistance);
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, shootingDistance);
-        Gizmos.color = TargetInSight() ? Color.green : Color.red;
-        Gizmos.DrawLine(transform.position, Target.transform.position);
-    }
+    
 }

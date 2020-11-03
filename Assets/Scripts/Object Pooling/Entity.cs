@@ -10,8 +10,6 @@ public class Entity : MonoBehaviour
     protected int currentHp;
     [SerializeField]
     protected float Speed;
-    [SerializeField]
-    protected GameObject Target;
     protected Animator Anim;
 
 

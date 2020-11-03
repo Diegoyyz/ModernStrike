@@ -26,7 +26,6 @@ public class Rocket : Projectile
                 hitCollider.gameObject.GetComponent<Entity>().TakeDmg(explosionDmg);
 
             }
-            Debug.Log("Hit");
         }
     }
     private void OnCollisionEnter(Collision Other)

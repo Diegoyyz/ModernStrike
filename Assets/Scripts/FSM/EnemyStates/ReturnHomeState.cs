@@ -2,17 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ReturnHomeState : MonoBehaviour
+namespace Assets.Scripts.FSM.EnemyStates
 {
-    // Start is called before the first frame update
-    void Start()
+    public class ReturnHomeState : EnemyState
     {
-        
-    }
+        public ReturnHomeState(Enemy character) : base(character)
+        {
+            actor = character;
+        }
+        public override void Tick()
+        {
+            actor.moveTowardHome();
+            if (Vector3.Distance(actor.transform.position, actor.homePos) <= 0.5)
+            {
+                actor.SetState(new PatrolState(actor));
+            }
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public override void OnStateEnter()
+        {
+            base.OnStateEnter();
+        }
+        public override void OnStateExit()
+        {
+            base.OnStateExit();
+        }
     }
 }
