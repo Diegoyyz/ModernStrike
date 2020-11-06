@@ -105,16 +105,11 @@ public class InputHandler : MonoBehaviour
         {
             turnL.Trigger(actor);
         }
-
-
         return null;
-
-
     }
 
     private void Update()
     {
         handleInput();
     }
-
-}
+  }

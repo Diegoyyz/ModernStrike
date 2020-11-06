@@ -44,8 +44,6 @@ public class PlayerController : MonoBehaviour
     private float _landingHeight;
     [SerializeField]
     private bool _isLanding;
-
-
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -55,11 +53,9 @@ public class PlayerController : MonoBehaviour
         StrifeAcelerating = false;
         _isLanding = false;
         _landingHeight = transform.position.y;
-
     }
     private void Update()
     {
-
         if (!Acelerating)
         {
             Decelerate();
@@ -86,13 +82,10 @@ public class PlayerController : MonoBehaviour
         }
         body.transform.rotation = to;
     }
-
-
     public void OnTurn(Vector3 dir)
     {
         Vector3 Axis = Vector3.Cross(dir.normalized, Vector3.right);
         body.transform.Rotate(Axis, tiltAmount);
-
     }
     public void onStopTurning(Vector3 dir)
     {
@@ -154,15 +147,14 @@ public class PlayerController : MonoBehaviour
     {
         transform.Rotate(Vector3.up * direction * Time.deltaTime * torgue);
     }
-
     public void OnMove(Vector3 dir)
     {
-        Vector3 Axis = Vector3.Cross(dir.normalized, Vector3.forward);
+        Vector3 Axis = Vector3.Cross(dir.normalized, transform.forward);
         StartCoroutine(Tilt(Axis, tiltAmount, tiltTime));
     }
     public void onStopMoving(Vector3 dir)
     {
-        Vector3 Axis = Vector3.Cross(dir.normalized, Vector3.forward);
+        Vector3 Axis = Vector3.Cross(dir.normalized, transform.forward);
         StartCoroutine(Tilt(Axis, -tiltAmount, tiltTime));
     }
     public void Reverse()
@@ -195,10 +187,6 @@ public class PlayerController : MonoBehaviour
         else
             currentStrifeSpeed = 0;
     }
-
-
-
-
     public void Strife(float direction)
     {
         StrifeAcelerating = true;
