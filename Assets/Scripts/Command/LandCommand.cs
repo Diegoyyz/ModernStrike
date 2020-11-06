@@ -2,17 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LandCommand : MonoBehaviour
+public class LandCommand : Command
 {
-    // Start is called before the first frame update
-    private void Start()
+    public override void Execute(PlayerController actor)
     {
-        
+        actor.land();
     }
 
-    // Update is called once per frame
-    private void Update()
+    public override void Execute(PlayerController actor, float direction)
     {
-        
+        throw new System.NotImplementedException();
+    }
+
+    public override void Trigger(PlayerController actor, float direction)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void Trigger(PlayerController actor)
+    {
+        throw new System.NotImplementedException();
     }
 }

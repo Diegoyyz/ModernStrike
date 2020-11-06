@@ -6,7 +6,6 @@ public class InputHandler : MonoBehaviour
 {
     private Command accelerate = new AccelerateCommand();
     private Command reverse = new ReverseCommand();
-
     private Command turnR = new TurnRCommand();
     private Command turnL = new TurnLCommand();
     private Command fire1 = new FireMachingunCommand();
@@ -14,6 +13,8 @@ public class InputHandler : MonoBehaviour
     private Command strifeL = new strifeLCommand();
     public Command strifeR = new strifeRCommand();
     public Command decelerate = new DecelerateCommand();
+    public Command land = new LandCommand();
+    public Command takeOf = new TakeofCommand();
 
     private PlayerController actor;
 
@@ -59,6 +60,18 @@ public class InputHandler : MonoBehaviour
         {
             turnL.Execute(actor);
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (actor.flying)
+            {
+                land.Execute(actor);
+            }
+            else
+            {
+                takeOf.Execute(actor);
+            }
+        }
+      
         //tilting
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
@@ -72,10 +85,9 @@ public class InputHandler : MonoBehaviour
         {
            decelerate.Trigger(actor,1);
         }
-        else if (Input.GetKeyUp(KeyCode.DownArrow))
+        if (Input.GetKeyUp(KeyCode.DownArrow))
         {
             decelerate.Trigger(actor, -1);
-
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {

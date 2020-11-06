@@ -26,13 +26,13 @@ public class PlayerController : MonoBehaviour
     private float Deceleration = 10;
     private Animator anim;
     [SerializeField]
-    private bool flying;
+    public bool flying;
     [SerializeField]
     private GameObject body;
     [SerializeField]
     private float tiltAmount;
     [SerializeField]
-    [Range(0,1)]
+    [Range(0, 1)]
     private float tiltTime;
     private bool isStrifing;
     public bool Acelerating;
@@ -42,6 +42,9 @@ public class PlayerController : MonoBehaviour
     public Weapon Weapn3;
     private Rigidbody rb;
     private float _landingHeight;
+    [SerializeField]
+    private bool _isLanding;
+
 
     private void Awake()
     {
@@ -50,19 +53,13 @@ public class PlayerController : MonoBehaviour
         body.transform.SetParent(this.transform);
         isStrifing = false;
         StrifeAcelerating = false;
+        _isLanding = false;
         _landingHeight = transform.position.y;
-        
+
     }
     private void Update()
-    {   
-        if (flying && Input.GetKeyDown(KeyCode.Space))
-        {
-            land();
-        }
-        else if (Input.GetKeyDown(KeyCode.Space) && !flying)
-        {
-            takeof();
-        }
+    {
+
         if (!Acelerating)
         {
             Decelerate();
@@ -111,22 +108,39 @@ public class PlayerController : MonoBehaviour
         body.transform.rotation = new Quaternion(0, 0, 0, 0);
     }
 
-    private void land()
+    public void land()
     {
-        LeanTween.move(gameObject, transform.position - new Vector3(0, altitude, 0), takeofTime)
-                       .setEase(LeanTweenType.easeOutCubic);
-        anim.SetTrigger("Land");
-        engineOff();
-        flying = false;
+        if (!_isLanding)
+        {
+            _isLanding = true;
+
+            LeanTween.move(gameObject, transform.position - new Vector3(0, altitude, 0), takeofTime)
+                       .setEase(LeanTweenType.easeOutCubic).
+                         setOnComplete(isLanding); 
+            anim.SetTrigger("Land");
+            engineOff();
+            flying = false;
+        }
     }
 
-    private void takeof()
+    public void takeof()
     {
-        LeanTween.move(gameObject, transform.position + new Vector3(0, altitude, 0), takeofTime)
-                .setEase(LeanTweenType.easeInCubic);
-        anim.SetTrigger("Launch");
-        engineOn();
-        flying = true;
+        if (!_isLanding)
+        {
+            _isLanding = true;
+            LeanTween.move(gameObject, transform.position + new Vector3(0, altitude, 0), takeofTime)
+                .setEase(LeanTweenType.easeInCubic).
+                setOnComplete(isLanding);
+            anim.SetTrigger("Launch");
+            flying = true;
+            engineOn();
+        }
+    }
+    public void isLanding()
+    {
+        if (_isLanding)
+            _isLanding = false;
+        else _isLanding = true;
     }
     private void engineOn()
     {
@@ -138,7 +152,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Turn(int direction)
     {
-        transform.Rotate(Vector3.up * direction * Time.deltaTime*torgue);
+        transform.Rotate(Vector3.up * direction * Time.deltaTime * torgue);
     }
 
     public void OnMove(Vector3 dir)
@@ -155,13 +169,13 @@ public class PlayerController : MonoBehaviour
     {
         Acelerating = true;
         if (currentSpeed > -MaxSpeed)
-            currentSpeed = currentSpeed - Acceleration * Time.deltaTime;       
+            currentSpeed = currentSpeed - Acceleration * Time.deltaTime;
     }
     public void Accelerate()
     {
         Acelerating = true;
         if (currentSpeed < MaxSpeed)
-            currentSpeed = currentSpeed + Acceleration * Time.deltaTime;    
+            currentSpeed = currentSpeed + Acceleration * Time.deltaTime;
     }
     public void Decelerate()
     {
@@ -189,7 +203,7 @@ public class PlayerController : MonoBehaviour
     {
         StrifeAcelerating = true;
         if (currentStrifeSpeed < MaxStrifeSpeed)
-            currentStrifeSpeed = currentStrifeSpeed + strifeaceleration*
-                direction * Time.deltaTime;     
+            currentStrifeSpeed = currentStrifeSpeed + strifeaceleration *
+                direction * Time.deltaTime;
     }
 }
