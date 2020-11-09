@@ -906,6 +906,7 @@ MonoBehaviour:
   maxAmmo: 2
   fireRate: 1
   speed: 5
+  homePos: {x: 0, y: 0, z: 0}
 --- !u!1 &1239724057
 GameObject:
   m_ObjectHideFlags: 3
@@ -1615,22 +1616,22 @@ PrefabInstance:
     - target: {fileID: 8098771306686838298, guid: ab044409c4012664aaf6a7d4e5ef98a0,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.02520474
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8098771306686838298, guid: ab044409c4012664aaf6a7d4e5ef98a0,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0020366362
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8098771306686838298, guid: ab044409c4012664aaf6a7d4e5ef98a0,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0019852228
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8098771306686838298, guid: ab044409c4012664aaf6a7d4e5ef98a0,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99967825
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8098771306686838298, guid: ab044409c4012664aaf6a7d4e5ef98a0,
         type: 3}
@@ -1650,17 +1651,17 @@ PrefabInstance:
     - target: {fileID: 8098771306686838298, guid: ab044409c4012664aaf6a7d4e5ef98a0,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -2.8890002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8098771306686838298, guid: ab044409c4012664aaf6a7d4e5ef98a0,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0.22800002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8098771306686838298, guid: ab044409c4012664aaf6a7d4e5ef98a0,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0.22200002
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab044409c4012664aaf6a7d4e5ef98a0, type: 3}

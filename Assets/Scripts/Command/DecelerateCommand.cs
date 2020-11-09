@@ -14,7 +14,7 @@ public class DecelerateCommand : Command
     }
     public override void Trigger(PlayerController actor, float direction)
     {
-        actor.onStopMoving(new Vector3(0, direction, 0));
+        actor.onStopMoving(direction);
     }
     public override void Trigger(PlayerController actor)
     {

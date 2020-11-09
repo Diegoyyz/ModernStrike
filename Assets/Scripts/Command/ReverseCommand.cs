@@ -13,7 +13,7 @@ public class ReverseCommand : Command
     }
     public override void Trigger(PlayerController actor, float direction)
     {
-        actor.OnMove(new Vector3(0, direction, 0));
+        actor.OnMove(direction);
     }
     public override void Trigger(PlayerController actor)
     {

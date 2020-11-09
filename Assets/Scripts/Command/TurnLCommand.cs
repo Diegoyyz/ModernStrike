@@ -14,10 +14,10 @@ public class TurnLCommand : Command
     }
     public override void Trigger(PlayerController actor, float direction)
     {
-        actor.OnTurn(new Vector3(0, direction, 0));
+        actor.OnTurn(direction);
     }
     public override void Trigger(PlayerController actor)
     {
-        actor.onStopTurning(new Vector3(0, -1, 0));
+        actor.onStopTurning(-1);
     }
 }

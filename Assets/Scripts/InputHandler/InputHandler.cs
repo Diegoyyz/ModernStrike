@@ -83,11 +83,11 @@ public class InputHandler : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.UpArrow))
         {
-           decelerate.Trigger(actor,1);
+           decelerate.Trigger(actor,-1);
         }
         if (Input.GetKeyUp(KeyCode.DownArrow))
         {
-            decelerate.Trigger(actor, -1);
+            decelerate.Trigger(actor, 1);
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
