@@ -134,31 +134,9 @@ public class PlayerController : MonoBehaviour
     {
         transform.Rotate(Vector3.up * direction * Time.deltaTime * torgue);
     }
-
-    public void OnMove(float dir)
-    {
-        Vector3 Axis = new Vector3(dir, 0, 0);
-        StartCoroutine(Tilt(Axis, tiltAmount, tiltTime));
-
-    }
-    IEnumerator Tilt(Vector3 axis, float angle, float duration)
-    {
-        Quaternion from = body.transform.rotation;
-        Quaternion to = body.transform.rotation;
-        to *= Quaternion.Euler(axis * angle);
-        float elapsed = 0.0f;
-        while (elapsed < duration)
-        {
-            body.transform.rotation = Quaternion.Slerp(from, to, elapsed / duration);
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
-        body.transform.rotation = to;
-    }
     public void onStopMoving(float dir)
     {
         Vector3 Axis = new Vector3(dir, 0, 0);
-        StartCoroutine(Tilt(Axis, tiltAmount, tiltTime));
 
     }
     public void Reverse()

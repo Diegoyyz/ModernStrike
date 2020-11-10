@@ -15,10 +15,8 @@ public class AccelerateCommand : Command
     }
     public override void Trigger(PlayerController actor, float direction)
     {
-        actor.OnMove(direction);
     }
     public override void Trigger(PlayerController actor)
     {
-        actor.OnStopMovingFW();
      }
 }
