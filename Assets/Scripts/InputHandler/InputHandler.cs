@@ -15,6 +15,7 @@ public class InputHandler : MonoBehaviour
     public Command decelerate = new DecelerateCommand();
     public Command land = new LandCommand();
     public Command takeOf = new TakeofCommand();
+    public Command hookDown = new HookDownCommand();
 
     private PlayerController actor;
 
@@ -71,7 +72,10 @@ public class InputHandler : MonoBehaviour
                 takeOf.Execute(actor);
             }
         }
-      
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            hookDown.Execute(actor);
+        }
         //tilting
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {

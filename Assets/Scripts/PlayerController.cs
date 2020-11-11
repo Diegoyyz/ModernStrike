@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal.VersionControl;
 using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
@@ -44,6 +45,15 @@ public class PlayerController : MonoBehaviour
     private float _landingHeight;
     [SerializeField]
     private bool _isLanding;
+    [SerializeField]
+    private GameObject hook;
+    [SerializeField]
+    private float HookAltitude;
+    [SerializeField]
+    private float HookDowntime;
+
+    public bool _isHookDown;
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -66,9 +76,7 @@ public class PlayerController : MonoBehaviour
         }
         transform.position += transform.forward * currentSpeed * Time.deltaTime;
         transform.position += transform.right * currentStrifeSpeed * Time.deltaTime;
-
     }
-    
     public void OnTurn(float dir)
     {
         Vector3 Axis = new Vector3(0, 0, dir);
@@ -87,7 +95,16 @@ public class PlayerController : MonoBehaviour
     {
         body.transform.rotation = new Quaternion(0, 0, 0, 0);
     }
-
+    public void hookDown()
+    {
+        LeanTween.move(hook, transform.position - new Vector3(0, HookAltitude, 0), HookDowntime).setEase(LeanTweenType.easeOutCubic).
+            setOnComplete(isHookDown);
+    }
+    public void hookUp()
+    {
+        LeanTween.move(hook, transform.position, HookDowntime).setEase(LeanTweenType.easeOutCubic).
+            setOnComplete(isHookDown);
+    }
     public void land()
     {
         if (!_isLanding)
@@ -115,6 +132,12 @@ public class PlayerController : MonoBehaviour
             flying = true;
             engineOn();
         }
+    }
+    public void isHookDown()
+    {
+        if (_isHookDown)
+            _isHookDown = false;
+        else _isHookDown = true;
     }
     public void isLanding()
     {

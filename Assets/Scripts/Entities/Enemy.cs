@@ -6,8 +6,7 @@ using UnityEngine;
 public class Enemy : Entity
 {  
 
-    [SerializeField]
-    public bool targetInSight;
+   
     [SerializeField]
     private float shootingDistance;   
     [SerializeField]
@@ -16,16 +15,10 @@ public class Enemy : Entity
     private int maxAmmo;
     [SerializeField]
     [Range(.1f,3)]
-    private float fireRate;
-    [SerializeField]
-    [Range(0, 20)]
-    private float speed;
+    private float fireRate;   
     private int currentAmmo;
     [SerializeField]
     private EnemyState currentState;
-    private LineOfSight _lineOfSight;
-    public Vector3 homePos;
-    bool _targetInSight;
 
     private void Start()
     {
@@ -33,10 +26,9 @@ public class Enemy : Entity
         homePos = transform.position;
         SetState(new PatrolState(this));
     }
-    private void Awake()
+    public override void Awake()
     {
-        _lineOfSight = GetComponent<LineOfSight>();
-        _lineOfSight.shootingDistance = shootingDistance;
+        base.Awake();
         targetInSight = _lineOfSight.isTargetInSight();
     }
 
@@ -64,17 +56,7 @@ public class Enemy : Entity
         return true;
         else return false;
     }
-    public void moveTowardTarget()
-    {
-        transform.position += transform.forward * speed * Time.deltaTime;
-        transform.LookAt(new Vector3(0, 0, _lineOfSight.target.position.z), transform.up); 
-              
-    }
-    public void moveTowardHome()
-    {
-        transform.position += transform.forward * speed * Time.deltaTime;
-        transform.LookAt(homePos, transform.up);
-    }
+  
     private IEnumerator DelayedShot(float delay)
     {
         yield return new WaitForSeconds(delay);
