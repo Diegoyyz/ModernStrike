@@ -6,6 +6,8 @@ TagManager:
   tags:
   - target
   - Enemy
+  - Ally
+  - Hook
   layers:
   - Default
   - TransparentFX
@@ -15,9 +17,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Hook
+  - Player
+  - Ally
   - 
   - 
   - 

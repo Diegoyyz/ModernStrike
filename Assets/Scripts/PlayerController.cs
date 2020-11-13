@@ -97,13 +97,21 @@ public class PlayerController : MonoBehaviour
     }
     public void hookDown()
     {
-        LeanTween.move(hook, transform.position - new Vector3(0, HookAltitude, 0), HookDowntime).setEase(LeanTweenType.easeOutCubic).
-            setOnComplete(isHookDown);
+        if (!_isLanding)
+        {         
+
+            LeanTween.moveLocalY(hook,-HookAltitude, HookDowntime).setEase(LeanTweenType.easeOutCubic).
+           setOnComplete(isHookDown);
+        }
+       
     }
     public void hookUp()
     {
-        LeanTween.move(hook, transform.position, HookDowntime).setEase(LeanTweenType.easeOutCubic).
+        if (!_isLanding)
+        {
+            LeanTween.moveLocalY(hook, 0.7f, HookDowntime).setEase(LeanTweenType.easeOutCubic).
             setOnComplete(isHookDown);
+        }
     }
     public void land()
     {
@@ -119,7 +127,6 @@ public class PlayerController : MonoBehaviour
             flying = false;
         }
     }
-
     public void takeof()
     {
         if (!_isLanding)

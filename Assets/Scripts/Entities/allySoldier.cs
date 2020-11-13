@@ -15,6 +15,13 @@ public class allySoldier : Entity
         targetInSight = _lineOfSight.isTargetInSight();
         SetState(new IdleAsState(this));
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Hook")
+        {
+            transform.SetParent(collision.gameObject.transform);
+        }
+    }
     public void SetState(AllySoldierState state)
     {
         if (currentState != null)
