@@ -21,7 +21,12 @@ public class allySoldier : Entity
         {
             transform.SetParent(collision.gameObject.transform);
         }
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(this.gameObject);
+        }
     }
+   
     public void SetState(AllySoldierState state)
     {
         if (currentState != null)

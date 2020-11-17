@@ -54,6 +54,20 @@ public class PlayerController : MonoBehaviour
 
     public bool _isHookDown;
 
+    [SerializeField]
+    private float maxHp = 10;
+    private float currentHp = 10;
+    [SerializeField]
+    private float maxFuel = 10;
+    private float currentFuel = 10;
+    public void heal(int Amount)
+    {
+        currentHp += Amount;
+    }
+    public void chargeFuel(int Amount)
+    {
+        currentFuel += Amount;
+    }
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -99,8 +113,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!_isLanding)
         {         
-
-            LeanTween.moveLocalY(hook,-HookAltitude, HookDowntime).setEase(LeanTweenType.easeOutCubic).
+            LeanTween.moveLocalY(hook,-HookAltitude, HookDowntime).setEase(LeanTweenType.easeInCubic).
            setOnComplete(isHookDown);
         }
        
@@ -109,7 +122,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!_isLanding)
         {
-            LeanTween.moveLocalY(hook, 0.7f, HookDowntime).setEase(LeanTweenType.easeOutCubic).
+            LeanTween.moveLocalY(hook, -0.72f, HookDowntime).setEase(LeanTweenType.easeOutCubic).
             setOnComplete(isHookDown);
         }
     }
