@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float currentStrifeSpeed;
     [SerializeField]
-    private float currentSpeed;
+    public float currentSpeed;
     [SerializeField]
     private float strifeaceleration;
     [SerializeField]
@@ -51,9 +51,7 @@ public class PlayerController : MonoBehaviour
     private float HookAltitude;
     [SerializeField]
     private float HookDowntime;
-
     public bool _isHookDown;
-
     [SerializeField]
     private float maxHp = 10;
     private float currentHp = 10;
