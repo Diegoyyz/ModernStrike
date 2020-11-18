@@ -874,13 +874,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 133ea3903ef3b834581f94f57fe25983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiltSpeed: 0
-  untiltSpeed: 0
+  tiltSpeed: 2
+  untiltSpeed: 2
   tiltRotation: 0
   untiltRotation: 0
-  tiltAmount: 0
-  tiltTime: 0
-  smooth: 0
+  maxtilt: 10
+  tiltTime: 2
 --- !u!1 &832492028
 GameObject:
   m_ObjectHideFlags: 0

@@ -28,8 +28,7 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     [SerializeField]
     public bool flying;
-    [SerializeField]
-    private GameObject body;
+    public GameObject body;
     [SerializeField]
     private float tiltAmount;
     [SerializeField]
@@ -151,6 +150,10 @@ public class PlayerController : MonoBehaviour
             engineOn();
         }
     }
+
+
+   
+
     public void isHookDown()
     {
         if (_isHookDown)
@@ -177,7 +180,7 @@ public class PlayerController : MonoBehaviour
     }
     public void onStopMoving(float dir)
     {
-        Vector3 Axis = new Vector3(dir, 0, 0);
+
 
     }
     public void Reverse()

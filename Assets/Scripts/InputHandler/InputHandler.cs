@@ -16,7 +16,6 @@ public class InputHandler : MonoBehaviour
     public Command land = new LandCommand();
     public Command takeOf = new TakeofCommand();
     public Command hookDown = new HookDownCommand();
-
     private PlayerController actor;
 
     private void Start()

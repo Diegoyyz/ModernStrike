@@ -30,19 +30,30 @@ public class AccelerationTilt : MonoBehaviour
     [SerializeField]
     private float untiltRotation;
     [SerializeField]
-    private float tiltAmount;
+    private float maxtilt;
     [SerializeField]
     private float tiltTime;
+
+    private bool isTilting;
+
+
     // Start is called before the first frame update
     void Start()
     {
-       actorScript = gameObject.GetComponent<PlayerController>();
-    } 
- 
-    // Update is called once per frame
-    void Update()
-    {
-     
+        actorScript = gameObject.GetComponent<PlayerController>();
+        isTilting = false;
     }
-    
+    private void Update()
+    {
+        if (actorScript.Acelerating)
+        {         
+            actorScript.body.transform.Rotate(Vector3.right * Time.deltaTime * 3f);
+        }
+        else if(!actorScript.Acelerating)
+        {
+            isTilting = false;
+            actorScript.body.transform.Rotate(Vector3.right * Time.deltaTime * -8f);
+        }
+    }
+
 }
