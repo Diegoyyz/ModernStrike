@@ -9,6 +9,7 @@ TagManager:
   - Ally
   - Hook
   - PowerUp
+  - LandingZone
   layers:
   - Default
   - TransparentFX

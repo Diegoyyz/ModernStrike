@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float altitude;
     [SerializeField]
+    private float landDistance;
+    [SerializeField]
     private float takeofTime;
     [SerializeField]
     private float torgue;
@@ -50,13 +52,15 @@ public class PlayerController : MonoBehaviour
     private float HookAltitude;
     [SerializeField]
     private float HookDowntime;
-    public bool _isHookDown;
+    public bool isHookDown;
     [SerializeField]
     private float maxHp = 10;
     private float currentHp = 10;
     [SerializeField]
     private float maxFuel = 10;
     private float currentFuel = 10;
+    private bool _onLandingZone;
+    private Transform landingZone;
     public void heal(int Amount)
     {
         currentHp += Amount;
@@ -88,6 +92,24 @@ public class PlayerController : MonoBehaviour
         transform.position += transform.forward * currentSpeed * Time.deltaTime;
         transform.position += transform.right * currentStrifeSpeed * Time.deltaTime;
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "LandingZone")
+        {
+            _onLandingZone = true;
+            landingZone = collision.gameObject.transform;
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "LandingZone")
+        {
+            _onLandingZone = false;
+            landingZone = null;
+
+        }
+    }
+
     public void OnTurn(float dir)
     {
         Vector3 Axis = new Vector3(0, 0, dir);
@@ -111,7 +133,7 @@ public class PlayerController : MonoBehaviour
         if (!_isLanding)
         {         
             LeanTween.moveLocalY(hook,-HookAltitude, HookDowntime).setEase(LeanTweenType.easeInCubic).
-           setOnComplete(isHookDown);
+           setOnComplete(IsHookDown);
         }
        
     }
@@ -120,16 +142,15 @@ public class PlayerController : MonoBehaviour
         if (!_isLanding)
         {
             LeanTween.moveLocalY(hook, -0.72f, HookDowntime).setEase(LeanTweenType.easeOutCubic).
-            setOnComplete(isHookDown);
+            setOnComplete(IsHookDown);
         }
     }
     public void land()
     {
-        if (!_isLanding)
+        if (!_isLanding&& _onLandingZone&& landingZone!= null)
         {
             _isLanding = true;
-
-            LeanTween.move(gameObject, transform.position - new Vector3(0, altitude, 0), takeofTime)
+            LeanTween.move(gameObject, landingZone.position - new Vector3(0, landDistance, 0), takeofTime)
                        .setEase(LeanTweenType.easeOutCubic).
                          setOnComplete(isLanding); 
             anim.SetTrigger("Land");
@@ -154,11 +175,11 @@ public class PlayerController : MonoBehaviour
 
    
 
-    public void isHookDown()
+    public void IsHookDown()
     {
-        if (_isHookDown)
-            _isHookDown = false;
-        else _isHookDown = true;
+        if (isHookDown)
+            isHookDown = false;
+        else isHookDown = true;
     }
     public void isLanding()
     {

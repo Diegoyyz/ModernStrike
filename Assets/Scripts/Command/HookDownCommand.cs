@@ -6,7 +6,7 @@ public class HookDownCommand : Command
 {
     public override void Execute(PlayerController actor)
     {
-        if (actor._isHookDown)
+        if (actor.isHookDown)
         {
             actor.hookUp();
         }
