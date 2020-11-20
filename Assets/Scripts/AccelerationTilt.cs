@@ -43,16 +43,19 @@ public class AccelerationTilt : MonoBehaviour
         actorScript = gameObject.GetComponent<PlayerController>();
         isTilting = false;
     }
-    private void Update()
-    {
-        if (actorScript.Acelerating)
-        {         
-            actorScript.body.transform.Rotate(Vector3.right * Time.deltaTime * 3f);
+    private void Update() { 
+        Debug.Log(actorScript.body.transform.rotation);
+
+        if (actorScript.Acelerating&& actorScript.body.transform.rotation.x<0.06f)
+        {
+            isTilting = true;
+            actorScript.body.transform.localRotation *= Quaternion.AngleAxis(tiltSpeed * Time.deltaTime, actorScript.transform.right);
+
         }
-        else if(!actorScript.Acelerating)
+        else if(!actorScript.Acelerating && actorScript.body.transform.rotation.x !=0)
         {
             isTilting = false;
-            actorScript.body.transform.Rotate(Vector3.right * Time.deltaTime * -8f);
+            actorScript.body.transform.localRotation *= Quaternion.AngleAxis(-untiltSpeed * Time.deltaTime, actorScript.transform.right);
         }
     }
 
