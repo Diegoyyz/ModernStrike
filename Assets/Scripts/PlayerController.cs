@@ -58,9 +58,16 @@ public class PlayerController : MonoBehaviour
     private float currentHp = 10;
     [SerializeField]
     private float maxFuel = 10;
+    [SerializeField]
+    [Range(0,1)]
+    private float fuelCconRate = 10;
     private float currentFuel = 10;
     private bool _onLandingZone;
     private Transform landingZone;
+
+
+
+
     public void heal(int Amount)
     {
         currentHp += Amount;
@@ -84,6 +91,7 @@ public class PlayerController : MonoBehaviour
         if (!Acelerating)
         {
             Decelerate();
+            currentFuel -= fuelCconRate;
         }
         if (!StrifeAcelerating)
         {

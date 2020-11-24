@@ -4,12 +4,12 @@ using UnityEngine;
 
 public abstract class EnemyState  
 {   
-        protected Enemy actor;
+        protected EnemySoldier actor;
         public abstract void Tick();
         public virtual void OnStateEnter() { }
         public virtual void OnStateExit() { }
 
-        public EnemyState(Enemy character)
+        public EnemyState(EnemySoldier character)
         {
             this.actor = character;
         }

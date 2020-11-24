@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class FollowTargetState : EnemyState
 {
-    public FollowTargetState(Enemy character) : base(character)
+    public FollowTargetState(EnemySoldier character) : base(character)
     {
 
     }

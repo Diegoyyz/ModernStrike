@@ -42,16 +42,21 @@ public class Weapon : MonoBehaviour
         float Range = MaxDist;
         foreach (var item in EnemiesManager.Instance.enemyList)
         {
-            float dist = Vector3.Distance(item.transform.position
-                        , transform.parent.position);
+            if (item!=null)
+            {
+                float dist = Vector3.Distance(item.transform.position
+                       , transform.parent.position);
+            
                  
             if (dist < Range&& EnemyInFow(item.transform))
             {                
                 Range = dist;
 
                 target = item.transform;
-            }            
-        }    
+            }
+            }
+
+        }
     }
 
     private IEnumerator DelayedShot(float delay)

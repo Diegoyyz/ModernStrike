@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Scripts.FSM.EnemyStates
-{
+
     public class PatrolState : EnemyState
     {
-        public PatrolState(Enemy character) : base(character)
+        public PatrolState(EnemySoldier character) : base(character)
         {
             actor = character;
         }
@@ -29,4 +28,3 @@ namespace Assets.Scripts.FSM.EnemyStates
         }
 
     }
-}

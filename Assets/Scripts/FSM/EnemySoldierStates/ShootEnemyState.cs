@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ShootEnemyState : EnemyState
 {
-    public ShootEnemyState(Enemy character) : base(character)
+    public ShootEnemyState(EnemySoldier character) : base(character)
     {
         actor = character;
     }
