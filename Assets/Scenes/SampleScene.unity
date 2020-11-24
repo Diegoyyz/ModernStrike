@@ -608,6 +608,8 @@ MonoBehaviour:
   currentHp: 0
   speed: 0
   targetInSight: 0
+  deathDrop: {fileID: 4046648715926882372, guid: 3cfbdf77ba8a0ed4ba8b750576e7b394,
+    type: 3}
 --- !u!1 &701284738
 GameObject:
   m_ObjectHideFlags: 0
@@ -2232,12 +2234,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 0
   homePos: {x: 0, y: 0, z: 0}
-  currentHp: 0
-  speed: 0
+  currentHp: 5
+  speed: 5
   targetInSight: 0
-  shootingDistance: 0
-  maxDistToTarget: 0
-  maxAmmo: 0
+  deathDrop: {fileID: 0}
+  shootingDistance: 50
+  maxDistToTarget: 60
+  maxAmmo: 4
   fireRate: 0
 --- !u!1001 &8908468426944005787
 PrefabInstance:
