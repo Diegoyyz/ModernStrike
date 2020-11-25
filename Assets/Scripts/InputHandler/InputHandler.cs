@@ -17,12 +17,10 @@ public class InputHandler : MonoBehaviour
     public Command takeOf = new TakeofCommand();
     public Command hookDown = new HookDownCommand();
     private PlayerController actor;
-
     private void Start()
     {
         actor = GameManager.Instance.player;
     }
-
     private Command handleInput()
     {
         if (Input.GetKey(KeyCode.UpArrow))
@@ -35,11 +33,11 @@ public class InputHandler : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.UpArrow)||Input.GetKeyUp(KeyCode.DownArrow))
         {
-            actor.Acelerating = false;
+            actor.Accelerating = false;
         }
         if (Input.GetKeyUp(KeyCode.RightArrow)|| Input.GetKeyUp(KeyCode.LeftArrow))
         {
-            actor.StrifeAcelerating = false;
+            actor.StrifeAccelerating = false;
         }
         else if (Input.GetKey(KeyCode.C))
         {
@@ -62,7 +60,7 @@ public class InputHandler : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (actor.flying)
+            if (actor.Flying)
             {
                 land.Execute(actor);
             }
@@ -110,7 +108,6 @@ public class InputHandler : MonoBehaviour
         }
         return null;
     }
-
     private void Update()
     {
         handleInput();

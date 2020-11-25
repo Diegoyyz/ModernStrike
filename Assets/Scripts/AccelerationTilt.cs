@@ -46,13 +46,13 @@ public class AccelerationTilt : MonoBehaviour
     private void Update() { 
         Debug.Log(actorScript.body.transform.rotation);
 
-        if (actorScript.Acelerating&& actorScript.body.transform.rotation.x<0.06f)
+        if ( actorScript.body.transform.rotation.x<0.06f)
         {
             isTilting = true;
             actorScript.body.transform.localRotation *= Quaternion.AngleAxis(tiltSpeed * Time.deltaTime, actorScript.transform.right);
 
         }
-        else if(!actorScript.Acelerating && actorScript.body.transform.rotation.x !=0)
+        else if( actorScript.body.transform.rotation.x !=0)
         {
             isTilting = false;
             actorScript.body.transform.localRotation *= Quaternion.AngleAxis(-untiltSpeed * Time.deltaTime, actorScript.transform.right);

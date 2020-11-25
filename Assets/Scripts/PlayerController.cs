@@ -13,10 +13,8 @@ public class PlayerController : MonoBehaviour
     private float takeofTime;
     [SerializeField]
     private float torgue;
-    [SerializeField]
     private float currentStrifeSpeed;
-    [SerializeField]
-    public float currentSpeed;
+    private float currentSpeed;
     [SerializeField]
     private float strifeaceleration;
     [SerializeField]
@@ -28,8 +26,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float Deceleration = 10;
     private Animator anim;
-    [SerializeField]
-    public bool flying;
+    private bool _flying;
     public GameObject body;
     [SerializeField]
     private float tiltAmount;
@@ -37,14 +34,13 @@ public class PlayerController : MonoBehaviour
     [Range(0, 1)]
     private float tiltTime;
     private bool isStrifing;
-    public bool Acelerating;
-    public bool StrifeAcelerating;
+    private bool _acelerating;
+    private bool _strifeAcelerating;
     public Weapon Weapn1;
     public Weapon Weapn2;
     public Weapon Weapn3;
     private Rigidbody rb;
     private float _landingHeight;
-    [SerializeField]
     private bool _isLanding;
     [SerializeField]
     private GameObject hook;
@@ -54,51 +50,99 @@ public class PlayerController : MonoBehaviour
     private float HookDowntime;
     public bool isHookDown;
     [SerializeField]
-    private float maxHp = 10;
-    private float currentHp = 10;
+    public float maxHp;
     [SerializeField]
-    private float maxFuel = 10;
+    private float _currentHp;
     [SerializeField]
-    [Range(0,1)]
-    private float fuelCconRate = 10;
-    private float currentFuel = 10;
+    private float _currentFuel;
+    [SerializeField]
+    public float maxFuel;
+    [SerializeField]
+    [Range(0.5f,2)]
+    private float fuelCconRate;
     private bool _onLandingZone;
     private Transform landingZone;
 
-
-
+    public float CurrentHealt
+    {
+        get
+        {
+            return _currentHp;
+        }
+        set
+        {
+            _currentHp = value;
+        }
+    }
+    public float CurrentFuel
+    {
+        get
+        {
+            return _currentFuel;
+        }
+        set
+        {
+            _currentFuel = value;
+        }
+    }
 
     public void heal(int Amount)
     {
-        currentHp += Amount;
+        _currentHp += Amount;
     }
     public void chargeFuel(int Amount)
     {
-        currentFuel += Amount;
+        _currentFuel += Amount;
     }
     private void Awake()
     {
+        currentSpeed = maxHp;
+        CurrentFuel = maxFuel;
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         body.transform.SetParent(this.transform);
         isStrifing = false;
-        StrifeAcelerating = false;
+        _strifeAcelerating = false;
         _isLanding = false;
         _landingHeight = transform.position.y;
     }
     private void Update()
     {
-        if (!Acelerating)
+        if (!_acelerating)
         {
             Decelerate();
-            currentFuel -= fuelCconRate;
         }
-        if (!StrifeAcelerating)
+        else
+        {
+         _currentFuel -= fuelCconRate * Time.deltaTime;
+
+        }
+        if (!_strifeAcelerating)
         {
             StrifeDecelerate();
         }
+        else
+        {
+            _currentFuel -= fuelCconRate * Time.deltaTime;
+        }
         transform.position += transform.forward * currentSpeed * Time.deltaTime;
         transform.position += transform.right * currentStrifeSpeed * Time.deltaTime;
+    }
+
+    public bool Flying
+    {
+        get { return _flying; }
+        set { _flying = value; }
+    }
+    public bool Accelerating
+    {
+        get { return  _acelerating; }
+        set { _acelerating = value; }
+    }
+    public bool StrifeAccelerating
+    {
+        get { return _acelerating; }
+        set { _acelerating = value; }
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -163,7 +207,7 @@ public class PlayerController : MonoBehaviour
                          setOnComplete(isLanding); 
             anim.SetTrigger("Land");
             engineOff();
-            flying = false;
+            _flying = false;
         }
     }
     public void takeof()
@@ -175,7 +219,7 @@ public class PlayerController : MonoBehaviour
                 .setEase(LeanTweenType.easeInCubic).
                 setOnComplete(isLanding);
             anim.SetTrigger("Launch");
-            flying = true;
+            _flying = true;
             engineOn();
         }
     }
@@ -214,13 +258,13 @@ public class PlayerController : MonoBehaviour
     }
     public void Reverse()
     {
-        Acelerating = true;
+        _acelerating = true;
         if (currentSpeed > -MaxSpeed)
             currentSpeed = currentSpeed - Acceleration * Time.deltaTime;
     }
     public void Accelerate()
     {
-        Acelerating = true;
+        _acelerating = true;
         if (currentSpeed < MaxSpeed)
             currentSpeed = currentSpeed + Acceleration * Time.deltaTime;
     }
@@ -244,7 +288,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Strife(float direction)
     {
-        StrifeAcelerating = true;
+        _strifeAcelerating = true;
         if (currentStrifeSpeed < MaxStrifeSpeed)
             currentStrifeSpeed = currentStrifeSpeed + strifeaceleration *
                 direction * Time.deltaTime;
