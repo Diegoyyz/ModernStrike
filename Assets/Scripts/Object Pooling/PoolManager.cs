@@ -32,13 +32,11 @@ public class PoolManager : MonoBehaviour
     [SerializeField]
     public List<PoolInfo> INfos;
     private int current;
-
     private void Awake()
     {
         _instance = this;
         CreatePools();
     }
-
     private void CreatePools()
     {
         for (int i = 0; i < INfos.Count; i++)

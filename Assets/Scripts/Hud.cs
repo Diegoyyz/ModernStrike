@@ -10,13 +10,40 @@ public class Hud : MonoBehaviour
     [SerializeField]
     private Image HealtBar;
     private PlayerController actor;
+    [SerializeField]
+    private int maxCargo;
+    [SerializeField]
+    private Image[] cargos;
+    private int cargoCount;
     private void Start()
     {
         actor = GameManager.Instance.player;
+        foreach (var item in cargos)
+        {
+            item.gameObject.SetActive(false);
+        }
+    }
+    private void OnEnable()
+    {
+        PlayerController.OnGetCargo += addCargo;
+    }
+    private void OnDisable()
+    {
+        PlayerController.OnGetCargo -= addCargo;
     }
     void Update()
     {
         HealtBar.fillAmount = actor.CurrentHealt / actor.maxHp;
         FuelBar.fillAmount = actor.CurrentFuel / actor.maxFuel;
+    }
+    public void addCargo()
+    {
+        cargos[cargoCount].gameObject.SetActive(true);
+        cargoCount++;
+    }
+    public void removeCargo()
+    {
+        cargos[cargoCount].gameObject.SetActive(false);
+        cargoCount--;
     }
 }

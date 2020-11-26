@@ -6,12 +6,10 @@ using UnityEngine;
 public class Enemy : Entity
 {
     public GameObject deathDrop;
-
     private void Awake()
     {
         base.Awake();
     }
-
     private void Update()
     {
         if (currentHp<=0)

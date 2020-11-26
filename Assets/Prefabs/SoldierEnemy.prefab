@@ -1021,7 +1021,7 @@ GameObject:
   - component: {fileID: 2470382014721534459}
   - component: {fileID: 2470382014721534458}
   - component: {fileID: 2470382014721534457}
-  - component: {fileID: 2470382014721534460}
+  - component: {fileID: 8296172668386730858}
   m_Layer: 0
   m_Name: SoldierEnemy
   m_TagString: Untagged
@@ -1090,7 +1090,7 @@ MonoBehaviour:
   target: {fileID: 0}
   viewDistance: 104.02
   shootingDistance: 50
---- !u!114 &2470382014721534460
+--- !u!114 &8296172668386730858
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1099,18 +1099,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 5866328072356379065}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0390601450893ee46aa599e360f232d2, type: 3}
+  m_Script: {fileID: 11500000, guid: e5aaabfc5acfb30458e91e8e21f47165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 1
+  maxHp: 0
   homePos: {x: 0, y: 0, z: 0}
-  currentHp: 1
+  currentHp: 5
   speed: 5
   targetInSight: 0
-  shootingDistance: 60
-  maxDistToTarget: 25
-  maxAmmo: 2
-  fireRate: 1
+  deathDrop: {fileID: 0}
+  shootingDistance: 50
+  maxDistToTarget: 60
+  maxAmmo: 4
+  fireRate: 0
 --- !u!1 &6346536786195345783
 GameObject:
   m_ObjectHideFlags: 0

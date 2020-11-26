@@ -16,9 +16,6 @@ public class EnemySoldier : Enemy
     private int currentAmmo;
     [SerializeField]
     private EnemyState currentState;
-
-
-
     private void Start()
     {
         currentAmmo = maxAmmo;
@@ -63,9 +60,17 @@ public class EnemySoldier : Enemy
     }
     public void Shot()
     {
-        StartCoroutine("DelayedShot", fireRate);
+        var bullet = PoolManager.Instance.INfos[2].GetProjectile();
+        bullet.transform.position = transform.position;
+        if (_lineOfSight.target == null)
+        {
+            bullet.transform.rotation = transform.rotation;
+        }
+        else
+        {
+            bullet.transform.LookAt(_lineOfSight.target.transform);
+        }
     }
-
     protected override void Die()
     {
         EnemiesManager.Instance.enemyList.Remove(this.gameObject);

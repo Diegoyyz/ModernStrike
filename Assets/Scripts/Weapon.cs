@@ -46,8 +46,6 @@ public class Weapon : MonoBehaviour
             {
                 float dist = Vector3.Distance(item.transform.position
                        , transform.parent.position);
-            
-                 
             if (dist < Range&& EnemyInFow(item.transform))
             {                
                 Range = dist;
@@ -55,10 +53,8 @@ public class Weapon : MonoBehaviour
                 target = item.transform;
             }
             }
-
         }
     }
-
     private IEnumerator DelayedShot(float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -66,7 +62,6 @@ public class Weapon : MonoBehaviour
         Shot();
         StopCoroutine("DelayedShot");
     }
-
     private void OnDrawGizmos()
     {        
             if (target != null && EnemyInFow(target.transform))

@@ -8,13 +8,10 @@ public class RocketLauncher : Weapon
     private Transform[] spawnPoints;
     [SerializeField]
     private int counter;
-
-
     private void Start()
     {
         counter = 0;
     }
-
     private void Update()
     {
         FindClosestEnemy();
@@ -28,11 +25,9 @@ public class RocketLauncher : Weapon
         }
 
     }
-
     
     public override void Shot()
-    {
-        
+    {        
         var bullet = PoolManager.Instance.INfos[1].GetProjectile();
         bullet.transform.position = spawnPoints[counter].position;
         counter++;

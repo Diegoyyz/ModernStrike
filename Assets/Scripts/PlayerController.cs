@@ -63,6 +63,13 @@ public class PlayerController : MonoBehaviour
     private bool _onLandingZone;
     private Transform landingZone;
 
+    public delegate void GetCargo();
+    public static event GetCargo OnGetCargo;
+
+    private void OnEnable()
+    {
+        OnGetCargo += () => { };
+    }
     public float CurrentHealt
     {
         get
@@ -96,6 +103,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Awake()
     {
+      
         currentSpeed = maxHp;
         CurrentFuel = maxFuel;
         anim = GetComponent<Animator>();
@@ -150,6 +158,10 @@ public class PlayerController : MonoBehaviour
         {
             _onLandingZone = true;
             landingZone = collision.gameObject.transform;
+        }
+        if (collision.gameObject.tag == "Ally")
+        {
+            OnGetCargo();
         }
     }
     private void OnCollisionExit(Collision collision)

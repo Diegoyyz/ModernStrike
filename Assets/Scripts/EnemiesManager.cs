@@ -8,10 +8,8 @@ public class EnemiesManager : MonoBehaviour
 
     [SerializeField]
     public List<GameObject> enemyList = new List<GameObject>();
-
     private static EnemiesManager _instance;
     public static EnemiesManager Instance { get { return _instance; } }
-
     private void Awake()
     {
         _instance = this;
