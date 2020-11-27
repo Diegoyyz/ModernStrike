@@ -2020,13 +2020,13 @@ PrefabInstance:
     - target: {fileID: 8037736858442812370, guid: 9c24ea42e12ef9c4983f74e7884ff4f1,
         type: 3}
       propertyPath: INfos.Array.data[2].ID
-      value: Enemy Bullets
+      value: EnemyBullets
       objectReference: {fileID: 0}
     - target: {fileID: 8037736858442812370, guid: 9c24ea42e12ef9c4983f74e7884ff4f1,
         type: 3}
       propertyPath: INfos.Array.data[2].Prefab
       value: 
-      objectReference: {fileID: 5121826038956189104, guid: 41b6efe8021927347a47f44ed1f50a9c,
+      objectReference: {fileID: 7018182339221262667, guid: 764b729f9fc21c346a7868d9645e7528,
         type: 3}
     - target: {fileID: 8037736858442812370, guid: 9c24ea42e12ef9c4983f74e7884ff4f1,
         type: 3}
