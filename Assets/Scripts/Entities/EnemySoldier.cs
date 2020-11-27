@@ -55,7 +55,7 @@ public class EnemySoldier : Enemy
     {
         yield return new WaitForSeconds(delay);
         currentAmmo--;
-        Debug.Log("EnemyShot");
+        Shot();
         StopCoroutine("DelayedShot");
     }
     public void Shot()

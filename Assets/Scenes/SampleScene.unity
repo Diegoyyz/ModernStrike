@@ -1927,6 +1927,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8296172668386730858, guid: 41f832265475cbd4fa19bbd5ba85f8a6,
+        type: 3}
+      propertyPath: maxHp
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8296172668386730858, guid: 41f832265475cbd4fa19bbd5ba85f8a6,
+        type: 3}
+      propertyPath: fireRate
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41f832265475cbd4fa19bbd5ba85f8a6, type: 3}
 --- !u!4 &5006512735263928344 stripped
@@ -2010,17 +2020,33 @@ PrefabInstance:
     - target: {fileID: 8037736858442812370, guid: 9c24ea42e12ef9c4983f74e7884ff4f1,
         type: 3}
       propertyPath: INfos.Array.data[2].ID
-      value: EnemyBullets
+      value: Enemy Bullets
       objectReference: {fileID: 0}
     - target: {fileID: 8037736858442812370, guid: 9c24ea42e12ef9c4983f74e7884ff4f1,
         type: 3}
       propertyPath: INfos.Array.data[2].Prefab
       value: 
-      objectReference: {fileID: 7018182339221262667, guid: 764b729f9fc21c346a7868d9645e7528,
+      objectReference: {fileID: 5121826038956189104, guid: 41b6efe8021927347a47f44ed1f50a9c,
         type: 3}
     - target: {fileID: 8037736858442812370, guid: 9c24ea42e12ef9c4983f74e7884ff4f1,
         type: 3}
       propertyPath: INfos.Array.data[2].amount
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037736858442812370, guid: 9c24ea42e12ef9c4983f74e7884ff4f1,
+        type: 3}
+      propertyPath: INfos.Array.data[3].ID
+      value: EnemyBullets
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037736858442812370, guid: 9c24ea42e12ef9c4983f74e7884ff4f1,
+        type: 3}
+      propertyPath: INfos.Array.data[3].Prefab
+      value: 
+      objectReference: {fileID: 7018182339221262667, guid: 764b729f9fc21c346a7868d9645e7528,
+        type: 3}
+    - target: {fileID: 8037736858442812370, guid: 9c24ea42e12ef9c4983f74e7884ff4f1,
+        type: 3}
+      propertyPath: INfos.Array.data[3].amount
       value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []

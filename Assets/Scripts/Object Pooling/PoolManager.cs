@@ -30,10 +30,12 @@ public class PoolManager : MonoBehaviour
     private static PoolManager _instance;
     public static PoolManager Instance { get { return _instance; } }
     [SerializeField]
-    public List<PoolInfo> INfos;
+    public List<PoolInfo> INfos =new List<PoolInfo>();
     private int current;
-    private void Awake()
+  
+    private void OnEnable()
     {
+        
         _instance = this;
         CreatePools();
     }
