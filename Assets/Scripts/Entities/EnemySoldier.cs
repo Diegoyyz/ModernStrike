@@ -60,16 +60,16 @@ public class EnemySoldier : Enemy
     }
     public void Shot()
     {
-    //    var bullet = PoolManager.Instance.INfos[2].GetProjectile();
-    //    bullet.transform.position = transform.position;
-    //    if (_lineOfSight.target == null)
-    //    {
-    //        bullet.transform.rotation = transform.rotation;
-    //    }
-    //    else
-    //    {
-    //        bullet.transform.LookAt(_lineOfSight.target.transform);
-    //    }
+        var bullet = PoolManager.Instance.INfos[2].GetProjectile();
+        bullet.transform.position = transform.position;
+        if (_lineOfSight.target == null)
+        {
+            bullet.transform.rotation = transform.rotation;
+        }
+        else
+        {
+            bullet.transform.LookAt(_lineOfSight.target.transform);
+        }
     }
     protected override void Die()
     {

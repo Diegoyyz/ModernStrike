@@ -115,8 +115,7 @@ public class PlayerController : MonoBehaviour
         _currentFuel += Amount;
     }
     private void Awake()
-    {
-      
+    {      
         currentSpeed = maxHp;
         CurrentFuel = maxFuel;
         anim = GetComponent<Animator>();

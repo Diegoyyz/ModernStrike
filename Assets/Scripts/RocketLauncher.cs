@@ -24,8 +24,7 @@ public class RocketLauncher : Weapon
             counter = 0;
         }
 
-    }
-    
+    }    
     public override void Shot()
     {        
         var bullet = PoolManager.Instance.INfos[1].GetProjectile();

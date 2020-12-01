@@ -24,20 +24,18 @@ public class PoolInfo
         Pool.DisablePoolObject(obj);
     }
 }
-
 public class PoolManager : MonoBehaviour
 {
     private static PoolManager _instance;
     public static PoolManager Instance { get { return _instance; } }
     [SerializeField]
     public List<PoolInfo> INfos =new List<PoolInfo>();
-    private int current;
-  
+    private int current;  
     private void OnEnable()
-    {
-        
+    {        
         _instance = this;
         CreatePools();
+        Debug.Log(INfos.Count);
     }
     private void CreatePools()
     {
