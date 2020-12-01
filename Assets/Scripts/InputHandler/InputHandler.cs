@@ -49,7 +49,7 @@ public class InputHandler : MonoBehaviour
             {
                 strifeL.Execute(actor,-1);
             }
-        }
+        }       
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             turnR.Execute(actor);

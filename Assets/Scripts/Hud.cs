@@ -26,6 +26,7 @@ public class Hud : MonoBehaviour
     private void OnEnable()
     {
         PlayerController.OnGetCargo += addCargo;
+        PlayerController.OnDisharge += dischargeCargo;
     }
     private void OnDisable()
     {
@@ -39,11 +40,20 @@ public class Hud : MonoBehaviour
     public void addCargo()
     {
         cargos[cargoCount].gameObject.SetActive(true);
-        cargoCount++;
+        cargoCount+=1;
     }
-    public void removeCargo()
+    public void dischargeCargo()
+    {
+        foreach (var item in cargos)
+        {
+            item.gameObject.SetActive(false);
+        }
+        cargoCount = 0;
+    }
+
+public void removeCargo()
     {
         cargos[cargoCount].gameObject.SetActive(false);
-        cargoCount--;
+        cargoCount-=1;
     }
 }

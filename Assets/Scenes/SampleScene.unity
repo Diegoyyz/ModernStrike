@@ -358,154 +358,6 @@ MonoBehaviour:
   targetInSight: 0
   deathDrop: {fileID: 4046648715926882372, guid: 3cfbdf77ba8a0ed4ba8b750576e7b394,
     type: 3}
---- !u!1001 &445772003
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1728914901620931054, guid: 5ac724711c56be84f825201a222efd91,
-        type: 3}
-      propertyPath: m_Name
-      value: SoldierAlly (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2424360646170135549, guid: 5ac724711c56be84f825201a222efd91,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -87.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2424360646170135549, guid: 5ac724711c56be84f825201a222efd91,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 2424360646170135549, guid: 5ac724711c56be84f825201a222efd91,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -43.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2424360646170135549, guid: 5ac724711c56be84f825201a222efd91,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2424360646170135549, guid: 5ac724711c56be84f825201a222efd91,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2424360646170135549, guid: 5ac724711c56be84f825201a222efd91,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2424360646170135549, guid: 5ac724711c56be84f825201a222efd91,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2424360646170135549, guid: 5ac724711c56be84f825201a222efd91,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 2424360646170135549, guid: 5ac724711c56be84f825201a222efd91,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2424360646170135549, guid: 5ac724711c56be84f825201a222efd91,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2424360646170135549, guid: 5ac724711c56be84f825201a222efd91,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7268734926147061654, guid: 5ac724711c56be84f825201a222efd91,
-        type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 5006512735263928344}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5ac724711c56be84f825201a222efd91, type: 3}
---- !u!1001 &557579385
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1728914901620931054, guid: 5ac724711c56be84f825201a222efd91,
-        type: 3}
-      propertyPath: m_Name
-      value: SoldierAlly (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2424360646170135549, guid: 5ac724711c56be84f825201a222efd91,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -131.67
-      objectReference: {fileID: 0}
-    - target: {fileID: 2424360646170135549, guid: 5ac724711c56be84f825201a222efd91,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 2424360646170135549, guid: 5ac724711c56be84f825201a222efd91,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 159.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2424360646170135549, guid: 5ac724711c56be84f825201a222efd91,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2424360646170135549, guid: 5ac724711c56be84f825201a222efd91,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2424360646170135549, guid: 5ac724711c56be84f825201a222efd91,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2424360646170135549, guid: 5ac724711c56be84f825201a222efd91,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2424360646170135549, guid: 5ac724711c56be84f825201a222efd91,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 2424360646170135549, guid: 5ac724711c56be84f825201a222efd91,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2424360646170135549, guid: 5ac724711c56be84f825201a222efd91,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2424360646170135549, guid: 5ac724711c56be84f825201a222efd91,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7268734926147061654, guid: 5ac724711c56be84f825201a222efd91,
-        type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 5006512735263928344}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5ac724711c56be84f825201a222efd91, type: 3}
 --- !u!1 &701284738
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,6 +979,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoldierAlly (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1728914901620931054, guid: 5ac724711c56be84f825201a222efd91,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2424360646170135549, guid: 5ac724711c56be84f825201a222efd91,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1459,6 +1316,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1037286224770682467, guid: 49d4b98c1682a904788c69a443c6f77a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1037286224770682478, guid: 49d4b98c1682a904788c69a443c6f77a,
         type: 3}
       propertyPath: m_Camera
@@ -1611,7 +1473,7 @@ PrefabInstance:
     - target: {fileID: 1400089535718439344, guid: ab044409c4012664aaf6a7d4e5ef98a0,
         type: 3}
       propertyPath: Deceleration
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1400089535718439344, guid: ab044409c4012664aaf6a7d4e5ef98a0,
         type: 3}
@@ -1636,7 +1498,7 @@ PrefabInstance:
     - target: {fileID: 1400089535718439344, guid: ab044409c4012664aaf6a7d4e5ef98a0,
         type: 3}
       propertyPath: Acceleration
-      value: 9
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1400089535718439344, guid: ab044409c4012664aaf6a7d4e5ef98a0,
         type: 3}
@@ -1656,7 +1518,7 @@ PrefabInstance:
     - target: {fileID: 1400089535718439344, guid: ab044409c4012664aaf6a7d4e5ef98a0,
         type: 3}
       propertyPath: torgue
-      value: 25
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 1400089535718439344, guid: ab044409c4012664aaf6a7d4e5ef98a0,
         type: 3}
@@ -1732,6 +1594,11 @@ PrefabInstance:
         type: 3}
       propertyPath: maxFuel
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400089535718439344, guid: ab044409c4012664aaf6a7d4e5ef98a0,
+        type: 3}
+      propertyPath: maxCargo
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6202770385162873644, guid: ab044409c4012664aaf6a7d4e5ef98a0,
         type: 3}

@@ -62,13 +62,26 @@ public class PlayerController : MonoBehaviour
     private float fuelCconRate;
     private bool _onLandingZone;
     private Transform landingZone;
+    [SerializeField]
+    private int maxCargo;
+    private int currentCargo;
+
 
     public delegate void GetCargo();
     public static event GetCargo OnGetCargo;
 
+    public delegate void discharge();
+    public static event discharge OnDisharge;
+
     private void OnEnable()
     {
-        OnGetCargo += () => { };
+        OnGetCargo += incCargo;
+        OnDisharge += DisCharge;
+
+    }   
+    public void incCargo()
+    {
+        currentCargo++;
     }
     public float CurrentHealt
     {
@@ -134,7 +147,7 @@ public class PlayerController : MonoBehaviour
             _currentFuel -= fuelCconRate * Time.deltaTime;
         }
         transform.position += transform.forward * currentSpeed * Time.deltaTime;
-        transform.position += transform.right * currentStrifeSpeed * Time.deltaTime;
+        transform.position += transform.right * currentStrifeSpeed *Time.deltaTime;
     }
 
     public bool Flying
@@ -149,8 +162,8 @@ public class PlayerController : MonoBehaviour
     }
     public bool StrifeAccelerating
     {
-        get { return _acelerating; }
-        set { _acelerating = value; }
+        get { return _strifeAcelerating; }
+        set { _strifeAcelerating = value; }
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -170,7 +183,6 @@ public class PlayerController : MonoBehaviour
         {
             _onLandingZone = false;
             landingZone = null;
-
         }
     }
 
@@ -194,7 +206,7 @@ public class PlayerController : MonoBehaviour
     }
     public void hookDown()
     {
-        if (!_isLanding)
+        if (!_isLanding&& currentCargo<maxCargo)
         {         
             LeanTween.moveLocalY(hook,-HookAltitude, HookDowntime).setEase(LeanTweenType.easeInCubic).
            setOnComplete(IsHookDown);
@@ -220,7 +232,12 @@ public class PlayerController : MonoBehaviour
             anim.SetTrigger("Land");
             engineOff();
             _flying = false;
+            OnDisharge();
         }
+    }
+    private void DisCharge()
+    {
+        currentCargo = 0;
     }
     public void takeof()
     {
@@ -234,11 +251,7 @@ public class PlayerController : MonoBehaviour
             _flying = true;
             engineOn();
         }
-    }
-
-
-   
-
+    }   
     public void IsHookDown()
     {
         if (isHookDown)
@@ -262,12 +275,7 @@ public class PlayerController : MonoBehaviour
     public void Turn(int direction)
     {
         transform.Rotate(Vector3.up * direction * Time.deltaTime * torgue);
-    }
-    public void onStopMoving(float dir)
-    {
-
-
-    }
+    }    
     public void Reverse()
     {
         _acelerating = true;
@@ -292,9 +300,9 @@ public class PlayerController : MonoBehaviour
     public void StrifeDecelerate()
     {
         if (currentStrifeSpeed > strifeaceleration * Time.deltaTime)
-            currentStrifeSpeed = currentStrifeSpeed - strifeaceleration * Time.deltaTime;
+            currentStrifeSpeed = currentStrifeSpeed - Deceleration * Time.deltaTime;
         else if (currentStrifeSpeed < -strifeaceleration * Time.deltaTime)
-            currentStrifeSpeed = currentStrifeSpeed + strifeaceleration * Time.deltaTime;
+            currentStrifeSpeed = currentStrifeSpeed + Deceleration * Time.deltaTime;
         else
             currentStrifeSpeed = 0;
     }
