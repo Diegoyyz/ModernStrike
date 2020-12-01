@@ -11,7 +11,6 @@ public class FollowTargetState : EnemyState
     {
         base.OnStateEnter();
     }
-
     public override void OnStateExit()
     {
         base.OnStateExit();
@@ -19,13 +18,12 @@ public class FollowTargetState : EnemyState
     public override void Tick()
     {
         actor.moveTowardTarget();
-        if (actor.targetOnShotDistanse())
+        if (actor.TargetOnShotDistanse())
         {
             actor.SetState(new ShootEnemyState(actor));
         }
         else if (!actor.targetInSight)
             actor.SetState(new ReturnHomeState(actor));
-
     }
 }
 

@@ -11,8 +11,8 @@ public class EnemySoldier : Enemy
     [SerializeField]
     private int maxAmmo;
     [SerializeField]
-    [Range(.1f, 3)]
-    private float fireRate;
+    [Range(.1f, 5)]
+    public float fireRate;
     private int currentAmmo;
     [SerializeField]
     private EnemyState currentState;
@@ -40,7 +40,7 @@ public class EnemySoldier : Enemy
             currentState.OnStateEnter();
         }
     }
-    public bool targetOnShotDistanse()
+    public bool TargetOnShotDistanse()
     {
         if (_lineOfSight.distToTarget() <= shootingDistance)
             return true;
@@ -51,17 +51,12 @@ public class EnemySoldier : Enemy
         base.Awake();
         targetInSight = _lineOfSight.isTargetInSight();
     }
-    private IEnumerator DelayedShot(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        currentAmmo--;
-        Shot();
-        StopCoroutine("DelayedShot");
-    }
+ 
     public void Shot()
     {
         var bullet = PoolManager.Instance.INfos[2].GetProjectile();
         bullet.transform.position = transform.position;
+        currentAmmo--;
         if (_lineOfSight.target == null)
         {
             bullet.transform.rotation = transform.rotation;
