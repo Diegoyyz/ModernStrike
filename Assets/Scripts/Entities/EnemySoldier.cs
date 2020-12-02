@@ -46,7 +46,7 @@ public class EnemySoldier : Enemy
             return true;
         else return false;
     }
-    public override void Awake()
+    private new void Awake()
     {
         base.Awake();
         targetInSight = _lineOfSight.isTargetInSight();

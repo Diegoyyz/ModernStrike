@@ -5,17 +5,17 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
     [SerializeField]
-    protected int maxHp;
+    protected float maxHp;
     public Vector3 homePos;
     [SerializeField]
-    protected int currentHp;
+    protected float currentHp;
     [SerializeField]
     protected float speed;
     protected Animator Anim;
     [SerializeField]
     public bool targetInSight;
     protected LineOfSight _lineOfSight;
-    public virtual void Awake()
+    protected virtual void Awake()
     {
         _lineOfSight = GetComponent<LineOfSight>();
         currentHp = maxHp;

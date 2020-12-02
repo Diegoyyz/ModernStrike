@@ -6,7 +6,7 @@ using UnityEngine;
 public class Enemy : Entity
 {
     public GameObject deathDrop;
-    private void Awake()
+    private new void Awake()
     {
         base.Awake();
     }

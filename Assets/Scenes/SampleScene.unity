@@ -121,6 +121,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &192040258 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1631609348, guid: ab044409c4012664aaf6a7d4e5ef98a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1400089535245851444}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15bc776e1aa53164194135634bdbb0dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &195730081
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,6 +1286,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1400089535245851444}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2101968136 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1172494627, guid: ab044409c4012664aaf6a7d4e5ef98a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1400089535245851444}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56fc9a4b8bcd33147bdc225b720ddac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1037286223788223814
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1281,15 +1305,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1037286224770682467, guid: 49d4b98c1682a904788c69a443c6f77a,
+    - target: {fileID: 1037286223602327490, guid: 49d4b98c1682a904788c69a443c6f77a,
         type: 3}
-      propertyPath: m_Name
-      value: Canvas
+      propertyPath: m_FillAmount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1037286224770682467, guid: 49d4b98c1682a904788c69a443c6f77a,
         type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: m_Name
+      value: HUD
       objectReference: {fileID: 0}
     - target: {fileID: 1037286224770682478, guid: 49d4b98c1682a904788c69a443c6f77a,
         type: 3}
@@ -1558,7 +1582,7 @@ PrefabInstance:
     - target: {fileID: 1400089535718439344, guid: ab044409c4012664aaf6a7d4e5ef98a0,
         type: 3}
       propertyPath: fuelCconRate
-      value: 0.057
+      value: 1.066
       objectReference: {fileID: 0}
     - target: {fileID: 1400089535718439344, guid: ab044409c4012664aaf6a7d4e5ef98a0,
         type: 3}
@@ -1569,6 +1593,21 @@ PrefabInstance:
         type: 3}
       propertyPath: maxCargo
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400089535718439344, guid: ab044409c4012664aaf6a7d4e5ef98a0,
+        type: 3}
+      propertyPath: Weapn1
+      value: 
+      objectReference: {fileID: 192040258}
+    - target: {fileID: 1400089535718439344, guid: ab044409c4012664aaf6a7d4e5ef98a0,
+        type: 3}
+      propertyPath: Weapn2
+      value: 
+      objectReference: {fileID: 2101968136}
+    - target: {fileID: 1400089535718439344, guid: ab044409c4012664aaf6a7d4e5ef98a0,
+        type: 3}
+      propertyPath: maxHp
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6202770385162873644, guid: ab044409c4012664aaf6a7d4e5ef98a0,
         type: 3}

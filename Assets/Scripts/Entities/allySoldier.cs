@@ -8,7 +8,7 @@ public class allySoldier : Entity
     private AllySoldierState currentState;
     [SerializeField]
     private float pickUpDistance;
-    public override void Awake()
+    private new void Awake()
     {
         base.Awake();
         homePos = transform.position;

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditorInternal.VersionControl;
 using UnityEngine;
-public class PlayerController : MonoBehaviour
+public class PlayerController : Entity
 {
     [SerializeField]
     private float altitude;
@@ -48,11 +48,7 @@ public class PlayerController : MonoBehaviour
     private float HookAltitude;
     [SerializeField]
     private float HookDowntime;
-    public bool isHookDown;
-    [SerializeField]
-    public float maxHp;
-    [SerializeField]
-    private float _currentHp;
+    public bool isHookDown;     
     [SerializeField]
     private float _currentFuel;
     [SerializeField]
@@ -87,12 +83,21 @@ public class PlayerController : MonoBehaviour
     {
         get
         {
-            return _currentHp;
+            return currentHp;
         }
         set
         {
-            _currentHp = value;
+            currentHp = value;
         }
+    }
+    public float  HealtPorcentage()
+    {
+      return CurrentHealt/maxHp;
+
+    }
+    public float FuelPorcentage()
+    {
+        return CurrentFuel/maxFuel;
     }
     public float CurrentFuel
     {
@@ -108,15 +113,15 @@ public class PlayerController : MonoBehaviour
 
     public void heal(int Amount)
     {
-        _currentHp += Amount;
+        currentHp += Amount;
     }
     public void chargeFuel(int Amount)
     {
         _currentFuel += Amount;
     }
-    private void Awake()
-    {      
-        currentSpeed = maxHp;
+    private new void Awake()
+    {
+        base.Awake();
         CurrentFuel = maxFuel;
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
@@ -128,6 +133,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
+        Debug.Log(HealtPorcentage());
         if (!_acelerating)
         {
             Decelerate();

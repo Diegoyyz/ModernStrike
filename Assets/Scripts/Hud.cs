@@ -34,8 +34,8 @@ public class Hud : MonoBehaviour
     }
     void Update()
     {
-        HealtBar.fillAmount = actor.CurrentHealt / actor.maxHp;
-        FuelBar.fillAmount = actor.CurrentFuel / actor.maxFuel;
+        HealtBar.fillAmount = actor.HealtPorcentage();
+        FuelBar.fillAmount = actor.FuelPorcentage();
     }
     public void addCargo()
     {
@@ -50,7 +50,6 @@ public class Hud : MonoBehaviour
         }
         cargoCount = 0;
     }
-
 public void removeCargo()
     {
         cargos[cargoCount].gameObject.SetActive(false);
