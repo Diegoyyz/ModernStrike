@@ -133,7 +133,6 @@ public class PlayerController : Entity
     }
     private void Update()
     {
-        Debug.Log(HealtPorcentage());
         if (!_acelerating)
         {
             Decelerate();
