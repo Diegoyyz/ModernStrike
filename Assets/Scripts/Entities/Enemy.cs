@@ -2,10 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Enemy : Entity
 {
     public GameObject deathDrop;
+    public int iD;
     private new void Awake()
     {
         base.Awake();
@@ -27,5 +27,4 @@ public class Enemy : Entity
         }
         Destroy(this.gameObject);
     }
-
 }

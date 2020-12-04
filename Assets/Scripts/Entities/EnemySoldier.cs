@@ -69,6 +69,7 @@ public class EnemySoldier : Enemy
     protected override void Die()
     {
         EnemiesManager.Instance.enemyList.Remove(this.gameObject);
+        EventManager.EnemyDied(iD);
         base.Die();
     }
 }
