@@ -7,9 +7,8 @@ public class EventManager : MonoBehaviour
 {
     public static event Action<int> OnEnemyDied = delegate { };
     public static event Action<int> OnItemGrabbed = delegate { };
-    public static event Action<Quest> OnquestProgrestChanged = delegate { };
+    public static event Action<Quest> OnquestProgrestChanged = delegate{ };
     public static event Action<Quest> OnquestCompleted = delegate { };
-
     public static void EnemyDied(int enemyID)
     {
         OnEnemyDied(enemyID);
@@ -26,6 +25,4 @@ public class EventManager : MonoBehaviour
     {
         OnquestCompleted(quest);
     }
-
-
 }

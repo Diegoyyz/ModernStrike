@@ -16,13 +16,23 @@ public class Quest : MonoBehaviour
     public List<string> rewards;
     public virtual void complete()
     {
-        Debug.Log("quest completed");
         grantReward();
+        progressionText.color = Color.red;
+        descriptionText.color = Color.red;
+    }
+    private void Awake()
+    {
+        goal = new KillGoal(1, 1, this);
+        EventManager.OnquestProgrestChanged += QuestUpdate;
     }
     private void Start()
     {
         descriptionText.text = description;
-        progressionText.text = goal.countNeeded+"/"+goal.countCurrent;
+        progressionText.text = goal.countCurrent+"/"+goal.countNeeded;
+    }
+    void QuestUpdate(Quest quest)
+    {
+        progressionText.text = goal.countCurrent + "/" + goal.countNeeded;
     }
     public void grantReward()
     {

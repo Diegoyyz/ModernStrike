@@ -11,6 +11,7 @@ namespace questSystem
             countCurrent = 0;
             countNeeded = amountNeeded;
             completed = false;
+            EventManager.OnEnemyDied +=enemyKill;
             this.enemyID = enemyID;
             this.quest = quest;
         }
@@ -19,6 +20,7 @@ namespace questSystem
             if (this.enemyID == enemyID)
             {
                 incrementCount(1);
+                EventManager.QuestProgressChanged(this.quest);
             }
         }
     }

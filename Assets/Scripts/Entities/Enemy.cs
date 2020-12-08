@@ -16,7 +16,7 @@ public class Enemy : Entity
         {
             Die();
         }
-    }
+    }    
     protected override void Die()
     {
         if (deathDrop!=null)
@@ -25,6 +25,7 @@ public class Enemy : Entity
             toSpawn.transform.position = transform.position;
             toSpawn.transform.rotation = Quaternion.identity;
         }
+        EventManager.EnemyDied(iD);
         Destroy(this.gameObject);
     }
 }

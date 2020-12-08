@@ -35,7 +35,6 @@ public class PoolManager : MonoBehaviour
     {        
         _instance = this;
         CreatePools();
-        Debug.Log(INfos.Count);
     }
     private void CreatePools()
     {

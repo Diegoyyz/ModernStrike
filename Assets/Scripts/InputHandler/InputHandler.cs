@@ -106,6 +106,14 @@ public class InputHandler : MonoBehaviour
         {
             turnL.Trigger(actor);
         }
+        if (Input.GetKeyUp(KeyCode.Tab))
+        {
+            GameManager.Instance.QuestTable.SetActive(false);
+        }
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            GameManager.Instance.QuestTable.SetActive(true);
+        }
         return null;
     }
     private void Update()

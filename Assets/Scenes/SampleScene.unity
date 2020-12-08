@@ -257,6 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1129800520}
+  QuestTable: {fileID: 977264581}
 --- !u!1 &338146769
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,7 +485,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 140.6, y: 0.00017547607}
+  m_AnchoredPosition: {x: 249.13, y: 0.00017547607}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &676755706
@@ -519,7 +520,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Misions:'
+  m_Text: 0/9
 --- !u!222 &676755707
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1027,7 +1028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &977264582
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1108,6 +1109,7 @@ GameObject:
   - component: {fileID: 1021212998}
   - component: {fileID: 1021213000}
   - component: {fileID: 1021212999}
+  - component: {fileID: 1021213001}
   m_Layer: 5
   m_Name: 'Mision description '
   m_TagString: Untagged
@@ -1167,7 +1169,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Misions:'
+  m_Text: Kill 9 enemies
 --- !u!222 &1021213000
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1176,6 +1178,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1021212997}
   m_CullTransparentMesh: 0
+--- !u!114 &1021213001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021212997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34e98c1c47ff3e04ca6ba96d47964d87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: Kill enemy Soldiers
+  progression: 
+  descriptionText: {fileID: 1021212999}
+  progressionText: {fileID: 676755706}
+  completed: 0
+  rewards: []
 --- !u!114 &1129800520 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1400089535718439344, guid: ab044409c4012664aaf6a7d4e5ef98a0,
@@ -2080,6 +2100,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoldierEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 5866328072356379065, guid: 41f832265475cbd4fa19bbd5ba85f8a6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 7436071441971465130, guid: 41f832265475cbd4fa19bbd5ba85f8a6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2138,12 +2163,17 @@ PrefabInstance:
     - target: {fileID: 8296172668386730858, guid: 41f832265475cbd4fa19bbd5ba85f8a6,
         type: 3}
       propertyPath: maxHp
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8296172668386730858, guid: 41f832265475cbd4fa19bbd5ba85f8a6,
         type: 3}
       propertyPath: fireRate
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8296172668386730858, guid: 41f832265475cbd4fa19bbd5ba85f8a6,
+        type: 3}
+      propertyPath: iD
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41f832265475cbd4fa19bbd5ba85f8a6, type: 3}
@@ -2270,6 +2300,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SoldierAlly
+      objectReference: {fileID: 0}
+    - target: {fileID: 1728914901620931054, guid: 5ac724711c56be84f825201a222efd91,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ally
       objectReference: {fileID: 0}
     - target: {fileID: 2424360646170135549, guid: 5ac724711c56be84f825201a222efd91,
         type: 3}

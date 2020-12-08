@@ -217,7 +217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 50
   lifeSpan: 3
-  dmg: 1
+  dmg: 30
   trail: {fileID: 2514965931175325873}
 --- !u!54 &4129607361929962019
 Rigidbody:

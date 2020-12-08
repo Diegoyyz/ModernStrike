@@ -21,11 +21,16 @@ public class EnemySoldier : Enemy
         currentAmmo = maxAmmo;
         homePos = transform.position;
         SetState(new PatrolState(this));
+
     }
     public void Update()
     {
         currentState.Tick();
         targetInSight = _lineOfSight.isTargetInSight();
+        if (currentHp<=0)
+        {
+            Die();
+        }
     }
     public void SetState(EnemyState state)
     {
@@ -68,8 +73,8 @@ public class EnemySoldier : Enemy
     }
     protected override void Die()
     {
+        base.Die();
         EnemiesManager.Instance.enemyList.Remove(this.gameObject);
         EventManager.EnemyDied(iD);
-        base.Die();
     }
 }

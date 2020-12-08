@@ -4,9 +4,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
+
     public static GameManager Instance { get { return _instance; } }
     [SerializeField]
-    public PlayerController player; 
+    public PlayerController player;
+    public GameObject QuestTable;
+
     private void Awake()
     {
         _instance = this;

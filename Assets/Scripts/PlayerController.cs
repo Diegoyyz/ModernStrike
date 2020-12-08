@@ -7,7 +7,7 @@ public class PlayerController : Entity
 {
     [SerializeField]
     private float altitude;
-    [SerializeField]
+    [SerializeField]   
     private float landDistance;
     [SerializeField]
     private float takeofTime;
