@@ -9,6 +9,11 @@ public class EventManager : MonoBehaviour
     public static event Action<int> OnItemGrabbed = delegate { };
     public static event Action<Quest> OnquestProgrestChanged = delegate{ };
     public static event Action<Quest> OnquestCompleted = delegate { };
+
+    private void Awake()
+    {
+        gameObject.SetActive(false);
+    }
     public static void EnemyDied(int enemyID)
     {
         OnEnemyDied(enemyID);
