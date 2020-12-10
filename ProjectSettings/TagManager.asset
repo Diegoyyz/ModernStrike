@@ -11,6 +11,7 @@ TagManager:
   - PowerUp
   - LandingZone
   - EnemyProjectile
+  - AllyBase
   layers:
   - Default
   - TransparentFX

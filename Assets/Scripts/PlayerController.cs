@@ -240,8 +240,8 @@ public class PlayerController : Entity
         }
     }
     private void DisCharge()
-    {
-        currentCargo = 0;
+    {       
+        currentCargo = 0;      
     }
     public void takeof()
     {

@@ -21,7 +21,6 @@ public class EnemySoldier : Enemy
         currentAmmo = maxAmmo;
         homePos = transform.position;
         SetState(new PatrolState(this));
-
     }
     public void Update()
     {
@@ -74,7 +73,7 @@ public class EnemySoldier : Enemy
     protected override void Die()
     {
         base.Die();
-        EnemiesManager.Instance.enemyList.Remove(this.gameObject);
         EventManager.EnemyDied(iD);
+        EnemiesManager.Instance.enemyList.Remove(this.gameObject);
     }
 }
