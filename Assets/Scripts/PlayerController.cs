@@ -241,6 +241,10 @@ public class PlayerController : Entity
     }
     private void DisCharge()
     {
+        for (int i = 0; i < currentCargo; i++)
+        {
+            EventManager.ItemGrabbed(1);
+        }
         currentCargo = 0;
     }
     public void takeof()

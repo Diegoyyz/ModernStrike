@@ -15,7 +15,6 @@ namespace questSystem
             if (countCurrent >= countNeeded && !completed)
             {
                 completed = true;
-                Debug.Log("Goal Completed!");
                 quest.complete();
             }
         }
