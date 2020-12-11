@@ -1,29 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System;
 using UnityEngine;
 namespace questSystem
 {
     public class KillEnemieQuest : Quest
-    {
-        public int enemyID;
-         protected new void Awake()
+    {      
+        private void Awake()
         {
-            base.Awake();
-            goal = new KillGoal(1, 1, this);
-            descriptionText.text = "Kill "+goal.countNeeded+ " soldiers";
-            progressionText.text = countCurrent + "/" + goal.countNeeded;
+            description = "Kill Enemy soldiers ";
             rewards = new List<string>() { "combustible", "tiempo", "cositas ricas" };
-            EventManager.OnEnemyDied += enemyKill;
+            goal = new KillGoal(5, 0, this);
         }
-        void enemyKill(int enemyID)
+        void Start()
         {
-            if (this.enemyID == enemyID)
-            {
-                incrementCount(1);
-                EventManager.QuestProgressChanged(this);
-            }
-        }
 
+        }
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
     }
 }

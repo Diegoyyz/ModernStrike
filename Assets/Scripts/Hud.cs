@@ -47,8 +47,6 @@ public class Hud : MonoBehaviour
         foreach (var item in cargos)
         {
             item.gameObject.SetActive(false);
-            EventManager.ItemDelivered(0);
-
         }
         cargoCount = 0;
     }

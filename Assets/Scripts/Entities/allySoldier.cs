@@ -26,7 +26,6 @@ public class allySoldier : Entity
             Destroy(this.gameObject);
         }
     }
-
    
     public void SetState(AllySoldierState state)
     {

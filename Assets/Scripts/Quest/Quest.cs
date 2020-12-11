@@ -14,30 +14,25 @@ public class Quest : MonoBehaviour
     public Goal goal;
     public bool completed;
     public List<string> rewards;
-    public int countCurrent;
     public virtual void complete()
     {
         grantReward();
         progressionText.color = Color.red;
         descriptionText.color = Color.red;
     }
-    protected virtual void Awake()
+    private void Awake()
     {
+        goal = new KillGoal(1, 1, this);
         EventManager.OnquestProgrestChanged += QuestUpdate;
-    }  
+    }
+    private void Start()
+    {
+        descriptionText.text = description;
+        progressionText.text = goal.countCurrent+"/"+goal.countNeeded;
+    }
     void QuestUpdate(Quest quest)
     {
-        progressionText.text = countCurrent + "/" + goal.countNeeded;
-    }
-    protected void incrementCount(int amount)
-    {
-        countCurrent = Mathf.Min(countCurrent + 1, goal.countNeeded);
-        if (countCurrent >= goal.countNeeded && !completed)
-        {
-            completed = true;
-            Debug.Log("Goal Completed!");
-            complete();
-        }
+        progressionText.text = goal.countCurrent + "/" + goal.countNeeded;
     }
     public void grantReward()
     {
