@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemiesManager : MonoBehaviour
 {
 
-
+    
     [SerializeField]
     public List<GameObject> enemyList = new List<GameObject>();
     private static EnemiesManager _instance;

@@ -5,8 +5,8 @@ namespace questSystem
 {
     public class KillGoal : Goal
     {
-        public int enemyID;
-        public KillGoal(int amountNeeded, int enemyID, Quest quest)
+        public EnemyIDEnum enemyID;
+        public KillGoal(int amountNeeded, EnemyIDEnum enemyID, Quest quest)
         {
             countCurrent = 0;
             countNeeded = amountNeeded;
@@ -15,7 +15,7 @@ namespace questSystem
             this.enemyID = enemyID;
             this.quest = quest;
         }
-        void enemyKill(int enemyID)
+        void enemyKill(EnemyIDEnum enemyID)
         {
             if (this.enemyID == enemyID)
             {
@@ -24,5 +24,4 @@ namespace questSystem
             }
         }
     }
-
 }

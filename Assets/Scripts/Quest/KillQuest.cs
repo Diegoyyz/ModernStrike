@@ -7,9 +7,15 @@ using questSystem;
 
 public class KillQuest : Quest
 {
+    [SerializeField]
+    private EnemyIDEnum enemytokillID;
+    [SerializeField]
+    [Range(1,10)]
+    public int amountToKill;
+
     private void Awake()
     {
-        goal = new KillGoal(1, 1, this);
+        goal = new KillGoal(amountToKill, enemytokillID, this);
         EventManager.OnquestProgresChanged += QuestUpdate;
         descriptionText.text = "Kill "+ goal.countNeeded +" enemies";
         progressionText.text = goal.countCurrent + "/" + goal.countNeeded;
