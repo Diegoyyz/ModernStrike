@@ -6,7 +6,9 @@ namespace Assets.Scripts.FSM.EnemyStates
 {
     public class ReturnHomeState : EnemyState
     {
-        public ReturnHomeState(EnemySoldier character) : base(character)
+        protected EnemySoldier actor;
+
+        public ReturnHomeState(EnemySoldier character) 
         {
             actor = character;
         }

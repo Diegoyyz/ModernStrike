@@ -6,7 +6,9 @@ using UnityEngine;
 public class ShootEnemyState : EnemyState
 {
     private float nextFire;
-    public ShootEnemyState(EnemySoldier character) : base(character)
+    protected EnemySoldier actor;
+
+    public ShootEnemyState(EnemySoldier character) 
     {
         actor = character;
     }

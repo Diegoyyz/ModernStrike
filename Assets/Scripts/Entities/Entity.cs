@@ -7,7 +7,6 @@ public class Entity : MonoBehaviour
     [SerializeField]
     protected float maxHp;
     public Vector3 homePos;
-    [SerializeField]
     protected float currentHp;
     [SerializeField]
     protected float speed;

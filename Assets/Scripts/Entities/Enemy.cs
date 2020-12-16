@@ -6,9 +6,22 @@ public class Enemy : Entity
 {
     public GameObject deathDrop;
     public EnemyIDEnum iD;
+    [SerializeField]
+    protected float shootingDistance;
+    [SerializeField]
+    private float maxDistToTarget;
+    [SerializeField]
+    protected EnemyState currentState;
+    [SerializeField]
+    protected int maxAmmo;
+    [SerializeField]
+    [Range(.1f, 5)]
+    public float fireRate;
+    protected int currentAmmo;
     private new void Awake()
     {
         base.Awake();
+        currentAmmo = maxAmmo;
     }
     private void Update()
     {

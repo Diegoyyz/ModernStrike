@@ -3,9 +3,11 @@ using UnityEngine;
 
 public class FollowTargetState : EnemyState
 {
-    public FollowTargetState(EnemySoldier character) : base(character)
-    {
+    protected EnemySoldier actor;
 
+    public FollowTargetState(EnemySoldier character) 
+    {
+        actor = character;
     }
     public override void OnStateEnter()
     {
