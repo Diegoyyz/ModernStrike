@@ -18,10 +18,7 @@ public class Entity : MonoBehaviour
     {
         _lineOfSight = GetComponent<LineOfSight>();
         currentHp = maxHp;
-    }
-    private void Update()
-    {       
-    }
+    } 
     public void TakeDmg(int dmg)
     {
         currentHp -= dmg;

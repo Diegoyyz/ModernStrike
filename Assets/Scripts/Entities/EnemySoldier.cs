@@ -9,34 +9,16 @@ public class EnemySoldier : Enemy
         homePos = transform.position;
         SetState(new PatrolState(this));
     }
-    public void Update()
+    public new void Update()
     {
+        base.Update();
         currentState.Tick();
         targetInSight = _lineOfSight.isTargetInSight();
         if (currentHp<=0)
         {
             Die();
         }
-    }
-    public void SetState(EnemyState state)
-    {
-        if (currentState != null)
-        {
-            currentState.OnStateExit();
-        }
-        currentState = state;
-        gameObject.name = "Enemy Eoldier- " + state.GetType().Name;
-        if (currentState != null)
-        {
-            currentState.OnStateEnter();
-        }
-    }
-    public bool TargetOnShotDistanse()
-    {
-        if (_lineOfSight.distToTarget() <= shootingDistance)
-            return true;
-        else return false;
-    }
+    }   
     private new void Awake()
     {
         base.Awake();

@@ -366,13 +366,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 1
   homePos: {x: 0, y: 0, z: 0}
-  currentHp: 0
   speed: 0
   targetInSight: 0
   deathDrop: {fileID: 4046648715926882372, guid: 3cfbdf77ba8a0ed4ba8b750576e7b394,
     type: 3}
   iD: 0
-  shootingDistance: 0
   maxDistToTarget: 0
   maxAmmo: 0
   fireRate: 0
@@ -1685,15 +1683,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 5
   homePos: {x: 0, y: 0, z: 0}
-  currentHp: 0
   speed: 0
   targetInSight: 0
   deathDrop: {fileID: 0}
   iD: 0
-  shootingDistance: 0
   maxDistToTarget: 0
   maxAmmo: 0
-  fireRate: 0
+  fireRate: 2.64
 --- !u!1 &1914520795 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5245756288462107443, guid: ab044409c4012664aaf6a7d4e5ef98a0,
@@ -1907,12 +1903,12 @@ PrefabInstance:
     - target: {fileID: 1400089535718439344, guid: ab044409c4012664aaf6a7d4e5ef98a0,
         type: 3}
       propertyPath: MaxSpeed
-      value: 25
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1400089535718439344, guid: ab044409c4012664aaf6a7d4e5ef98a0,
         type: 3}
       propertyPath: Acceleration
-      value: 12
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1400089535718439344, guid: ab044409c4012664aaf6a7d4e5ef98a0,
         type: 3}
@@ -1932,7 +1928,7 @@ PrefabInstance:
     - target: {fileID: 1400089535718439344, guid: ab044409c4012664aaf6a7d4e5ef98a0,
         type: 3}
       propertyPath: torgue
-      value: 60
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 1400089535718439344, guid: ab044409c4012664aaf6a7d4e5ef98a0,
         type: 3}
@@ -1977,7 +1973,7 @@ PrefabInstance:
     - target: {fileID: 1400089535718439344, guid: ab044409c4012664aaf6a7d4e5ef98a0,
         type: 3}
       propertyPath: strifeaceleration
-      value: 25
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1400089535718439344, guid: ab044409c4012664aaf6a7d4e5ef98a0,
         type: 3}

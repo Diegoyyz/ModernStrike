@@ -2,17 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IdleTurretState : MonoBehaviour
+public class IdleTurretState : EnemyState
 {
-    // Start is called before the first frame update
-    void Start()
+    protected EnemyTurret actor;
+    public IdleTurretState(EnemyTurret character)
     {
-        
+        actor = character;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Tick()
     {
-        
+        Debug.Log(actor.TargetOnShotDistanse());
+        if (actor.TargetOnShotDistanse())
+        {
+            actor.SetState(new ShotEnemyTurretState(actor));
+        }
+    }
+    public override void OnStateEnter()
+    {
+        base.OnStateEnter();
+    }
+    public override void OnStateExit()
+    {
+        base.OnStateExit();
     }
 }

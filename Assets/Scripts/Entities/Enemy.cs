@@ -7,15 +7,13 @@ public class Enemy : Entity
     public GameObject deathDrop;
     public EnemyIDEnum iD;
     [SerializeField]
-    protected float shootingDistance;
-    [SerializeField]
     private float maxDistToTarget;
     [SerializeField]
     protected EnemyState currentState;
     [SerializeField]
     protected int maxAmmo;
     [SerializeField]
-    [Range(.1f, 5)]
+    [Range(1f, 5)]
     public float fireRate;
     protected int currentAmmo;
     private new void Awake()
@@ -23,13 +21,19 @@ public class Enemy : Entity
         base.Awake();
         currentAmmo = maxAmmo;
     }
-    private void Update()
-    {
-        if (currentHp<=0)
+    public void Update()
+    {        
+        if (currentHp <= 0)
         {
             Die();
         }
-    }    
+    }
+    public bool TargetOnShotDistanse()
+    {
+        if (_lineOfSight.distToTarget() <= _lineOfSight.shootingDistance)
+            return true;
+        else return false;
+    }
     protected override void Die()
     {
         if (deathDrop!=null)
@@ -41,4 +45,17 @@ public class Enemy : Entity
         EventManager.EnemyDied(iD);
         Destroy(this.gameObject);
     }
+    public void SetState(EnemyState state)
+    {
+        if (currentState != null)
+        {
+            currentState.OnStateExit();
+        }
+        currentState = state;
+        gameObject.name = "Enemy Eoldier- " + state.GetType().Name;
+        if (currentState != null)
+        {
+            currentState.OnStateEnter();
+        }
+    }    
 }
