@@ -21,10 +21,9 @@ public class Rocket : Projectile
         
         foreach (var hitCollider in hitColliders)
         {
-            if (hitCollider.gameObject.tag == "Enemy")
+            if (hitCollider.gameObject.tag == "Enemy" && hitCollider.gameObject != null)
             {
                 hitCollider.gameObject.GetComponent<Entity>().TakeDmg(explosionDmg);
-
             }
         }
     }

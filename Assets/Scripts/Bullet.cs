@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Bullet : Projectile 
+public class Bullet : Projectile
 {
     public TrailRenderer trail;
     private float _tick;
@@ -24,12 +24,7 @@ public class Bullet : Projectile
         {
             collision.gameObject.GetComponent<Entity>().TakeDmg(dmg);
             DisposeProjectile(this);
-        }
-        if (collision.gameObject.tag == "Player")
-        {
-            collision.gameObject.GetComponent<Entity>().TakeDmg(dmg);
-            DisposeProjectile(this);
-        }
+        }       
     }
     public override void Dispose()
     {

@@ -1686,7 +1686,7 @@ MonoBehaviour:
   speed: 0
   targetInSight: 0
   deathDrop: {fileID: 0}
-  iD: 0
+  iD: 3
   maxDistToTarget: 0
   maxAmmo: 0
   fireRate: 2.64
