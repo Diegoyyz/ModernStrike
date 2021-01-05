@@ -6,7 +6,7 @@ public enum EnemyIDEnum {
     
         Soldier,
         Building,
+        Base,
         Tank,
-        Turret
-    
+        Turret    
 }

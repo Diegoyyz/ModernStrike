@@ -103,9 +103,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 50
   lifeSpan: 5
-  dmg: 5
+  dmg: 20
   explosionRadius: 5
-  explosionDmg: 3
+  explosionDmg: 5
 --- !u!54 &-617998101416289324
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ public class KillQuest : Quest
     {
         goal = new KillGoal(amountToKill, enemytokillID, this);
         EventManager.OnquestProgresChanged += QuestUpdate;
-        descriptionText.text = "Kill "+ goal.countNeeded +" enemies";
+        descriptionText.text = "Kill "+ goal.countNeeded +" " + enemytokillID.ToString();
         progressionText.text = goal.countCurrent + "/" + goal.countNeeded;
     }   
 }
