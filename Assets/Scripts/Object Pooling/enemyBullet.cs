@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class enemyBullet : Projectile
 {
+    public TrailRenderer trail;
     private float _tick;
     private bool _alive;
     private void OnCollisionEnter(Collision collision)
@@ -18,7 +19,7 @@ public class enemyBullet : Projectile
         _tick += Time.deltaTime;
         if (_tick >= lifeSpan)
         {
-            PoolManager.Instance.INfos[0].ReturnObjectToPool(this);
+            PoolManager.Instance.INfos[2].ReturnObjectToPool(this);
         }
         else
         {

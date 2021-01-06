@@ -3065,7 +3065,7 @@ PrefabInstance:
         type: 3}
       propertyPath: INfos.Array.data[2].Prefab
       value: 
-      objectReference: {fileID: 7018182339221262667, guid: 764b729f9fc21c346a7868d9645e7528,
+      objectReference: {fileID: 4921422072759086251, guid: 764b729f9fc21c346a7868d9645e7528,
         type: 3}
     - target: {fileID: 8037736858442812370, guid: 9c24ea42e12ef9c4983f74e7884ff4f1,
         type: 3}
