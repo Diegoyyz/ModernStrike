@@ -1926,6 +1926,12 @@ MonoBehaviour:
   maxAmmo: 0
   fireRate: 2.64
   HealtBar: {fileID: 1599133305}
+--- !u!2083052967 &1637020129 stripped
+VisualEffect:
+  m_CorrespondingSourceObject: {fileID: 5059641070999431652, guid: e4731b9319145c74b8d78ba95c488b60,
+    type: 3}
+  m_PrefabInstance: {fileID: 1963311965}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1814992063
 GameObject:
   m_ObjectHideFlags: 0
@@ -2315,6 +2321,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1631609348, guid: ab044409c4012664aaf6a7d4e5ef98a0, type: 3}
+      propertyPath: muzzleflash
+      value: 
+      objectReference: {fileID: 1637020129}
     - target: {fileID: 1400089535718439344, guid: ab044409c4012664aaf6a7d4e5ef98a0,
         type: 3}
       propertyPath: body
