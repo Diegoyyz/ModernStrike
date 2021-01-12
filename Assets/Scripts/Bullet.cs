@@ -6,6 +6,8 @@ public class Bullet : Projectile
     public TrailRenderer trail;
     private float _tick;
     private bool _alive;
+    [SerializeField]
+    private GameObject onHitEffect;
     public override void Move()
     {
         _tick += Time.deltaTime;
@@ -20,11 +22,16 @@ public class Bullet : Projectile
     }
     private void OnCollisionEnter(Collision collision)
     {
+        var hit = Instantiate(onHitEffect);
+        hit.transform.position = transform.position;
+        Destroy(hit, 2);
         if (collision.gameObject.tag == "Enemy")
         {
             collision.gameObject.GetComponent<Entity>().TakeDmg(dmg);
-            DisposeProjectile(this);
-        }       
+        }
+        DisposeProjectile(this);
+
+
     }
     public override void Dispose()
     {
