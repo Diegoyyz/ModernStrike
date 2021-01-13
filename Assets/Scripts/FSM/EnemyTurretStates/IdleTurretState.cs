@@ -12,7 +12,6 @@ public class IdleTurretState : EnemyState
 
     public override void Tick()
     {
-        Debug.Log(actor.TargetOnShotDistanse());
         if (actor.TargetOnShotDistanse())
         {
             actor.SetState(new ShotEnemyTurretState(actor));
