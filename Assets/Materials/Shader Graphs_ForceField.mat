@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Shader Graphs_ForceField
-  m_Shader: {fileID: -6465566751694194690, guid: 4636e0e8cac066a4891811afa9949a89,
+  m_Shader: {fileID: -6465566751694194690, guid: 2dd260248cbf2d44eb59c4bf4cdef821,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -32,12 +32,15 @@ Material:
     - Vector1_289BFAD: 1
     - Vector1_3879E819: 0.83
     - Vector1_3D069D45: 0.78
-    - Vector1_5243B13B: 5
-    - Vector1_54C4BE97: 0.002
+    - Vector1_5243B13B: 3
+    - Vector1_54C4BE97: 5
     - Vector1_5832CA59: 1
-    - Vector1_6321AFBA: 0.02
-    - Vector1_6BC88A47: 0.006
-    - Vector1_99ACEECA: 1.03
+    - Vector1_5AA31AB0: 9.4
+    - Vector1_6321AFBA: 0.1
+    - Vector1_63D74DE4: 1.88
+    - Vector1_6BC88A47: 0.01
+    - Vector1_99ACEECA: 2
     m_Colors:
-    - Color_1F0D15BE: {r: 0.28966716, g: 0.13260108, b: 0.5304043, a: 0}
+    - Color_1F0D15BE: {r: 0.9528302, g: 0.085395135, b: 0.09454701, a: 0}
+    - Vector3_2C39727B: {r: 0, g: 0, b: 0, a: 0}
     - Vector4_6278414: {r: 0.05, g: 0.05, b: 0.05, a: 0}

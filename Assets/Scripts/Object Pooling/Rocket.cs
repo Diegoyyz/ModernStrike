@@ -18,23 +18,30 @@ public class Rocket : Projectile
     private void ExplosionDamage(Vector3 center, float radius)
     {
         Collider[] hitColliders = Physics.OverlapSphere(center, radius);
-        
+
         foreach (var hitCollider in hitColliders)
-        {
+        { 
             if (hitCollider.gameObject.tag == "Enemy" && hitCollider.gameObject != null)
             {
                 hitCollider.gameObject.GetComponent<Entity>().TakeDmg(explosionDmg);
+            }
+            else 
+            {
+
             }
         }
     }
     private void OnCollisionEnter(Collision Other)
     {
-        DisposeProjectile(this);
+        var hit = Instantiate(HitEffect);
+        hit.transform.position = transform.position;
+        Destroy(hit, 2);
         if (Other.gameObject.tag=="Enemy")
         {
             Other.gameObject.GetComponent<Entity>().TakeDmg(dmg);
         }
         ExplosionDamage(transform.position, explosionRadius);
+        DisposeProjectile(this);
 
     }
     public override void Move()

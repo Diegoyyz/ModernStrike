@@ -1578,7 +1578,7 @@ GameObject:
   - component: {fileID: 1071676029}
   - component: {fileID: 1071676028}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: SphereShield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1651,12 +1651,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1071676027}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -39.3, y: 4.6, z: 14.2}
-  m_LocalScale: {x: 42.198315, y: 42.198315, z: 42.198315}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.049999237, y: 2.2849998, z: 0.45149994}
+  m_LocalScale: {x: 21.099157, y: 21.099157, z: 21.099157}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_Father: {fileID: 1267906616}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1129800520 stripped
 MonoBehaviour:
@@ -1835,6 +1835,12 @@ PrefabInstance:
       objectReference: {fileID: 5006512735263928344}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ac724711c56be84f825201a222efd91, type: 3}
+--- !u!4 &1267906616 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2167006400468136669, guid: ba7f0c301330ab648ac98f8a24efdcf7,
+    type: 3}
+  m_PrefabInstance: {fileID: 2167006400666994440}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1276877463
 GameObject:
   m_ObjectHideFlags: 0
@@ -3006,7 +3012,7 @@ PrefabInstance:
     - target: {fileID: 6202770385162873644, guid: ab044409c4012664aaf6a7d4e5ef98a0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6202770385162873644, guid: ab044409c4012664aaf6a7d4e5ef98a0,
         type: 3}

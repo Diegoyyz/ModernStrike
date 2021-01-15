@@ -10,6 +10,8 @@ public class Projectile : MonoBehaviour
     protected float lifeSpan;
     [SerializeField]
     protected int dmg;
+    [SerializeField]
+    protected GameObject HitEffect;
 
     private void Update()
     {
