@@ -5,7 +5,7 @@ using UnityEngine;
 public class PowerUp : MonoBehaviour
 {
     [SerializeField]
-    private int EffectAmmount;
+    protected int EffectAmmount;
 private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Hook")
@@ -17,9 +17,9 @@ private void OnCollisionEnter(Collision collision)
         {
             Destroy(this.gameObject);
         }
+
     }
     protected virtual void AplyEffect(PlayerController Actor)
     {
-        Actor.heal(EffectAmmount);
     }
 }
