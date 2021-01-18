@@ -24,15 +24,14 @@ public class GameManager : MonoBehaviour
         // seconds in float
         // turn seconds in float to int
         //seconds = (int)(timeCurrent % 60);
-        Debug.Log(seconds);
-        if (timeCurrent >= seconds)
-        {
-            ControlList.SetActive(false);
-            gamestarted = true;
-        }
-        else
-        {
-            timeCurrent += Time.deltaTime;
-        }
+        //if (timeCurrent >= seconds)
+        //{
+        //    ControlList.SetActive(false);
+        //    gamestarted = true;
+        //}
+        //else
+        //{
+        //    timeCurrent += Time.deltaTime;
+        //}
     }
 }

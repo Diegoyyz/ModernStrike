@@ -5,6 +5,6 @@ using UnityEngine;
 public class FuelCrate : PowerUp
 {    protected override void AplyEffect(PlayerController Actor)
     {
-        Actor.heal(EffectAmmount);
+        Actor.chargeFuel(EffectAmmount);
     }
 }

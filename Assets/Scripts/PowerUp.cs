@@ -16,10 +16,12 @@ private void OnCollisionEnter(Collision collision)
         if (collision.gameObject.tag == "Player")
         {
             Destroy(this.gameObject);
+            AplyEffect(collision.gameObject.GetComponent<PlayerController>());
         }
 
     }
     protected virtual void AplyEffect(PlayerController Actor)
     {
+
     }
 }
