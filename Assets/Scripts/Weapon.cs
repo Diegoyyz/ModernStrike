@@ -28,6 +28,10 @@ public class Weapon : MonoBehaviour
     {
         currentAmmo = maxAmmo;
     }
+    public void rechargeAmmo(int amount)
+    {
+        currentAmmo += amount;
+    }
     protected bool EnemyInFow(Transform enemy)
     {
         Vector3 targetDirection = enemy.position - transform.parent.position;

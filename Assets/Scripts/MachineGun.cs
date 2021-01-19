@@ -16,10 +16,7 @@ public class MachineGun : Weapon
             StartCoroutine("DelayedShot", fireRate);
         }
     }
-    public void rechargeAmmo(int amount)
-    {
-        currentAmmo += amount;
-    }
+   
     public override void Shot()
     {
         var bullet = PoolManager.Instance.INfos[0].GetProjectile();

@@ -184,11 +184,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 0.12
   maxAmmo: 500
+  currentAmmo: 0
   FireKey: 122
   target: {fileID: 0}
   LookSpeed: 5
   maxAngle: 10
   MaxDist: 75
+  muzzleflash: {fileID: 0}
 --- !u!1 &2039481756
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,6 +288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 0.063
   maxAmmo: 500
+  currentAmmo: 0
   FireKey: 120
   target: {fileID: 0}
   LookSpeed: 0
@@ -355,7 +358,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 324493c780db27a4ba02b9de132980b6, type: 2}
+  - {fileID: 2100000, guid: 560688381d7045f4695715d189ae0e72, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -513,7 +516,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 324493c780db27a4ba02b9de132980b6, type: 2}
+  - {fileID: 2100000, guid: 560688381d7045f4695715d189ae0e72, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -592,7 +595,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 324493c780db27a4ba02b9de132980b6, type: 2}
+  - {fileID: 2100000, guid: 560688381d7045f4695715d189ae0e72, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -713,7 +716,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 324493c780db27a4ba02b9de132980b6, type: 2}
+  - {fileID: 2100000, guid: 560688381d7045f4695715d189ae0e72, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -792,7 +795,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 324493c780db27a4ba02b9de132980b6, type: 2}
+  - {fileID: 2100000, guid: 560688381d7045f4695715d189ae0e72, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -910,14 +913,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2868ccf2c522b0f40bc6bbc77375bc6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHp: 0
+  homePos: {x: 0, y: 0, z: 0}
+  speed: 0
+  targetInSight: 0
   altitude: 10
+  landDistance: 0
   takeofTime: 2
   torgue: 60
-  Speed: 0
+  strifeaceleration: 0
   MaxSpeed: 30
+  MaxStrifeSpeed: 10
   Acceleration: 20
   Deceleration: 10
-  flying: 0
+  body: {fileID: 0}
+  tiltAmount: 0
+  tiltTime: 0
+  Weapn1: {fileID: 0}
+  Weapn2: {fileID: 0}
+  Weapn3: {fileID: 0}
+  hook: {fileID: 0}
+  HookAltitude: 0
+  HookDowntime: 0
+  isHookDown: 0
+  _currentFuel: 0
+  maxFuel: 0
+  fuelCconRate: 0
+  maxCargo: 0
 --- !u!1 &8424823656036537284
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,7 +998,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 324493c780db27a4ba02b9de132980b6, type: 2}
+  - {fileID: 2100000, guid: 560688381d7045f4695715d189ae0e72, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1074,6 +1096,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2853694052147744216, guid: 9cf9227af2ac54a42b53be18190da9eb,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 560688381d7045f4695715d189ae0e72, type: 2}
     - target: {fileID: 4586508929910667524, guid: 9cf9227af2ac54a42b53be18190da9eb,
         type: 3}
       propertyPath: m_Name

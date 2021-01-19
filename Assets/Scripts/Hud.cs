@@ -28,12 +28,12 @@ public class Hud : MonoBehaviour
         {
             item.gameObject.SetActive(false);
         }
+        machinegunBullets.text = actor.Weapn1.currentAmmo.ToString();
+        Misille.text = actor.Weapn2.currentAmmo.ToString();
     }
     private void OnEnable()
     {
-        machinegunBullets.text = actor.Weapn1.currentAmmo.ToString();
-        Misille.text = actor.Weapn2.currentAmmo.ToString();
-
+      
         PlayerController.OnGetCargo += addCargo;
         PlayerController.OnDisharge += dischargeCargo;
     }
@@ -44,7 +44,7 @@ public class Hud : MonoBehaviour
     void Update()
     {
         machinegunBullets.text = actor.Weapn1.currentAmmo.ToString();
-       // Misille.text = actor.Weapn2.currentAmmo.ToString();
+        Misille.text = actor.Weapn2.currentAmmo.ToString();
         HealtBar.fillAmount = actor.HealtPorcentage();
         FuelBar.fillAmount = actor.FuelPorcentage();
     }
