@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+
 using UnityEngine;
 public class Weapon : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class Weapon : MonoBehaviour
     protected float fireRate;
     [SerializeField]
     protected int maxAmmo;
-    protected int currentAmmo;
+    public int currentAmmo;
     [SerializeField]
     protected KeyCode FireKey;
     [SerializeField]
@@ -22,6 +23,10 @@ public class Weapon : MonoBehaviour
     protected float MaxDist;
     public virtual void Shot()
     {
+    }
+    private void Awake()
+    {
+        currentAmmo = maxAmmo;
     }
     protected bool EnemyInFow(Transform enemy)
     {

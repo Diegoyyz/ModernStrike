@@ -49,6 +49,8 @@ MonoBehaviour:
   speed: 50
   lifeSpan: 5
   dmg: 20
+  HitEffect: {fileID: 1038135857939800722, guid: bdcc68eaf0625ae4686c6edad15f56dc,
+    type: 3}
   explosionRadius: 5
   explosionDmg: 5
 --- !u!54 &-617998101416289324

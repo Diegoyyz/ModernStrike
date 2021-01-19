@@ -5,21 +5,17 @@ using UnityEngine;
 
 public class ShieldGenerator : Entity
 {
-    private GameObject[] shields;
+    public GameObject[] shields;
     private new void Awake()
     {
         base.Awake();
-        shields = GameObject.FindGameObjectsWithTag("Shields");
-
+        shields = GameObject.FindGameObjectsWithTag("Shield");
     }
-    void Start()
+    private void OnDestroy()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        foreach (var item in shields)
+        {
+            Destroy(item);
+        }
     }
 }

@@ -28,6 +28,10 @@ public class Bullet : Projectile
         {
             collision.gameObject.GetComponent<Entity>().TakeDmg(dmg);
         }
+        if (collision.gameObject.tag == "Shield")
+        {
+            Debug.Log("escuditos");
+        }
         DisposeProjectile(this);
     }
     public override void Dispose()

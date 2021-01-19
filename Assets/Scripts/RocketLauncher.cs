@@ -30,6 +30,7 @@ public class RocketLauncher : Weapon
         var bullet = PoolManager.Instance.INfos[1].GetProjectile();
         bullet.transform.position = spawnPoints[counter].position;
         counter++;
+        currentAmmo--;
         if (target == null || !EnemyInFow(target))
         {
             bullet.transform.rotation = transform.rotation;

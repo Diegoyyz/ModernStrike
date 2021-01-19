@@ -6,7 +6,8 @@ using UnityEngine.VFX;
 public class MachineGun : Weapon
 {
     [SerializeField]
-    private VisualEffect muzzleflash;
+    private VisualEffect muzzleflash;   
+
     private void Update()
     {
         FindClosestEnemy();
@@ -15,10 +16,15 @@ public class MachineGun : Weapon
             StartCoroutine("DelayedShot", fireRate);
         }
     }
+    public void rechargeAmmo(int amount)
+    {
+        currentAmmo += amount;
+    }
     public override void Shot()
     {
         var bullet = PoolManager.Instance.INfos[0].GetProjectile();
         muzzleflash.Play();
+        currentAmmo--;
         bullet.transform.position = transform.position;
         if (target == null||!EnemyInFow(target))
         {

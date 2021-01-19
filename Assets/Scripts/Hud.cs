@@ -15,6 +15,12 @@ public class Hud : MonoBehaviour
     [SerializeField]
     private Image[] cargos;
     private int cargoCount;
+    [SerializeField]
+    private Text WeaponText;
+    [SerializeField]
+    private Text machinegunBullets;
+    [SerializeField]
+    private Text Misille;
     private void Start()
     {
         actor = GameManager.Instance.player;
@@ -25,6 +31,9 @@ public class Hud : MonoBehaviour
     }
     private void OnEnable()
     {
+        machinegunBullets.text = actor.Weapn1.currentAmmo.ToString();
+        Misille.text = actor.Weapn2.currentAmmo.ToString();
+
         PlayerController.OnGetCargo += addCargo;
         PlayerController.OnDisharge += dischargeCargo;
     }
@@ -34,6 +43,8 @@ public class Hud : MonoBehaviour
     }
     void Update()
     {
+        machinegunBullets.text = actor.Weapn1.currentAmmo.ToString();
+       // Misille.text = actor.Weapn2.currentAmmo.ToString();
         HealtBar.fillAmount = actor.HealtPorcentage();
         FuelBar.fillAmount = actor.FuelPorcentage();
     }
