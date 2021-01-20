@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_BulletShader
+  m_Name: EnemyBulletmat
   m_Shader: {fileID: -6465566751694194690, guid: 99e04a4102e6de346a01ecde143dde65,
     type: 3}
   m_ShaderKeywords: 
@@ -29,8 +29,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_89772FC0: -0.84
-    - Vector1_ABEAD52: 0.74
+    - Vector1_89772FC0: -0.63
+    - Vector1_ABEAD52: 1.22
     m_Colors:
-    - Color_8C296E0A: {r: 0.6320754, g: 0, b: 0, a: 0}
-    - Color_B2FA0711: {r: 1.0429804, g: 0.081909455, b: 0, a: 0}
+    - Color_8C296E0A: {r: 0.8490566, g: 0.51833725, b: 0, a: 0}
+    - Color_B2FA0711: {r: 1.1034595, g: 0.046844956, b: 0.16457765, a: 0}

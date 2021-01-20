@@ -7,6 +7,8 @@ public class EnemyTurret : Enemy
 {
     [SerializeField]
     private Image HealtBar;
+    [SerializeField]
+    private Transform projectileSpawnpoint;
     private new void Awake()
     {
         base.Awake();
@@ -30,7 +32,7 @@ public class EnemyTurret : Enemy
     public void Shot()
     {
         var bullet = PoolManager.Instance.INfos[2].GetProjectile();
-        bullet.transform.position = transform.position;
+        bullet.transform.position =projectileSpawnpoint.transform.position;
         currentAmmo--;
         if (_lineOfSight.target == null)
         {

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Shader Graphs_BulletShader 1
+  m_Shader: {fileID: -6465566751694194690, guid: 99e04a4102e6de346a01ecde143dde65,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_3636AF4F:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_F03F69A5_Texture_1:
+        m_Texture: {fileID: 2800000, guid: f6f1c5db8b423d94891afda20b157926, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_89772FC0: -0.84
+    - Vector1_ABEAD52: 0.74
+    m_Colors:
+    - Color_8C296E0A: {r: 0.6320754, g: 0, b: 0, a: 0}
+    - Color_B2FA0711: {r: 1.0429804, g: 0.081909455, b: 0, a: 0}

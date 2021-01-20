@@ -10,11 +10,7 @@ public class Rocket : Projectile
     private float explosionRadius;
     [SerializeField]
     private int explosionDmg;
-    public override void Dispose()
-    {
-
-    }
-
+  
     private void ExplosionDamage(Vector3 center, float radius)
     {
         Collider[] hitColliders = Physics.OverlapSphere(center, radius);
