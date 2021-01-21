@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8908468427079302391}
   - component: {fileID: 8908468427079302384}
   - component: {fileID: 8908468427079302388}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: LandingZone
   m_TagString: LandingZone
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8908468427094576911}
   - component: {fileID: 8908468427094576910}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
