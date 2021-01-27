@@ -25,13 +25,19 @@ public class Entity : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();        
         currentHp = maxHp;
     }
-    public void moveTowardTarget()
+    public void moveTowardsTarget()
     {
-        agent.SetDestination(_lineOfSight.target.transform.position);
+        if (agent.enabled)
+        {
+            agent.SetDestination(_lineOfSight.target.transform.position); 
+        }
     }
     public void moveTowardHome()
     {
-        agent.SetDestination(homePos);
+        if (agent.enabled)
+        {
+            agent.SetDestination(homePos);
+        }
     }
     public void TakeDmg(int dmg)
     {

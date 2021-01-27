@@ -10,6 +10,7 @@ public class FollowHeroState : AllySoldierState
     }
     public override void Tick()
     {
+        actor.moveTowardsTarget();
         if (actor.targetOnPickupDistanse())
         {
             actor.SetState(new IdleAsState(actor));

@@ -10,21 +10,15 @@ public class IdleAsState : AllySoldierState
     }
     public override void Tick()
     {
-       
-        if (actor.targetInSight)
+       if (actor.targetInSight)
         {
-            if (!actor.targetOnPickupDistanse())
-            {
               actor.SetState(new FollowHeroState(actor));
-            }
-        }
-        
+        }        
     }
     public override void OnStateEnter()
     {
         //hacer cosas anteriores a la patrulla
     }
-
     public override void OnStateExit()
     {
         //prepararse para dejar la patrulla

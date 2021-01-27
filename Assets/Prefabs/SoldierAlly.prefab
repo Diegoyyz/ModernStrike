@@ -291,6 +291,7 @@ GameObject:
   - component: {fileID: 7268734926147061655}
   - component: {fileID: 7268734926147061641}
   - component: {fileID: 7268734926147061654}
+  - component: {fileID: 33762895}
   m_Layer: 10
   m_Name: SoldierAlly
   m_TagString: Ally
@@ -307,7 +308,7 @@ Transform:
   m_GameObject: {fileID: 1728914901620931054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -82, y: 0.04, z: -11.96}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
   m_Children:
   - {fileID: 2105168567278121305}
   - {fileID: 1856244073077175882}
@@ -326,7 +327,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
@@ -358,9 +359,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 0
   homePos: {x: 0, y: 0, z: 0}
-  speed: 2
+  speed: 0
   targetInSight: 0
-  pickUpDistance: 35
+  agent: {fileID: 0}
+  pickUpDistance: 0
 --- !u!114 &7268734926147061654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -376,6 +378,28 @@ MonoBehaviour:
   target: {fileID: 0}
   viewDistance: 100
   shootingDistance: 50
+--- !u!195 &33762895
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728914901620931054}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1808064031793361556
 GameObject:
   m_ObjectHideFlags: 0

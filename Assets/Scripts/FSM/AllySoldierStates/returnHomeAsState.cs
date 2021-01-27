@@ -10,6 +10,7 @@ public class returnHomeAsState : AllySoldierState
     }
     public override void Tick()
     {
+        actor.moveTowardHome();
         if (Vector3.Distance(actor.transform.position, actor.homePos) <= 0.5)
         {
             actor.SetState(new IdleAsState(actor));

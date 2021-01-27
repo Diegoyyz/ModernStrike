@@ -37,7 +37,7 @@ public class allySoldier : Entity
             currentState.OnStateExit();
         }
         currentState = state;
-        gameObject.name = "Enemy- " + state.GetType().Name;
+        gameObject.name = "AllySoldier- " + state.GetType().Name;
         if (currentState != null)
         {
             currentState.OnStateEnter();

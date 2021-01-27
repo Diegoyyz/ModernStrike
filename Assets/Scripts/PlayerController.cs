@@ -55,6 +55,7 @@ public class PlayerController : Entity
     [SerializeField]
     [Range(0.5f,2)]
     private float fuelCconRate;
+    [SerializeField]
     private bool _onLandingZone;
     private Transform landingZone;
     [SerializeField]

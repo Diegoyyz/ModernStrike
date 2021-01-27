@@ -27,9 +27,9 @@ TagManager:
   - Ally
   - Enemy
   - Ground
-  - noShooting
-  - AllyBullet
-  - 
+  - Shooting
+  - PowerUp
+  - EnemyShooting
   - 
   - 
   - 
