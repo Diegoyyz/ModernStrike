@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 public class Enemy : Entity
 {
     public GameObject deathDrop;
@@ -14,12 +15,16 @@ public class Enemy : Entity
     protected int maxAmmo;
     [SerializeField]
     [Range(1f, 5)]
-    public float fireRate;
+    public float fireRate; 
     protected int currentAmmo;
     private new void Awake()
     {
         base.Awake();
         currentAmmo = maxAmmo;
+        if (agent == null)
+        {
+            agent = GetComponent<NavMeshAgent>();
+        }
     }
     public void Update()
     {        
@@ -28,6 +33,7 @@ public class Enemy : Entity
             Die();
         }
     }
+    
     public bool TargetOnShotDistanse()
     {
         if (_lineOfSight.distToTarget() <= _lineOfSight.shootingDistance)
@@ -45,6 +51,7 @@ public class Enemy : Entity
         EventManager.EnemyDied(iD);
         Destroy(this.gameObject);
     }
+   
     public void SetState(EnemyState state)
     {
         if (currentState != null)

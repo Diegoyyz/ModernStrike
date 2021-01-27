@@ -4832,7 +4832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e5b79b7e3521cb45abc91b36c0036ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 90
   lifeSpan: 5
   dmg: 20
   HitEffect: {fileID: 1038135857939800722, guid: bdcc68eaf0625ae4686c6edad15f56dc,

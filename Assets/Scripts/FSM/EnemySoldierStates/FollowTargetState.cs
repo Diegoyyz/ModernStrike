@@ -20,6 +20,7 @@ public class FollowTargetState : EnemyState
     public override void Tick()
     {
         actor.moveTowardTarget();
+        actor.aimTarget();
         if (actor.TargetOnShotDistanse())
         {
             actor.SetState(new ShootEnemyState(actor));

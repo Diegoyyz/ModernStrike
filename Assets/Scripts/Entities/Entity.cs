@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+
 
 public class Entity : MonoBehaviour
 {
@@ -14,11 +16,23 @@ public class Entity : MonoBehaviour
     [SerializeField]
     public bool targetInSight;
     protected LineOfSight _lineOfSight;
+    [SerializeField]
+    protected NavMeshAgent agent;
+
     protected virtual void Awake()
     {
         _lineOfSight = GetComponent<LineOfSight>();
+        agent = GetComponent<NavMeshAgent>();        
         currentHp = maxHp;
-    } 
+    }
+    public void moveTowardTarget()
+    {
+        agent.SetDestination(_lineOfSight.target.transform.position);
+    }
+    public void moveTowardHome()
+    {
+        agent.SetDestination(homePos);
+    }
     public void TakeDmg(int dmg)
     {
         currentHp -= dmg;
@@ -26,15 +40,6 @@ public class Entity : MonoBehaviour
     protected virtual void Die()
     {
         Destroy(this.gameObject);
-    }
-    public void moveTowardTarget()
-    {
-        transform.position += transform.forward * speed * Time.deltaTime;
-        transform.LookAt(new Vector3(0, 0, _lineOfSight.target.position.z), transform.up);
-    }
-    public void moveTowardHome()
-    {
-        transform.position += transform.forward * speed * Time.deltaTime;
-        transform.LookAt(homePos, transform.up);
-    }
+    }    
+
 }

@@ -52,3 +52,7 @@ MonoBehaviour:
     Prefab: {fileID: 5121826038956189104, guid: 41b6efe8021927347a47f44ed1f50a9c,
       type: 3}
     amount: 8
+  - ID: EnemyBullets
+    Prefab: {fileID: 2179806243235425651, guid: bdb235d641daf3d41bd39c8bfbd2b9ad,
+      type: 3}
+    amount: 8

@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_4484CCF8:
-        m_Texture: {fileID: 2800000, guid: e311cfa2a5a165b4091742c500567407, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_E02F538A:
@@ -61,6 +61,7 @@ Material:
     - Vector1_1E0F3749: 0.62
     - Vector1_B3A17A08: -0.18
     - Vector1_D0EDF97F: 1.58
+    - Vector1_D37CA8E7: 1
     - Vector1_DF1FC23: 0.33
     - _AlphaClip: 0
     - _Blend: 0
