@@ -38,7 +38,8 @@ public class LineOfSight : MonoBehaviour
         else
             return 0;        
     }
-    private void OnDrawGizmosSelected()
+  
+    private void OnDrawGizmos()
     {
         if (target != null)
         {

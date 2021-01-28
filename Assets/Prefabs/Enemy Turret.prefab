@@ -216,8 +216,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  viewDistance: 60
-  shootingDistance: 50
+  viewDistance: 0
+  shootingDistance: 100
 --- !u!1 &657808331471537848
 GameObject:
   m_ObjectHideFlags: 0
