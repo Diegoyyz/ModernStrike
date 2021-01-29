@@ -1169,7 +1169,7 @@ Transform:
   m_GameObject: {fileID: 6940032825968351551}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 4.54, z: -5.81}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 8478770975864996427}
   - {fileID: 1631609347}
@@ -1205,8 +1205,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5, y: 3, z: 24.81429}
-  m_Center: {x: 0, y: -0.41047487, z: 0.10423898}
+  m_Size: {x: 5, y: 5.34, z: 23.826782}
+  m_Center: {x: -0.000000037805858, y: -1.09, z: 0.59800214}
 --- !u!95 &1400089535718439242
 Animator:
   serializedVersion: 3
@@ -1242,6 +1242,7 @@ MonoBehaviour:
   homePos: {x: 0, y: 0, z: 0}
   speed: 0
   targetInSight: 0
+  agent: {fileID: 0}
   altitude: 25
   landDistance: 11
   takeofTime: 2
@@ -1258,12 +1259,13 @@ MonoBehaviour:
   Weapn2: {fileID: 1172494627}
   Weapn3: {fileID: 0}
   hook: {fileID: 1333668626}
-  HookAltitude: 25
+  HookAltitude: 19
   HookDowntime: 2
   isHookDown: 0
   _currentFuel: 0
   maxFuel: 100
-  fuelCconRate: 1.467
+  fuelCconRate: 1.163
+  _onLandingZone: 0
   maxCargo: 4
 --- !u!114 &801420103
 MonoBehaviour:

@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 2470382014721534458}
   - component: {fileID: 2470382014721534457}
   - component: {fileID: 8296172668386730858}
-  - component: {fileID: 1299435198}
+  - component: {fileID: 1567790980598199705}
   m_Layer: 11
   m_Name: SoldierEnemy
   m_TagString: Enemy
@@ -139,8 +139,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  viewDistance: 104.02
-  shootingDistance: 50
+  viewDistance: 120
+  shootingDistance: 80
 --- !u!114 &8296172668386730858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,7 +157,7 @@ MonoBehaviour:
   homePos: {x: 0, y: 0, z: 0}
   speed: 5
   targetInSight: 0
-  agent: {fileID: 1299435198}
+  agent: {fileID: 0}
   deathDrop: {fileID: 0}
   iD: 0
   maxDistToTarget: 30
@@ -165,7 +165,7 @@ MonoBehaviour:
   fireRate: 1
   shotingPos: {fileID: 351592284}
   turret: {fileID: 1586369682546232587}
---- !u!195 &1299435198
+--- !u!195 &1567790980598199705
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,7 +175,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
+  m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
