@@ -6,12 +6,14 @@ public class EnemyBoat : Enemy
 {
     [SerializeField]
     private Transform[] Waypoints;
-
+    public Transform nextarget;
 
     Vector3 returnRandomPoint()
     {
         int D = Random.Range(0, Waypoints.Length);
+        nextarget = Waypoints[D];
         return Waypoints[D].position;
+
     }
     private void Start()
     {
