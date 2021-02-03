@@ -21,7 +21,8 @@ public class EnemyBoat : Enemy
     }
     public new void Update()
     {
-        if (agent.remainingDistance < 0.5)
+        Debug.Log(agent.remainingDistance);
+        if (agent.remainingDistance < 3 )
         {
             agent.SetDestination(returnRandomPoint());
         }
