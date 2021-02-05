@@ -201,8 +201,8 @@ MonoBehaviour:
   maxDistToTarget: 0
   maxAmmo: 0
   fireRate: 2.64
-  HealtBar: {fileID: 657808331471537846}
   projectileSpawnpoint: {fileID: 1738752797}
+  HealtBar: {fileID: 657808331471537846}
 --- !u!114 &657808330675986357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  viewDistance: 0
+  viewDistance: 65.46
   shootingDistance: 100
 --- !u!1 &657808331471537848
 GameObject:

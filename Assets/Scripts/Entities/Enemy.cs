@@ -17,6 +17,8 @@ public class Enemy : Entity
     [Range(1f, 5)]
     public float fireRate; 
     protected int currentAmmo;
+    [SerializeField]
+    private Transform projectileSpawnpoint;
     private new void Awake()
     {
         base.Awake();
@@ -33,7 +35,21 @@ public class Enemy : Entity
             Die();
         }
     }
-    
+    public void Shot()
+    {
+        var bullet = PoolManager.Instance.INfos[2].GetProjectile();
+        bullet.transform.position = projectileSpawnpoint.transform.position;
+        currentAmmo--;
+        if (_lineOfSight.target == null)
+        {
+            bullet.transform.rotation = transform.rotation;
+        }
+        else
+        {
+            bullet.transform.LookAt(_lineOfSight.target.transform);
+        }
+    }
+
     public bool TargetOnShotDistanse()
     {
         if (_lineOfSight.distToTarget() <= _lineOfSight.shootingDistance)

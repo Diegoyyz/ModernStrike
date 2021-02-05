@@ -163,7 +163,7 @@ MonoBehaviour:
   maxDistToTarget: 30
   maxAmmo: 4
   fireRate: 1
-  shotingPos: {fileID: 351592284}
+  projectileSpawnpoint: {fileID: 1586369682546232587}
   turret: {fileID: 1586369682546232587}
 --- !u!195 &1567790980598199705
 NavMeshAgent:

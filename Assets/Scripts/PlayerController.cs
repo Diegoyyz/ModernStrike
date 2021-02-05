@@ -26,12 +26,7 @@ public class PlayerController : Entity
     private float Deceleration = 10;
     private Animator anim;
     private bool _flying;
-    public GameObject body;
-    [SerializeField]
-    private float tiltAmount;
-    [SerializeField]
-    [Range(0, 1)]
-    private float tiltTime;
+    public GameObject body;     
     private bool isStrifing;
     private bool _acelerating;
     private bool _strifeAcelerating;
@@ -187,13 +182,9 @@ public class PlayerController : Entity
 
     public void OnTurn(float dir)
     {
-        Vector3 Axis = new Vector3(0, 0, dir);
-        body.transform.Rotate(Axis, tiltAmount);
     }
     public void onStopTurning(float dir)
     {
-        Vector3 Axis = new Vector3(dir, 0, 0);
-        body.transform.Rotate(Axis, tiltAmount);
     }
     public void OnStopMovingBW()
     {

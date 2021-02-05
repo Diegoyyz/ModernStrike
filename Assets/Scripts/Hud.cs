@@ -9,6 +9,8 @@ public class Hud : MonoBehaviour
     private Image FuelBar;
     [SerializeField]
     private Image HealtBar;
+    [SerializeField]
+    private Text healtNumber;
     private PlayerController actor;
     [SerializeField]
     private int maxCargo;
@@ -46,6 +48,7 @@ public class Hud : MonoBehaviour
         machinegunBullets.text = actor.Weapn1.currentAmmo.ToString();
         Misille.text = actor.Weapn2.currentAmmo.ToString();
         HealtBar.fillAmount = actor.HealtPorcentage();
+        healtNumber.text = actor.CurrentHealt.ToString();
         FuelBar.fillAmount = actor.FuelPorcentage();
     }
     public void addCargo()

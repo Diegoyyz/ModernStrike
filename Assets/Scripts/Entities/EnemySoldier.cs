@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class EnemySoldier : Enemy
 {
-    [SerializeField]
-    private Transform shotingPos;
+ 
     [SerializeField]
     private Transform turret;
 
@@ -32,21 +31,7 @@ public class EnemySoldier : Enemy
     {
         base.Awake();
         targetInSight = _lineOfSight.isTargetInSight();
-    } 
-    public void Shot()
-    {
-        var bullet = PoolManager.Instance.INfos[2].GetProjectile();
-        bullet.transform.position = shotingPos.position;
-        currentAmmo--;
-        if (_lineOfSight.target == null)
-        {
-            bullet.transform.rotation = transform.rotation;
-        }
-        else
-        {
-            bullet.transform.LookAt(_lineOfSight.target.transform);
-        }
-    }
+    }    
     protected override void Die()
     {
         base.Die();
