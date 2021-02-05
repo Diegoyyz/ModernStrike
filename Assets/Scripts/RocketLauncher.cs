@@ -8,13 +8,12 @@ public class RocketLauncher : Weapon
     private Transform[] spawnPoints;
     [SerializeField]
     private int counter;
-    private void Start()
+     private void Start()
     {
         counter = 0;
     }
     private void Update()
     {
-        FindClosestEnemy();
         if (Input.GetKeyUp(FireKey))
         {
             StartCoroutine("DelayedShot", fireRate);
@@ -31,13 +30,13 @@ public class RocketLauncher : Weapon
         bullet.transform.position = spawnPoints[counter].position;
         counter++;
         currentAmmo--;
-        if (target == null || !EnemyInFow(target))
+        if (targeter.target == null || !targeter.EnemyInFow())
         {
             bullet.transform.rotation = transform.rotation;
         }
         else
         {
-            bullet.transform.LookAt(target.transform);
+            bullet.transform.LookAt(targeter.target.transform);
         }
     }
 }

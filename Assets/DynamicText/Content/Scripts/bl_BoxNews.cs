@@ -7,7 +7,7 @@ using System;
 public class bl_BoxNews : MonoBehaviour {
 
     [Header("Global")]
-    public bool Download = true;
+    public bool Down = true;
     public string TextsURL = "";
     public List<string> Texts = new List<string>();
 

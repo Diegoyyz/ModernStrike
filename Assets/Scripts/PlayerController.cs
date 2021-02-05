@@ -61,11 +61,8 @@ public class PlayerController : Entity
     [SerializeField]
     private int maxCargo;
     private int currentCargo;
-
-
     public delegate void GetCargo();
     public static event GetCargo OnGetCargo;
-
     public delegate void discharge();
     public static event discharge OnDisharge;
 
@@ -73,7 +70,6 @@ public class PlayerController : Entity
     {
         OnGetCargo += incCargo;
         OnDisharge += DisCharge;
-
     }   
     public void incCargo()
     {
@@ -110,7 +106,6 @@ public class PlayerController : Entity
             _currentFuel = value;
         }
     }
-
     public void heal(int Amount)
     {
         currentHp += Amount;

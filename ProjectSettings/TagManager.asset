@@ -13,6 +13,7 @@ TagManager:
   - EnemyProjectile
   - Ground
   - Shield
+  - WayPoint
   layers:
   - Default
   - TransparentFX

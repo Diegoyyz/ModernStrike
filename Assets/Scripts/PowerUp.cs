@@ -8,7 +8,7 @@ public class PowerUp : MonoBehaviour
     protected int EffectAmmount;
 private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Hook")
+        if (collision.gameObject.tag == "Hook"&& collision.gameObject.transform.childCount<4)
         {
             transform.SetParent(collision.gameObject.transform);
             transform.position = collision.gameObject.transform.position;

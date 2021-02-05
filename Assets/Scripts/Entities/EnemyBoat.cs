@@ -7,13 +7,11 @@ public class EnemyBoat : Enemy
     [SerializeField]
     private Transform[] Waypoints;
     public Transform nextarget;
-
     Vector3 returnRandomPoint()
     {
         int D = Random.Range(0, Waypoints.Length);
         nextarget = Waypoints[D];
         return Waypoints[D].position;
-
     }
     private void Start()
     {
@@ -21,8 +19,7 @@ public class EnemyBoat : Enemy
     }
     public new void Update()
     {
-        Debug.Log(agent.remainingDistance);
-        if (agent.remainingDistance < 3 )
+        if (agent.remainingDistance < 30f )
         {
             agent.SetDestination(returnRandomPoint());
         }

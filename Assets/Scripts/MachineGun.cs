@@ -10,7 +10,6 @@ public class MachineGun : Weapon
 
     private void Update()
     {
-        FindClosestEnemy();
         if (Input.GetKey(FireKey))
         {
             StartCoroutine("DelayedShot", fireRate);
@@ -23,14 +22,14 @@ public class MachineGun : Weapon
         muzzleflash.Play();
         currentAmmo--;
         bullet.transform.position = transform.position;
-        if (target == null||!EnemyInFow(target))
+        if (targeter.target == null||!targeter.EnemyInFow(targeter.target))
         {
             bullet.transform.rotation =transform.rotation;
         }
         else
         {
-            muzzleflash.transform.LookAt(target.transform);
-            bullet.transform.LookAt(target.transform);
+            muzzleflash.transform.LookAt(targeter.target.transform);
+            bullet.transform.LookAt(targeter.target.transform);
         }
     }
 }

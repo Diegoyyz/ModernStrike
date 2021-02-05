@@ -12,7 +12,7 @@ GameObject:
   m_Layer: 0
   m_Name: Waypoints
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -43,7 +43,7 @@ PrefabInstance:
     - target: {fileID: 6981514338518795659, guid: 5befe2f097604404083690f07b2919ee,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.201126
+      value: 408
       objectReference: {fileID: 0}
     - target: {fileID: 6981514338518795659, guid: 5befe2f097604404083690f07b2919ee,
         type: 3}
@@ -53,7 +53,7 @@ PrefabInstance:
     - target: {fileID: 6981514338518795659, guid: 5befe2f097604404083690f07b2919ee,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 387
+      value: 229
       objectReference: {fileID: 0}
     - target: {fileID: 6981514338518795659, guid: 5befe2f097604404083690f07b2919ee,
         type: 3}
@@ -98,7 +98,12 @@ PrefabInstance:
     - target: {fileID: 6981514338518795663, guid: 5befe2f097604404083690f07b2919ee,
         type: 3}
       propertyPath: m_Name
-      value: Waypooint
+      value: primero
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981514338518795663, guid: 5befe2f097604404083690f07b2919ee,
+        type: 3}
+      propertyPath: m_TagString
+      value: WayPoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5befe2f097604404083690f07b2919ee, type: 3}
@@ -118,7 +123,7 @@ PrefabInstance:
     - target: {fileID: 6981514338518795659, guid: 5befe2f097604404083690f07b2919ee,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21
+      value: 458
       objectReference: {fileID: 0}
     - target: {fileID: 6981514338518795659, guid: 5befe2f097604404083690f07b2919ee,
         type: 3}
@@ -128,7 +133,7 @@ PrefabInstance:
     - target: {fileID: 6981514338518795659, guid: 5befe2f097604404083690f07b2919ee,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -375.40533
+      value: -313
       objectReference: {fileID: 0}
     - target: {fileID: 6981514338518795659, guid: 5befe2f097604404083690f07b2919ee,
         type: 3}
@@ -173,7 +178,12 @@ PrefabInstance:
     - target: {fileID: 6981514338518795663, guid: 5befe2f097604404083690f07b2919ee,
         type: 3}
       propertyPath: m_Name
-      value: Waypooint
+      value: segundo
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981514338518795663, guid: 5befe2f097604404083690f07b2919ee,
+        type: 3}
+      propertyPath: m_TagString
+      value: WayPoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5befe2f097604404083690f07b2919ee, type: 3}
@@ -193,7 +203,7 @@ PrefabInstance:
     - target: {fileID: 6981514338518795659, guid: 5befe2f097604404083690f07b2919ee,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 325.2
+      value: -350
       objectReference: {fileID: 0}
     - target: {fileID: 6981514338518795659, guid: 5befe2f097604404083690f07b2919ee,
         type: 3}
@@ -203,7 +213,7 @@ PrefabInstance:
     - target: {fileID: 6981514338518795659, guid: 5befe2f097604404083690f07b2919ee,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 28
+      value: -187
       objectReference: {fileID: 0}
     - target: {fileID: 6981514338518795659, guid: 5befe2f097604404083690f07b2919ee,
         type: 3}
@@ -248,7 +258,12 @@ PrefabInstance:
     - target: {fileID: 6981514338518795663, guid: 5befe2f097604404083690f07b2919ee,
         type: 3}
       propertyPath: m_Name
-      value: Waypooint
+      value: tercero
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981514338518795663, guid: 5befe2f097604404083690f07b2919ee,
+        type: 3}
+      propertyPath: m_TagString
+      value: WayPoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5befe2f097604404083690f07b2919ee, type: 3}
