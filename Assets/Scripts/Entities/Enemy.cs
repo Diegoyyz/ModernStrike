@@ -18,7 +18,7 @@ public class Enemy : Entity
     public float fireRate; 
     protected int currentAmmo;
     [SerializeField]
-    private Transform projectileSpawnpoint;
+    protected Transform projectileSpawnpoint;
     private new void Awake()
     {
         base.Awake();

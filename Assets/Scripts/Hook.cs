@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Hook : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public delegate void getHookUp();
+    public static event getHookUp onGetHookUp;
+    private void OnCollisionEnter(Collision collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        if (collision.gameObject.tag == "PowerUp")
+        {
+            onGetHookUp();
+        }
+        if (collision.gameObject.tag == "Ally" )
+        {
+            onGetHookUp();
+            Debug.Log("parribabo");
+        }
     }
 }

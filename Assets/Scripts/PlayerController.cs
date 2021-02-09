@@ -37,7 +37,7 @@ public class PlayerController : Entity
     private float _landingHeight;
     private bool _isLanding;
     [SerializeField]
-    private GameObject hook;
+    private Hook hook;
     [SerializeField]
     private float HookAltitude;
     [SerializeField]
@@ -65,6 +65,7 @@ public class PlayerController : Entity
     {
         OnGetCargo += incCargo;
         OnDisharge += DisCharge;
+        Hook.onGetHookUp += hookUp;
     }   
     public void incCargo()
     {
@@ -179,7 +180,7 @@ public class PlayerController : Entity
             landingZone = null;
         }
     }
-
+ 
     public void OnTurn(float dir)
     {
     }
@@ -198,17 +199,14 @@ public class PlayerController : Entity
     {
         if (!_isLanding&& currentCargo<maxCargo)
         {         
-            LeanTween.moveLocalY(hook,-HookAltitude, HookDowntime).setEase(LeanTweenType.easeInCubic).
-           setOnComplete(IsHookDown);
-        }
-       
+            LeanTween.moveLocalY(hook.gameObject,-HookAltitude, HookDowntime).setEase(LeanTweenType.easeInCubic);
+        }       
     }
     public void hookUp()
     {
         if (!_isLanding)
         {
-            LeanTween.moveLocalY(hook, -0.72f, HookDowntime).setEase(LeanTweenType.easeOutCubic).
-            setOnComplete(IsHookDown);
+            LeanTween.moveLocalY(hook.gameObject, -0.72f, HookDowntime).setEase(LeanTweenType.easeOutCubic);
         }
     }
     public void land()

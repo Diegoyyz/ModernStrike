@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class EnemySoldier : Enemy
 {
- 
-    [SerializeField]
-    private Transform turret;
-
+  
     private void Start()
     {
         homePos = transform.position;
@@ -24,7 +21,7 @@ public class EnemySoldier : Enemy
     }
     public void aimTarget()
     {
-        turret.LookAt(_lineOfSight.target);
+        projectileSpawnpoint.LookAt(_lineOfSight.target);
     }
    
     private new void Awake()

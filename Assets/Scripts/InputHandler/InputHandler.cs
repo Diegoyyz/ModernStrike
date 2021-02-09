@@ -15,8 +15,8 @@ public class InputHandler : MonoBehaviour
     public Command decelerate = new DecelerateCommand();
     public Command land = new LandCommand();
     public Command takeOf = new TakeofCommand();
-    public Command hookDown = new HookDownCommand();
     private PlayerController actor;
+    
     private void Start()
     {
         actor = GameManager.Instance.player;
@@ -68,11 +68,7 @@ public class InputHandler : MonoBehaviour
             {
                 takeOf.Execute(actor);
             }
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            hookDown.Execute(actor);
-        }
+        }       
         //tilting
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
@@ -113,6 +109,11 @@ public class InputHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             GameManager.Instance.QuestTable.SetActive(true);
+        }
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            actor.hookDown();
+            Debug.Log("abajoesegancho");
         }
         return null;
     }
