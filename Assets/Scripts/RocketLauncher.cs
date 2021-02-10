@@ -14,7 +14,7 @@ public class RocketLauncher : Weapon
     }
     private void Update()
     {
-        if (Input.GetKeyUp(FireKey))
+        if (Input.GetKeyUp(FireKey) && currentAmmo > 0)
         {
             StartCoroutine("DelayedShot", fireRate);
         }

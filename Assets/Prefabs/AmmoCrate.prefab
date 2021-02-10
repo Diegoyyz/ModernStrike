@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 8200773035700595391}
   - component: {fileID: 7354213271992387551}
   - component: {fileID: 7354213271992387550}
-  - component: {fileID: 7354213271992387546}
-  m_Layer: 0
-  m_Name: AmmoCrate 1
+  - component: {fileID: 8872021226669385605}
+  m_Layer: 14
+  m_Name: AmmoCrate
   m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,7 +111,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7354213271992387546
+--- !u!114 &8872021226669385605
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7696093006891748202}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c95b1647760ca049be7f05412c566b7, type: 3}
+  m_Script: {fileID: 11500000, guid: 18c91bccb227aec45a5795eea5be0df6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EffectAmmount: 25

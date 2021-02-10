@@ -10,7 +10,7 @@ public class MachineGun : Weapon
 
     private void Update()
     {
-        if (Input.GetKey(FireKey))
+        if (Input.GetKey(FireKey) && currentAmmo>0)
         {
             StartCoroutine("DelayedShot", fireRate);
         }

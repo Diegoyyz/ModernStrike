@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 7310875923975974608}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.046, y: 1.299, z: 2.47}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1.87}
+  m_LocalScale: {x: 2, y: 2, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -245,8 +245,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2024013bdde0d4d4e8a93d144970be30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 150
-  lifeSpan: 0
-  dmg: 0
-  HitEffect: {fileID: 0}
+  speed: 75
+  lifeSpan: 3
+  dmg: 5
+  HitEffect: {fileID: 1038135857939800722, guid: bdcc68eaf0625ae4686c6edad15f56dc,
+    type: 3}
   trail: {fileID: 0}

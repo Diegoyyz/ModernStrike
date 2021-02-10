@@ -6,7 +6,7 @@ public class PlayerController : Entity
 {
     [SerializeField]
     private float altitude;
-    [SerializeField]   
+    [SerializeField]
     private float landDistance;
     [SerializeField]
     private float takeofTime;
@@ -26,7 +26,7 @@ public class PlayerController : Entity
     private float Deceleration = 10;
     private Animator anim;
     private bool _flying;
-    public GameObject body;     
+    public GameObject body;
     private bool isStrifing;
     private bool _acelerating;
     private bool _strifeAcelerating;
@@ -42,13 +42,13 @@ public class PlayerController : Entity
     private float HookAltitude;
     [SerializeField]
     private float HookDowntime;
-    public bool isHookDown;     
+    public bool isHookDown;
     [SerializeField]
     private float _currentFuel;
     [SerializeField]
     public float maxFuel;
     [SerializeField]
-    [Range(0.5f,2)]
+    [Range(0.5f, 2)]
     private float fuelCconRate;
     [SerializeField]
     private bool _onLandingZone;
@@ -60,13 +60,16 @@ public class PlayerController : Entity
     public static event GetCargo OnGetCargo;
     public delegate void discharge();
     public static event discharge OnDisharge;
+    public delegate void dieEvent();
+    public static event dieEvent OnDie;
+
 
     private void OnEnable()
     {
         OnGetCargo += incCargo;
         OnDisharge += DisCharge;
         Hook.onGetHookUp += hookUp;
-    }   
+    }
     public void incCargo()
     {
         currentCargo++;
@@ -82,14 +85,14 @@ public class PlayerController : Entity
             currentHp = value;
         }
     }
-    public float  HealtPorcentage()
+    public float HealtPorcentage()
     {
-      return CurrentHealt/maxHp;
+        return CurrentHealt / maxHp;
 
     }
     public float FuelPorcentage()
     {
-        return CurrentFuel/maxFuel;
+        return CurrentFuel / maxFuel;
     }
     public float CurrentFuel
     {
@@ -124,13 +127,17 @@ public class PlayerController : Entity
     }
     private void Update()
     {
+        if (currentHp <= 0)
+        {
+            OnDie();
+        }
         if (!_acelerating)
         {
             Decelerate();
         }
         else
         {
-         _currentFuel -= fuelCconRate * Time.deltaTime;
+            _currentFuel -= fuelCconRate * Time.deltaTime;
 
         }
         if (!_strifeAcelerating)
@@ -142,7 +149,7 @@ public class PlayerController : Entity
             _currentFuel -= fuelCconRate * Time.deltaTime;
         }
         transform.position += transform.forward * currentSpeed * Time.deltaTime;
-        transform.position += transform.right * currentStrifeSpeed *Time.deltaTime;
+        transform.position += transform.right * currentStrifeSpeed * Time.deltaTime;
     }
 
     public bool Flying
@@ -152,7 +159,7 @@ public class PlayerController : Entity
     }
     public bool Accelerating
     {
-        get { return  _acelerating; }
+        get { return _acelerating; }
         set { _acelerating = value; }
     }
     public bool StrifeAccelerating
@@ -180,7 +187,6 @@ public class PlayerController : Entity
             landingZone = null;
         }
     }
- 
     public void OnTurn(float dir)
     {
     }
@@ -197,10 +203,15 @@ public class PlayerController : Entity
     }
     public void hookDown()
     {
-        if (!_isLanding&& currentCargo<maxCargo)
-        {         
-            LeanTween.moveLocalY(hook.gameObject,-HookAltitude, HookDowntime).setEase(LeanTweenType.easeInCubic);
-        }       
+        if (!_isLanding && currentCargo < maxCargo)
+        {
+            LeanTween.moveLocalY(hook.gameObject, -HookAltitude, HookDowntime).setEase(LeanTweenType.easeInCubic).setOnComplete(IsHookDown);
+        }
+    }
+    IEnumerator ExecuteAfterTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+        hookUp();
     }
     public void hookUp()
     {
@@ -211,12 +222,12 @@ public class PlayerController : Entity
     }
     public void land()
     {
-        if (!_isLanding&& _onLandingZone&& landingZone!= null)
+        if (!_isLanding && _onLandingZone && landingZone != null)
         {
             _isLanding = true;
             LeanTween.move(gameObject, landingZone.position - new Vector3(0, landDistance, 0), takeofTime)
                        .setEase(LeanTweenType.easeOutCubic).
-                         setOnComplete(isLanding); 
+                         setOnComplete(isLanding);
             anim.SetTrigger("Land");
             engineOff();
             _flying = false;
@@ -243,9 +254,10 @@ public class PlayerController : Entity
             _flying = true;
             engineOn();
         }
-    }   
+    }
     public void IsHookDown()
     {
+        StartCoroutine(ExecuteAfterTime(3));
         if (isHookDown)
             isHookDown = false;
         else isHookDown = true;
@@ -267,7 +279,7 @@ public class PlayerController : Entity
     public void Turn(int direction)
     {
         transform.Rotate(Vector3.up * direction * Time.deltaTime * torgue);
-    }    
+    }
     public void Reverse()
     {
         _acelerating = true;
@@ -305,4 +317,5 @@ public class PlayerController : Entity
             currentStrifeSpeed = currentStrifeSpeed + strifeaceleration *
                 direction * Time.deltaTime;
     }
+
 }

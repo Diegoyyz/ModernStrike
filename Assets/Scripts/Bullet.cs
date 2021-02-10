@@ -27,8 +27,7 @@ public class Bullet : Projectile
         if (collision.gameObject.tag == "Enemy")
         {
             collision.gameObject.GetComponent<Entity>().TakeDmg(dmg);
-        }
-      
+        }      
         DisposeProjectile(this);
     }
     public override void Dispose()

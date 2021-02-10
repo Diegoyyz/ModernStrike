@@ -14,7 +14,7 @@ public class EnemyTurret : Enemy
         SetState(new IdleTurretState(this));
     }   
     private new void Update()
-    {
+    {        
         base.Update();
         currentState.Tick();
         HealtBar.fillAmount = HealtPorcentage();
@@ -27,7 +27,6 @@ public class EnemyTurret : Enemy
     public void aimToTarget()
     {
         transform.LookAt(_lineOfSight.target);
-    }
-   
+    }  
 
 }

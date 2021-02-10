@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5aaabfc5acfb30458e91e8e21f47165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 5
+  maxHp: 40
   homePos: {x: 0, y: 0, z: 0}
   speed: 5
   targetInSight: 0
@@ -161,10 +161,9 @@ MonoBehaviour:
   deathDrop: {fileID: 0}
   iD: 0
   maxDistToTarget: 30
-  maxAmmo: 4
+  maxAmmo: 15
   fireRate: 1
   projectileSpawnpoint: {fileID: 1586369682546232587}
-  turret: {fileID: 1586369682546232587}
 --- !u!195 &1567790980598199705
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -199,7 +199,7 @@ MonoBehaviour:
     type: 3}
   iD: 4
   maxDistToTarget: 0
-  maxAmmo: 0
+  maxAmmo: 15
   fireRate: 2.64
   projectileSpawnpoint: {fileID: 1738752797}
   HealtBar: {fileID: 657808331471537846}

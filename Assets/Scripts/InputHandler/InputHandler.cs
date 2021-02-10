@@ -113,7 +113,6 @@ public class InputHandler : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.A))
         {
             actor.hookDown();
-            Debug.Log("abajoesegancho");
         }
         return null;
     }

@@ -39,7 +39,7 @@ public class Enemy : Entity
     {
         var bullet = PoolManager.Instance.INfos[2].GetProjectile();
         bullet.transform.position = projectileSpawnpoint.transform.position;
-        currentAmmo--;
+        //currentAmmo--;  
         if (_lineOfSight.target == null)
         {
             bullet.transform.rotation = transform.rotation;

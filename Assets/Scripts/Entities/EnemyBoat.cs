@@ -7,6 +7,8 @@ public class EnemyBoat : Enemy
     [SerializeField]
     private Transform[] Waypoints;
     public Transform nextarget;
+    [SerializeField]
+    private Transform turrette;
     Vector3 returnRandomPoint()
     {
         int D = Random.Range(0, Waypoints.Length);
@@ -16,12 +18,16 @@ public class EnemyBoat : Enemy
     private void Start()
     {
         agent.SetDestination(returnRandomPoint());
+        turrette = transform.Find("Enemy Turret");
     }
     public new void Update()
     {
+        if (turrette!=null)
+        {       
         if (agent.remainingDistance < 30f )
         {
             agent.SetDestination(returnRandomPoint());
+        }
         }
 
     }
