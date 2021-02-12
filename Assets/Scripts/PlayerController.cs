@@ -35,14 +35,9 @@ public class PlayerController : Entity
     public Weapon Weapn3;
     private Rigidbody rb;
     private float _landingHeight;
-    private bool _isLanding;
+    private bool _isLanding;   
     [SerializeField]
-    private Hook hook;
-    [SerializeField]
-    private float HookAltitude;
-    [SerializeField]
-    private float HookDowntime;
-    public bool isHookDown;
+    private Crane crane;   
     [SerializeField]
     private float _currentFuel;
     [SerializeField]
@@ -67,8 +62,7 @@ public class PlayerController : Entity
     private void OnEnable()
     {
         OnGetCargo += incCargo;
-        OnDisharge += DisCharge;
-        Hook.onGetHookUp += hookUp;
+        OnDisharge += DisCharge;   
     }
     public void incCargo()
     {
@@ -151,7 +145,6 @@ public class PlayerController : Entity
         transform.position += transform.forward * currentSpeed * Time.deltaTime;
         transform.position += transform.right * currentStrifeSpeed * Time.deltaTime;
     }
-
     public bool Flying
     {
         get { return _flying; }
@@ -200,26 +193,7 @@ public class PlayerController : Entity
     public void OnStopMovingFW()
     {
         body.transform.rotation = new Quaternion(0, 0, 0, 0);
-    }
-    public void hookDown()
-    {
-        if (!_isLanding && currentCargo < maxCargo)
-        {
-            LeanTween.moveLocalY(hook.gameObject, -HookAltitude, HookDowntime).setEase(LeanTweenType.easeInCubic).setOnComplete(IsHookDown);
-        }
-    }
-    IEnumerator ExecuteAfterTime(float time)
-    {
-        yield return new WaitForSeconds(time);
-        hookUp();
-    }
-    public void hookUp()
-    {
-        if (!_isLanding)
-        {
-            LeanTween.moveLocalY(hook.gameObject, -0.72f, HookDowntime).setEase(LeanTweenType.easeOutCubic);
-        }
-    }
+    } 
     public void land()
     {
         if (!_isLanding && _onLandingZone && landingZone != null)
@@ -254,14 +228,7 @@ public class PlayerController : Entity
             _flying = true;
             engineOn();
         }
-    }
-    public void IsHookDown()
-    {
-        StartCoroutine(ExecuteAfterTime(3));
-        if (isHookDown)
-            isHookDown = false;
-        else isHookDown = true;
-    }
+    }   
     public void isLanding()
     {
         if (_isLanding)

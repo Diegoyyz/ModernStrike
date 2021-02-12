@@ -109,11 +109,7 @@ public class InputHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             GameManager.Instance.QuestTable.SetActive(true);
-        }
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            actor.hookDown();
-        }
+        }        
         return null;
     }
     private void Update()
