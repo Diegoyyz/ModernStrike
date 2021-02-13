@@ -5,7 +5,7 @@ using UnityEngine;
 public class Crane : MonoBehaviour
 {
     public delegate void getHookDown();
-    public static event getHookDown onGetHookDown /;
+    public static event getHookDown onGetHookDown;
     public delegate void getHookUp();
     public static event getHookDown onGetHookUp;
     [SerializeField]
@@ -15,46 +15,48 @@ public class Crane : MonoBehaviour
     [SerializeField]
     private Hook hook;
     public float waittime;
-    private float timeRemaining;
-    public bool isDown;
+    public float timeRemaining;
     public bool isHookDown;
     private void OnEnable()
     {
+        isHookDown = false;
         Hook.onGetHookUp += hookUp;
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "PowerUp"|| other.gameObject.tag == "Ally")
+        if (other.gameObject.tag == "PowerUp"|| other.gameObject.tag == "Ally"&& !isHookDown)
         {
             timeRemaining = waittime;
             hookDown();
-
         }
     }
     void Update()
     {
-        if (timeRemaining > 0&& isDown)
+        if (timeRemaining > 0 && isHookDown)
         {
             timeRemaining -= Time.deltaTime;
         }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "PowerUp" || other.gameObject.tag == "Ally")
+        else if(timeRemaining <=0)
         {
+            timeRemaining = waittime;
             hookUp();
-            isDown = false;
         }
     }
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.gameObject.tag == "PowerUp" || other.gameObject.tag == "Ally"&& !isHookDown)
+    //    {
+    //        hookDown();
+    //        isDown = false;
+    //    }
+    //}
+    
     public void hookUp()
-    {
-        
-            LeanTween.moveLocalY(hook.gameObject, -0.72f, HookDowntime).setEase(LeanTweenType.easeOutCubic);
-        
+    {        
+            LeanTween.moveLocalY(hook.gameObject, -0.72f, HookDowntime).setEase(LeanTweenType.easeOutCubic).setOnComplete(IsHookDown);
     }
     public void hookDown()
-    {
-       
+    {       
             LeanTween.moveLocalY(hook.gameObject, -HookAltitude, HookDowntime).setEase(LeanTweenType.easeInCubic).setOnComplete(IsHookDown);
         
     }
