@@ -32,6 +32,13 @@ public class Entity : MonoBehaviour
             agent.SetDestination(_lineOfSight.target.transform.position); 
         }
     }
+    public void moveTowardsPos(Vector3 pos)
+    {
+        if (agent.enabled)
+        {
+            agent.SetDestination(pos);
+        }
+    }
     public void moveTowardHome()
     {
         if (agent.enabled)

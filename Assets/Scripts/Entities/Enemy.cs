@@ -39,7 +39,7 @@ public class Enemy : Entity
     {
         var bullet = PoolManager.Instance.INfos[2].GetProjectile();
         bullet.transform.position = projectileSpawnpoint.transform.position;
-        //currentAmmo--;  
+        currentAmmo--;  
         if (_lineOfSight.target == null)
         {
             bullet.transform.rotation = transform.rotation;
@@ -49,7 +49,6 @@ public class Enemy : Entity
             bullet.transform.LookAt(_lineOfSight.target.transform);
         }
     }
-
     public bool TargetOnShotDistanse()
     {
         if (_lineOfSight.distToTarget() <= _lineOfSight.shootingDistance)
@@ -66,8 +65,7 @@ public class Enemy : Entity
         }
         EventManager.EnemyDied(iD);
         Destroy(this.gameObject);
-    }
-   
+    }   
     public void SetState(EnemyState state)
     {
         if (currentState != null)
@@ -75,7 +73,7 @@ public class Enemy : Entity
             currentState.OnStateExit();
         }
         currentState = state;
-        gameObject.name = "Enemy- " + state.GetType().Name;
+        gameObject.name = gameObject.name + state.GetType().Name;
         if (currentState != null)
         {
             currentState.OnStateEnter();

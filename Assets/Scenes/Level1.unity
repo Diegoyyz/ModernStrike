@@ -528,6 +528,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyBoat (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5313845967728495837, guid: fbd6969f857f5bf4ea4476afb050ead9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9215995516927590094, guid: fbd6969f857f5bf4ea4476afb050ead9,
         type: 3}
       propertyPath: m_LocalPosition.x

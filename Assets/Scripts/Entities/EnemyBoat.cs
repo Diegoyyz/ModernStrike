@@ -1,34 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class EnemyBoat : Enemy
 {
     [SerializeField]
     private Transform[] Waypoints;
-    public Transform nextarget;
+    public Transform nexWaypoint;
+    [SerializeField]
+    private float WaypointGapdistance;
     [SerializeField]
     private Transform turrette;
-    Vector3 returnRandomPoint()
+    Transform returnRandomPoint()
     {
         int D = Random.Range(0, Waypoints.Length);
-        nextarget = Waypoints[D];
-        return Waypoints[D].position;
+        nexWaypoint = Waypoints[D];
+        return Waypoints[D];
     }
     private void Start()
     {
-        agent.SetDestination(returnRandomPoint());
-        turrette = transform.Find("Enemy Turret");
+        SetState(new EBPatrolState(this));
+        agent.SetDestination(returnRandomPoint().position);
     }
     public new void Update()
-    {
-        if (turrette!=null)
-        {       
-        if (agent.remainingDistance < 30f )
+    {       
+        currentState.Tick();
+        if (currentHp <= 0)
         {
-            agent.SetDestination(returnRandomPoint());
+            Die();
         }
+    }
+    public void Patrol()
+    {
+        if (Vector3.Distance(transform.position, nexWaypoint.position)<=WaypointGapdistance)
+        {
+            agent.SetDestination(returnRandomPoint().position);
         }
-
+       
     }
 }
