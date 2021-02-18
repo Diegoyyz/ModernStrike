@@ -26,6 +26,7 @@ public class Crane : MonoBehaviour
     {
         if (other.gameObject.tag == "PowerUp"|| other.gameObject.tag == "Ally"&& !isHookDown)
         {
+            this.gameObject.GetComponent<BoxCollider>().enabled = false;
             timeRemaining = waittime;
             hookDown();
         }
@@ -41,19 +42,12 @@ public class Crane : MonoBehaviour
             timeRemaining = waittime;
             hookUp();
         }
-    }
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (other.gameObject.tag == "PowerUp" || other.gameObject.tag == "Ally"&& !isHookDown)
-    //    {
-    //        hookDown();
-    //        isDown = false;
-    //    }
-    //}
-    
+    }   
+
     public void hookUp()
     {        
             LeanTween.moveLocalY(hook.gameObject, -0.72f, HookDowntime).setEase(LeanTweenType.easeOutCubic).setOnComplete(IsHookDown);
+
     }
     public void hookDown()
     {       
@@ -65,5 +59,6 @@ public class Crane : MonoBehaviour
         if (isHookDown)
             isHookDown = false;
         else isHookDown = true;
+        this.gameObject.GetComponent<BoxCollider>().enabled = true;
     }
 }
