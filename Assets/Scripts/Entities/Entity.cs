@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
-
 public class Entity : MonoBehaviour
 {
     [SerializeField]
@@ -18,7 +16,6 @@ public class Entity : MonoBehaviour
     protected LineOfSight _lineOfSight;
     [SerializeField]
     protected NavMeshAgent agent;
-
     protected virtual void Awake()
     {
         _lineOfSight = GetComponent<LineOfSight>();
@@ -54,5 +51,4 @@ public class Entity : MonoBehaviour
     {
         Destroy(this.gameObject);
     }    
-
 }

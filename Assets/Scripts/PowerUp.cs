@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class PowerUp : MonoBehaviour
 {
     [SerializeField]
@@ -18,10 +17,8 @@ private void OnCollisionEnter(Collision collision)
             Destroy(this.gameObject);
             AplyEffect(collision.gameObject.GetComponent<PlayerController>());
         }
-
     }
     protected virtual void AplyEffect(PlayerController Actor)
     {
-
     }
 }

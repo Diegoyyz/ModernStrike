@@ -528,11 +528,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyBoat (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 5313845967728495837, guid: fbd6969f857f5bf4ea4476afb050ead9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9215995516927590094, guid: fbd6969f857f5bf4ea4476afb050ead9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -587,21 +582,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9215995516927590094, guid: fbd6969f857f5bf4ea4476afb050ead9,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.029516682
-      objectReference: {fileID: 0}
-    - target: {fileID: 9215995516927590094, guid: fbd6969f857f5bf4ea4476afb050ead9,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.029516682
-      objectReference: {fileID: 0}
-    - target: {fileID: 9215995516927590094, guid: fbd6969f857f5bf4ea4476afb050ead9,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.029516682
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbd6969f857f5bf4ea4476afb050ead9, type: 3}
