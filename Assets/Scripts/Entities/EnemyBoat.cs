@@ -9,20 +9,22 @@ public class EnemyBoat : Enemy
     [SerializeField]
     private float WaypointGapdistance;
     [SerializeField]
-    private Transform turrette;
+    private EnemyTurret turrette;
     Transform returnRandomPoint()
-    {
+    {        
         int D = Random.Range(0, Waypoints.Length);
         nexWaypoint = Waypoints[D];
         return Waypoints[D];
     }
     private void Start()
     {
-        SetState(new EBPatrolState(this));
+        _lineOfSight = turrette.GetComponent<LineOfSight>();
+        SetState(new EBPatrolState(this));       
         agent.SetDestination(returnRandomPoint().position);
     }
     public new void Update()
-    {       
+    {
+        targetInSight = _lineOfSight.isTargetInSight();
         currentState.Tick();
         if (currentHp <= 0)
         {

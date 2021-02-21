@@ -73,7 +73,7 @@ public class Enemy : Entity
             currentState.OnStateExit();
         }
         currentState = state;
-        gameObject.name = gameObject.name + state.GetType().Name;
+        gameObject.name = "enemy fsm"+state.GetType().Name;
         if (currentState != null)
         {
             currentState.OnStateEnter();
