@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3963138004867143376}
   - component: {fileID: 118044926641668856}
   - component: {fileID: 656848493938646428}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 2794447143204295816}
   - component: {fileID: 2794447143204295827}
   - component: {fileID: 2794447143204295831}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemyBoat
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ MonoBehaviour:
   - {fileID: 0}
   nexWaypoint: {fileID: 0}
   WaypointGapdistance: 30
-  turrette: {fileID: 3451692379634522352}
+  turrette: {fileID: 3451692379634522354}
 --- !u!195 &2794447143204295831
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -247,7 +247,7 @@ NavMeshAgent:
   m_Height: 415.4
   m_BaseOffset: 0
   m_WalkableMask: 1
-  m_ObstacleAvoidanceType: 2
+  m_ObstacleAvoidanceType: 3
 --- !u!1001 &2794447145216100166
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -343,3 +343,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2794447145216100166}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3451692379634522354 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 657808330675986356, guid: e08ee041f22e96246aaf8c707a770187,
+    type: 3}
+  m_PrefabInstance: {fileID: 2794447145216100166}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7bc999b6a74b094d9cd0785e90263db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -5,7 +5,6 @@ public class Hook : MonoBehaviour
 {
     public delegate void getHookUp();
     public static event getHookUp onGetHookUp;
-
     [SerializeField]
     private float hookdowntime;
     private void OnCollisionEnter(Collision collision)

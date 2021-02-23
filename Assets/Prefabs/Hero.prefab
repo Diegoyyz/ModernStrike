@@ -400,19 +400,6 @@ MonoBehaviour:
   maxAngle: 30
   MaxDist: 150
   targetIndicator: 0
---- !u!114 &254782161305180071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1065366421532389581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1cf3d505dbdb8c4cbb9b24acb42011a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hookdowntime: 0
 --- !u!54 &1190002921
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -455,6 +442,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hookdowntime: 2
+--- !u!114 &254782161305180071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065366421532389581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1cf3d505dbdb8c4cbb9b24acb42011a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hookdowntime: 0
 --- !u!1 &1189280243836641696
 GameObject:
   m_ObjectHideFlags: 0
@@ -938,8 +938,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.1, y: 18.25759, z: 13.89}
-  m_Center: {x: -0.35771322, y: -9.86, z: 1.65}
+  m_Size: {x: 3, y: 18.25759, z: 6.528656}
+  m_Center: {x: -0.35771582, y: -9.86, z: 3.635223}
 --- !u!114 &2919725277767053813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -952,10 +952,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99e65310cd759fd41ab1b61d54a0e1d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HookAltitude: 20
+  HookAltitude: 18
   HookDowntime: 2
   hook: {fileID: 254782161305180071}
-  waittime: 3
+  waittime: 1
   timeRemaining: 0
   isHookDown: 0
 --- !u!1 &6436641795485997675
