@@ -13,13 +13,21 @@ public class Crane : MonoBehaviour
     private float HookDowntime;
     [SerializeField]
     private Hook hook;
+    private BoxCollider boxCol;
     public float waittime;
     public float timeRemaining;
     public bool isHookDown;
+    public bool isColOn;
     private void OnEnable()
     {
+        boxCol = GetComponent<BoxCollider>();
         isHookDown = false;
         Hook.onGetHookUp += hookUp;
+    }
+    private void turnOfOnCollider()
+    {
+        isColOn = !isColOn;
+        boxCol.enabled = isColOn;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -27,6 +35,7 @@ public class Crane : MonoBehaviour
         {
             timeRemaining = waittime;
             hookDown();
+            turnOfOnCollider();
         }
     }  
     void Update()
@@ -43,7 +52,7 @@ public class Crane : MonoBehaviour
     }   
     public void hookUp()
     {        
-            LeanTween.moveLocalY(hook.gameObject, -0.72f, HookDowntime).setEase(LeanTweenType.easeOutCubic).setOnComplete(IsHookDown);
+            LeanTween.moveLocalY(hook.gameObject, -0.72f, HookDowntime).setEase(LeanTweenType.easeOutCubic).setOnComplete(IsHookDown).setOnComplete(turnOfOnCollider);
     }
     public void hookDown()
     {       

@@ -16,49 +16,64 @@ public class InputHandler : MonoBehaviour
     public Command land = new LandCommand();
     public Command takeOf = new TakeofCommand();
     private PlayerController actor;
-    
+
+    [SerializeField]
+    KeyCode accelerator;
+    [SerializeField]
+    KeyCode acceleratorReverse;
+    [SerializeField]
+    KeyCode rightTurn;
+    [SerializeField]
+    KeyCode leftTurn;
+    [SerializeField]
+    KeyCode takeofButton;
     private void Start()
     {
         actor = GameManager.Instance.player;
+        accelerator = KeyCode.UpArrow;
+        acceleratorReverse = KeyCode.DownArrow;
+        rightTurn = KeyCode.RightArrow;
+        leftTurn = KeyCode.LeftArrow;
+        takeofButton = KeyCode.Space;
     }
     private Command handleInput()
     {
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(accelerator))
         {
             accelerate.Execute(actor);
         }
-        else if (Input.GetKey(KeyCode.DownArrow))
+        else if (Input.GetKey(acceleratorReverse))
         {
             reverse.Execute(actor);
         }
-        if (Input.GetKeyUp(KeyCode.UpArrow)||Input.GetKeyUp(KeyCode.DownArrow))
+        if (Input.GetKeyUp(accelerator) ||Input.GetKeyUp(acceleratorReverse))
         {
             actor.Accelerating = false;
         }
-        if (Input.GetKeyUp(KeyCode.RightArrow)|| Input.GetKeyUp(KeyCode.LeftArrow))
+        if (Input.GetKeyUp(rightTurn) || Input.GetKeyUp(leftTurn))
         {
             actor.StrifeAccelerating = false;
         }
         else if (Input.GetKey(KeyCode.C))
         {
-            if (Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKey(rightTurn))
             {
                 strifeR.Execute(actor,1);
             }
-            else if (Input.GetKey(KeyCode.LeftArrow))
+            else if (Input.GetKey(leftTurn))
             {
                 strifeL.Execute(actor,-1);
             }
         }       
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(rightTurn))
         {
             turnR.Execute(actor);
         }
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(leftTurn))
         {
             turnL.Execute(actor);
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(takeofButton))
         {
             if (actor.Flying)
             {
@@ -70,35 +85,35 @@ public class InputHandler : MonoBehaviour
             }
         }       
         //tilting
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(accelerator))
         {
             accelerate.Trigger(actor, 1);
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(acceleratorReverse))
         {
             reverse.Trigger(actor, -1);
         }
-        if (Input.GetKeyUp(KeyCode.UpArrow))
+        if (Input.GetKeyUp(accelerator))
         {
            decelerate.Trigger(actor,-1);
         }
-        if (Input.GetKeyUp(KeyCode.DownArrow))
+        if (Input.GetKeyUp(acceleratorReverse))
         {
             decelerate.Trigger(actor, 1);
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(rightTurn))
         {
             turnR.Trigger(actor, 1);
         }
-        if (Input.GetKeyUp(KeyCode.RightArrow))
+        if (Input.GetKeyUp(rightTurn))
         {
             turnR.Trigger(actor);
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(leftTurn))
         {
             turnL.Trigger(actor, -1);
         }
-        if (Input.GetKeyUp(KeyCode.LeftArrow))
+        if (Input.GetKeyUp(leftTurn))
         {
             turnL.Trigger(actor);
         }
