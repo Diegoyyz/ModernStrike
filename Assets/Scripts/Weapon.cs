@@ -12,6 +12,7 @@ public class Weapon : MonoBehaviour
     public int currentAmmo;
     [SerializeField]
     protected KeyCode FireKey;
+    protected AudioSource _audioSource;
 
     public TargetManager targeter;
 
@@ -21,6 +22,7 @@ public class Weapon : MonoBehaviour
     private void Awake()
     {
         currentAmmo = maxAmmo;
+        _audioSource = gameObject.GetComponent<AudioSource>();
     }
     public void rechargeAmmo(int amount)
     {
