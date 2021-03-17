@@ -59,8 +59,12 @@ public class PlayerController : Entity
     public static event dieEvent OnDie;
 
 
+    //sound
+    private AudioSource _audioSource;
+
     private void OnEnable()
     {
+        _audioSource = gameObject.GetComponent<AudioSource>();
         OnGetCargo += incCargo;
         OnDisharge += DisCharge;   
     }
@@ -201,7 +205,7 @@ public class PlayerController : Entity
             _isLanding = true;
             LeanTween.move(gameObject, landingZone.position - new Vector3(0, landDistance, 0), takeofTime)
                        .setEase(LeanTweenType.easeOutCubic).
-                         setOnComplete(isLanding);
+                         setOnComplete(isLanding).setOnComplete(SoundToggle);
             anim.SetTrigger("Land");
             engineOff();
             _flying = false;
@@ -221,6 +225,7 @@ public class PlayerController : Entity
         if (!_isLanding)
         {
             _isLanding = true;
+            SoundToggle();
             LeanTween.move(gameObject, transform.position + new Vector3(0, altitude, 0), takeofTime)
                 .setEase(LeanTweenType.easeInCubic).
                 setOnComplete(isLanding);
@@ -229,11 +234,24 @@ public class PlayerController : Entity
             engineOn();
         }
     }   
+    void SoundToggle()
+    {
+        if (_audioSource.isPlaying)
+        {
+            _audioSource.Stop();
+        }
+        else
+        {
+            _audioSource.Play();
+
+        }
+    }
     public void isLanding()
     {
         if (_isLanding)
             _isLanding = false;
         else _isLanding = true;
+
     }
     private void engineOn()
     {

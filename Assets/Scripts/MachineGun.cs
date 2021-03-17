@@ -6,7 +6,8 @@ using UnityEngine.VFX;
 public class MachineGun : Weapon
 {
     [SerializeField]
-    private VisualEffect muzzleflash;   
+    private VisualEffect muzzleflash;
+
 
     private void Update()
     {
@@ -20,6 +21,7 @@ public class MachineGun : Weapon
     {
         var bullet = PoolManager.Instance.INfos[0].GetProjectile();
         muzzleflash.Play();
+        _audioSource.Play();
         currentAmmo--;
         bullet.transform.position = transform.position;
         if (targeter.target == null||!targeter.EnemyInFow(targeter.target))
