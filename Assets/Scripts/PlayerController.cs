@@ -72,6 +72,19 @@ public class PlayerController : Entity
     {
         currentCargo++;
     }
+    public static IEnumerator StartFade(AudioSource audioSource, float duration, float targetVolume)
+    {
+        float currentTime = 0;
+        float start = audioSource.volume;
+
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+            audioSource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
+            yield return null;
+        }
+        yield break;
+    }
     public float CurrentHealt
     {
         get
@@ -251,7 +264,6 @@ public class PlayerController : Entity
         if (_isLanding)
             _isLanding = false;
         else _isLanding = true;
-
     }
     private void engineOn()
     {
