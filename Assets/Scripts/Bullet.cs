@@ -6,6 +6,7 @@ public class Bullet : Projectile
     public TrailRenderer trail;
     private float _tick;
     private bool _alive;
+
  
     public override void Move()
     {
@@ -23,6 +24,7 @@ public class Bullet : Projectile
     {
         var hit = Instantiate(HitEffect);
         hit.transform.position = transform.position;
+        _audioSource.Play();
         Destroy(hit, 2);
         if (collision.gameObject.tag == "Enemy")
         {

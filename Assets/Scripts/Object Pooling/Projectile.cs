@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour
     protected int dmg;
     [SerializeField]
     protected GameObject HitEffect;
+    protected AudioSource _audioSource;
 
     private void Update()
     {
