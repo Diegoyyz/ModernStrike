@@ -12,7 +12,6 @@ public class Projectile : MonoBehaviour
     protected int dmg;
     [SerializeField]
     protected GameObject HitEffect;
-    protected AudioSource _audioSource;
 
     private void Update()
     {
@@ -22,7 +21,7 @@ public class Projectile : MonoBehaviour
     {
         
     }
-   
+  
 
     public static void InitializeProjectile(Projectile ProjectileObj)
     {
@@ -39,7 +38,6 @@ public class Projectile : MonoBehaviour
     }
     public virtual void Initialize()
     {
-
     }
-    
+
 }

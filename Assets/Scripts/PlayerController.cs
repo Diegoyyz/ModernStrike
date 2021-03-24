@@ -61,6 +61,8 @@ public class PlayerController : Entity
 
     //sound
     private AudioSource _audioSource;
+    private AudioSource _audioSource2;
+
 
     private void OnEnable()
     {

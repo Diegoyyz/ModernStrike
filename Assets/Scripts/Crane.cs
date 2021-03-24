@@ -18,6 +18,8 @@ public class Crane : MonoBehaviour
     public float timeRemaining;
     public bool isHookDown;
     public bool isColOn;
+    protected AudioSource _audioSource;
+
     private void OnEnable()
     {
         boxCol = GetComponent<BoxCollider>();
@@ -29,15 +31,7 @@ public class Crane : MonoBehaviour
         isColOn = !isColOn;
         boxCol.enabled = isColOn;
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "PowerUp"|| other.gameObject.tag == "Ally"&& !isHookDown)
-        {
-            timeRemaining = waittime;
-            hookDown();
-            turnOfOnCollider();
-        }
-    }  
+    
     void Update()
     {
         if (timeRemaining > 0 && isHookDown)
@@ -49,10 +43,16 @@ public class Crane : MonoBehaviour
             timeRemaining = waittime;
             hookUp();
         }
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            timeRemaining = waittime;
+            hookDown();
+            turnOfOnCollider();
+        }
     }   
     public void hookUp()
     {        
-            LeanTween.moveLocalY(hook.gameObject, -0.72f, HookDowntime).setEase(LeanTweenType.easeOutCubic).setOnComplete(IsHookDown).setOnComplete(turnOfOnCollider);
+            LeanTween.moveLocalY(hook.gameObject, -0.72f, HookDowntime).setEase(LeanTweenType.easeOutCubic).setOnComplete(IsHookDown);
     }
     public void hookDown()
     {       

@@ -6,6 +6,10 @@ public class HealtCrate : PowerUp
 {
     protected override void AplyEffect(PlayerController Actor)
     {
+        if (_audioSource != null)
+        {
+            _audioSource.Play();
+        }
         Actor.heal(this.EffectAmmount);
     }
 }
