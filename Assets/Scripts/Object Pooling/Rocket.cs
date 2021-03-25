@@ -10,7 +10,12 @@ public class Rocket : Projectile
     private float explosionRadius;
     [SerializeField]
     private int explosionDmg;
-  
+    [SerializeField]
+    protected AudioSource _audioSource;
+    private void Awake()
+    {
+        _audioSource=gameObject.GetComponent<AudioSource>();
+    }
     private void ExplosionDamage(Vector3 center, float radius)
     {
         Collider[] hitColliders = Physics.OverlapSphere(center, radius);
@@ -31,6 +36,7 @@ public class Rocket : Projectile
     {
         var hit = Instantiate(HitEffect);
         hit.transform.position = transform.position;
+        _audioSource.Play();
         Destroy(hit, 2);
         if (Other.gameObject.tag=="Enemy")
         {

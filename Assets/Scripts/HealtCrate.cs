@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HealtCrate : PowerUp
 {
+
     protected override void AplyEffect(PlayerController Actor)
     {
         if (_audioSource != null)
