@@ -31,6 +31,7 @@ public class Quest : MonoBehaviour
         {
             Debug.Log(item);
         }
+        GameManager.Instance.completed++;
         Destroy(this);
     }
 }

@@ -8,17 +8,21 @@ public class SceneCharger : MonoBehaviour
     
     public void ChargeLevel()
     {
-        StartCoroutine(LoadScene());
+        StartCoroutine(LoadScene("GameScene1"));
+    }
+    public void ChargeLevel(string SceneName)
+    {
+        StartCoroutine(LoadScene(SceneName));
     }
     public void CloseGame()
     {
         Application.Quit();
     }
-    IEnumerator LoadScene()
+    IEnumerator LoadScene(string SceneName)
     {
         yield return null;
         //Begin to load the Scene you specify
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("GameScene1");
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("SceneName");
         //Don't let the Scene activate until you allow it to
         asyncOperation.allowSceneActivation = false;
         //When the load is still in progress, output the Text and progress bar

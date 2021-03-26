@@ -35,6 +35,7 @@ public class PlayerController : Entity
     public Weapon Weapn3;
     private Rigidbody rb;
     private float _landingHeight;
+    [SerializeField]
     private bool _isLanding;   
     [SerializeField]
     private Crane crane;   
@@ -57,13 +58,9 @@ public class PlayerController : Entity
     public static event discharge OnDisharge;
     public delegate void dieEvent();
     public static event dieEvent OnDie;
-
-
     //sound
     private AudioSource _audioSource;
     private AudioSource _audioSource2;
-
-
     private void OnEnable()
     {
         _audioSource = gameObject.GetComponent<AudioSource>();
@@ -219,8 +216,7 @@ public class PlayerController : Entity
         {
             _isLanding = true;
             LeanTween.move(gameObject, landingZone.position - new Vector3(0, landDistance, 0), takeofTime)
-                       .setEase(LeanTweenType.easeOutCubic).
-                         setOnComplete(isLanding).setOnComplete(SoundToggle);
+                       .setEase(LeanTweenType.easeOutCubic).setOnComplete(SoundToggle);
             anim.SetTrigger("Land");
             engineOff();
             _flying = false;
@@ -254,6 +250,7 @@ public class PlayerController : Entity
         if (_audioSource.isPlaying)
         {
             _audioSource.Stop();
+            isLanding();
         }
         else
         {
