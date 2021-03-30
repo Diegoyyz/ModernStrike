@@ -22,7 +22,7 @@ public class SceneCharger : MonoBehaviour
     {
         yield return null;
         //Begin to load the Scene you specify
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("SceneName");
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(SceneName);
         //Don't let the Scene activate until you allow it to
         asyncOperation.allowSceneActivation = false;
         //When the load is still in progress, output the Text and progress bar

@@ -20,7 +20,6 @@ namespace questSystem
             if (this.itemID == itemID)
             {
                 incrementCount(1);
-                Debug.Log("incremento item" + itemID);
                 EventManager.QuestProgressChanged(this.quest);
             }
         }

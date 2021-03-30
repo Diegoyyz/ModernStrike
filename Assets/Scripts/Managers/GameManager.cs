@@ -19,12 +19,15 @@ public class GameManager : MonoBehaviour
     private bool alQuestComplete;
     public int completed;
     SceneCharger _sceneCharger;
+    bool charginScene;
     private void Awake()
-    {        
+    {
+        charginScene = false;
         completed = 0;
         _instance = this;
         PlayerController.OnDie += heroDeath;
         timeCurrent = 0.0f;
+        _sceneCharger = this.GetComponent<SceneCharger>();
         quests = QuestTable.transform.GetComponentsInChildren<Quest>();
     }
     public void heroDeath()
@@ -33,8 +36,9 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        if (completed >=3)
+        if (completed >=3&& !charginScene)
         {
+            charginScene = true;
             _sceneCharger.ChargeLevel("EndGameScreen");
         }
     }
