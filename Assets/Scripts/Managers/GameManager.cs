@@ -12,10 +12,10 @@ public class GameManager : MonoBehaviour
     public GameObject QuestTable;
     public GameObject ControlList;
     [SerializeField]
-    private Quest[] quests; 
+    private Quest[] quests;
     public bool gamestarted;
     public float timeCurrent = 0.0f;
-    public int seconds=3;
+    public int seconds = 3;
     private bool alQuestComplete;
     public int completed;
     SceneCharger _sceneCharger;
@@ -26,20 +26,27 @@ public class GameManager : MonoBehaviour
         completed = 0;
         _instance = this;
         PlayerController.OnDie += heroDeath;
+        PlayerController.onFuelOver += FuelOver;
         timeCurrent = 0.0f;
         _sceneCharger = this.GetComponent<SceneCharger>();
         quests = QuestTable.transform.GetComponentsInChildren<Quest>();
     }
+    public void FuelOver()
+    {
+        charginScene = true;
+        _sceneCharger.ChargeLevel("EndGameScreen");
+    }
     public void heroDeath()
     {
-        SceneManager.LoadScene("Level1");
+        charginScene = true;
+        _sceneCharger.ChargeLevel("EndGameScreen");
     }
     private void Update()
     {
-        if (completed >=3&& !charginScene)
+        if (completed >= 3 && !charginScene)
         {
             charginScene = true;
-            _sceneCharger.ChargeLevel("EndGameScreen");
+            _sceneCharger.ChargeLevel("EndGameScreen Win");
         }
     }
 }

@@ -58,6 +58,8 @@ public class PlayerController : Entity
     public static event discharge OnDisharge;
     public delegate void dieEvent();
     public static event dieEvent OnDie;
+    public delegate void fuelOverEvent();
+    public static event fuelOverEvent onFuelOver;
     //sound
     private AudioSource _audioSource;
     private AudioSource _audioSource2;
@@ -140,6 +142,10 @@ public class PlayerController : Entity
         if (currentHp <= 0)
         {
             OnDie();
+        }
+        if (CurrentFuel <= 0)
+        {
+            onFuelOver();
         }
         if (!_acelerating)
         {
